@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
+// import { CSSTransitionGroup } from 'react-transition-group';
 
 import Dashboard from './../dashboard/Dashboard';
+import SignIn from './../signIn/SignIn';
 import Page404 from './../404/404';
 
 import logo from './logo.svg';
@@ -16,6 +17,7 @@ const AppWelcome = () => (
         <h1 className="App-title">How's Your Today?</h1>
       </header>
       <Link to="/dashboard">Enter</Link>
+      <Link to="/sign-in">Register</Link>
     </div>
   </div>
 )
@@ -24,6 +26,7 @@ const AppMain = () => (
   <Switch>
     <Route exact path="/" component={AppWelcome}></Route>
     <Route path="/dashboard" component={Dashboard}></Route>
+    <Route path="/sign-in" component={SignIn}></Route>
     <Route component={Page404}/>
   </Switch>
 )
