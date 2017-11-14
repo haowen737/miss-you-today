@@ -1,0 +1,16 @@
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.logo {
+  display: inline-block;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 400;
+  padding: 1rem 10rem;
+  transition: all .6s ease;
+  transition-delay: 1s;
+}

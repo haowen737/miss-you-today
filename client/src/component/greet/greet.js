@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import GreetContent from './GreetContent'
+import GreetContent from './../greetContent/GreetContent'
+import GreetFlower from './../greetFlower/GreetFlower'
+import Header from './../header/Header';
 import { Hero } from './Hero.service'
 import './Greet.css'
 
@@ -27,7 +29,6 @@ export default class Greet extends Component {
     }, 7000 )
   }
   indexManager () {
-    const heroIndex = this.state.heroIndex
     this.setState((prev) => ({
       heroIndex: prev.heroIndex > 2 ? 0 : prev.heroIndex + 1
     }))    
@@ -35,7 +36,10 @@ export default class Greet extends Component {
   render() {
     return (
       <div className="container" style={{backgroundColor: Hero[this.state.heroIndex].theme}}>
-        <div className="asideStyle"></div>
+        <Header theme={Hero[this.state.heroIndex].headerTheme}></Header>
+        <div className="asideStyle">
+          <GreetFlower></GreetFlower>
+        </div>
         <div className="content">
           <GreetContent
           hero={Hero[this.state.heroIndex]}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './GreetContent.css'
 
 const Adjectives = function (props) {
-  let name = props.name
   return <span className="adjectives" style={{color: props.color}}>{props.name}</span>
 }
 
