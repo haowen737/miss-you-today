@@ -38,7 +38,7 @@ export default class Greet extends Component {
       <div className="container" style={{backgroundColor: Hero[this.state.heroIndex].theme}}>
         <Header theme={Hero[this.state.heroIndex].headerTheme}></Header>
         <div className="asideStyle">
-          <GreetFlower></GreetFlower>
+          <GreetFlower theme={Hero[this.state.heroIndex].headerTheme}></GreetFlower>
         </div>
         <div className="content">
           <GreetContent

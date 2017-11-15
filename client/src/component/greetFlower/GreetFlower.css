@@ -3,22 +3,27 @@
   width: 100%;
   height: 100%;
 }
-.dragon {
+.fade-list {
   position: absolute;
-  top: 50%;
-  right: 20%;
-  transform: translateY(-60%);
-  width: 192px;
-  height: 384px;
-  background-image: url(./../../assets/images/greet-sprite-1.png);
-  background-position: -448px -96px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.farmer {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  width: 448px;
-  height: 160px;
-  background-image: url(./../../assets/images/greet-sprite-1.png);
-  background-position: 0px -96px;
+.fade-list li {
+  font-size: 2rem;
+  color: #333;
+  line-height: 3;
+  letter-spacing: 1rem;
+  animation: list-animation 1s ease;
+  transition: all 1s;
+}
+@keyframes list-animation {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0)
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+  }
 }

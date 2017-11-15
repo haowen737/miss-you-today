@@ -3,6 +3,9 @@ header,footer,section,article,aside,nav{display:block;}
 html {
   font-size: 12px;
 }
+ul {
+  list-style-type: none;
+}
 body {
   margin: 0;
   padding: 0;

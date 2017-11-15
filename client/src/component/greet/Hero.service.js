@@ -10,8 +10,8 @@ export const Hero = [{
   name: 'Creative.',
   theme: '#f9efe6',
   color: '#afa7a1',
-  btnTheme: '#fff',
-  btnColor: '#000',
+  btnTheme: '#000',
+  btnColor: '#fff',
   headerTheme: '#333'
 },{
   name: 'Cool.',
