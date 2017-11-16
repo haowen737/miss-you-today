@@ -5,12 +5,13 @@ const poem1 = [
   'The way we pass through the moments',
   'like walking through the doors. ',
   'Our memories are ghost, ',
-  'and they will always remind us of all the things we no longer have.'
+  'and they will always remind us of all the things we no longer have.',
+  'thanks for the adventure. now go have a new one!'
 ]
 
-const poem2 = ['this is 2']
-const poem3 = ['this is 3']
-const poem4 = ['this is 4']
+const poem2 = poem1
+const poem3 = poem1
+const poem4 = poem1
 
 const hero = [{
   name: 'Beautiful.',
@@ -19,7 +20,7 @@ const hero = [{
   color: '#a8a8a7',
   btnTheme: '#000',
   btnColor: '#fff',
-  headerTheme: '#333',
+  headerTheme: '#666',
   poem: poem1
 },{
   name: 'Creative.',
@@ -27,7 +28,7 @@ const hero = [{
   color: '#afa7a1',
   btnTheme: '#000',
   btnColor: '#fff',
-  headerTheme: '#333',
+  headerTheme: '#666',
   poem: poem2
 },{
   name: 'Cool.',
@@ -44,7 +45,7 @@ const hero = [{
   color: '#b1c3d1',
   btnTheme: '#fff',
   btnColor: '#000',
-  headerTheme: '#333',
+  headerTheme: '#fff',
   poem: poem4
 }]
 

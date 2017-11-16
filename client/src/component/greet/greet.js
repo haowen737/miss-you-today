@@ -22,7 +22,7 @@ export default class Greet extends Component {
     setTimeout(() => {
       this.greetContent.typeWriter(1)
     }, 2000)
-    setTimeout(() => { 
+    setTimeout(() => {
       this.greetContent.typeWriter(0)
       this.typeWriterProcess()
       this.indexManager()

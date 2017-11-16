@@ -2,64 +2,84 @@ import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group';
 import './GreetFlower.css'
 
-const Fade = (props) => {
-  const poem = props.poem || []
-  const length = poem.length
-  const listFrag = poem.map(
-    (i, index) => {
-      const duration = 300
-      let opacity = 1 / (i + 1)
-      const defaultStyle = {
-        transition: `all 1000ms ease-in-out`,
-        opacity: 0,
-      }
-      const transitionStyles = {
-        entering: { opacity: 0 },
-        entered: { opacity: 1 },
-      }
-      return (
-        <Transition
-        in={props.inProp}
-        timeout={duration}
-        appear={true}
-        key={index}>
-          {(state) => {
-            <li style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
-            }}>{i}</li>
-          }}
-        </Transition>
-      )
-    }
-  )
-  return listFrag
+const Poems = (props) => {
+  const { i, children, show, theme } = props
+  const defaultStyle = renderDefaultStyle()
+  const doc = props.poem.map((item, i) => (
+      <Transition
+      in={show}
+      timeout={0}
+      appear={true}
+      key={i}>
+        {(state) => (
+          <p style={{
+            color: theme,
+            ...renderDefaultStyle(i),
+            ...renderTransitionStyles(i)[state]
+          }}>
+            {`${item}`}
+          </p>
+        )}
+      </Transition>
+    ))
+  return doc
+}
+
+const renderDefaultStyle = (i) => {
+  ++i
+  return {
+    transition: `all ${i - i * 0.6}s ease`,
+    opacity: 0,
+    transform: `translateY('0')`,
+  }
+}
+
+const renderTransitionStyles = (i) => {
+  const entering = { opacity: 0, transform: `translateY(200%)` }
+  const entered = { opacity: (1 / (1 + i)).toFixed(1), transform: `translateY(0)` }
+  const exiting = { opacity: (1 / (1 + i)).toFixed(1), transform: `translateY(0%)` }
+  const exited = { opacity: 0, transform: `translateY(200%)` }
+  return {
+    entering,
+    entered,
+    exiting,
+    exited
+  }
 }
 
 export default class GreetFlower extends Component {
   constructor () {
     super()
     this.state = {
-      show: false
+      show: false,
+      poem: []
     }
   }
   componentDidMount () {
     setTimeout(() => {
       this.setState({
-        show: true
+        show: true,
+        poem: this.props.poem
       })
     }, 0)
   }
+  componentWillReceiveProps() {
+    this.setState({ show: false })
+    setTimeout(() => {
+      this.setState({
+        show: true,
+        poem: this.props.poem
+      })
+    }, 3000)
+  }
+
   render() {
-    const { show } = this.state
+    const { show, poem } = this.state
+    const { theme } = this.props
     return (
       <div className="greet-flower">
         <TransitionGroup className="fade-list">
-          {this.props.poem.map((item, i) => (
-            <Fade key={i}>
-              <p>{`${item}`}</p>
-            </Fade>
-          ))}
+          <Poems poem={poem} show={show} theme={theme}></Poems>
         </TransitionGroup>
       </div>
     )
