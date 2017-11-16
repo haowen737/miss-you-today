@@ -9,9 +9,36 @@ const poem1 = [
   'thanks for the adventure. now go have a new one!'
 ]
 
-const poem2 = poem1
-const poem3 = poem1
-const poem4 = poem1
+const poem2 = [
+  'Another day at the weekend ',
+  'You met a guy named Jack ',
+  'Gave him the keys to the castle ',
+  'But he never called you back ',
+  'You met a guy in vacation',
+  'And you were in paradise ',
+  'Only found when you got home',
+  'He had 3 kids and a wife'
+]
+const poem3 = [
+  '-...And I mean absolutely...Not a word to a soul. ',
+  'This is the only hope you have. Keep that in mind...always. ',
+  'And when you reappear, everything will be as it was before... ',
+  'As if you \' d awakened from a horrible dream',
+  'Don\' t you believe me?... ',
+  '你难道不相信我？',
+  'Well, then, do just as you wish. ',
+  '好吧 那 就去做你想做的'
+]
+const poem4 = [
+  'В цвет залипает мозг, я розгами бы коцал спины. ',
+  'Фуфло вопрос, если обоссан двор кругом рванина. ',
+  'Но покуда меня не загнать в угол спрячь зубы. ',
+  'Врач в рупор кричал "Твой близко был палач с*ка!"',
+  'Ноги водили меня по пятам старых злых духов. ',
+  'Но мой посыл в ухо вдруг прослыл грубым. ',
+  'Я в кроличьей норе мать его. ',
+  'Тут вечно скрип коек, убит кое-кто остальные в запое... '
+]
 
 const hero = [{
   name: 'Beautiful.',

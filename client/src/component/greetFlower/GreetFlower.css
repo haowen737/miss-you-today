@@ -12,9 +12,11 @@
   transform: translateX(-50%);
 }
 .fade-list p {
-  font-size: 1.3rem;
+  font-family:'HoangYen11e69771abb1a95c';
+  font-size: 1.6rem;
   color: #666;
   line-height: 3;
+  font-weight: 100;
   letter-spacing: .6rem;
   transition: all 1s;
   cursor: default;

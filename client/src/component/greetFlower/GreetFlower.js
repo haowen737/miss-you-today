@@ -30,15 +30,16 @@ const renderDefaultStyle = (i) => {
   return {
     transition: `all ${i - i * 0.6}s ease`,
     opacity: 0,
-    transform: `translateY('0')`,
+    transform: `translateX('0')`,
   }
 }
 
 const renderTransitionStyles = (i) => {
-  const entering = { opacity: 0, transform: `translateY(200%)` }
-  const entered = { opacity: (1 / (1 + i)).toFixed(1), transform: `translateY(0)` }
-  const exiting = { opacity: (1 / (1 + i)).toFixed(1), transform: `translateY(0%)` }
-  const exited = { opacity: 0, transform: `translateY(200%)` }
+  ++i
+  const entering = { opacity: 0, transform: `translateX(-10%)` }
+  const entered = { opacity: 1 - 0.1 * i, transform: `translateX(0)` }
+  const exiting = { opacity: 1 - 0.1 * i, transform: `translateX(0%)` }
+  const exited = { opacity: 0, transform: `translateX(10%)` }
   return {
     entering,
     entered,
