@@ -1,19 +1,37 @@
 import React, { Component } from 'react'
-import FadeListService from './FadeList.service'
+import { Transition, TransitionGroup } from 'react-transition-group';
 import './GreetFlower.css'
 
-const fadeListStyle = function (i, props) {
-  return {
-    opacity: 1 / (i + 1),
-    color: props.theme,
-    animationDelay: `${i * 0.2}s`
-  }
-}
-
-const FadeList = function (props) {
-  const length = FadeListService.length
-  const listFrag = FadeListService.map((i, index) => 
-    <li style={fadeListStyle(index, props)} key={index}>{i}</li>
+const Fade = (props) => {
+  const poem = props.poem || []
+  const length = poem.length
+  const listFrag = poem.map(
+    (i, index) => {
+      const duration = 300
+      let opacity = 1 / (i + 1)
+      const defaultStyle = {
+        transition: `all 1000ms ease-in-out`,
+        opacity: 0,
+      }
+      const transitionStyles = {
+        entering: { opacity: 0 },
+        entered: { opacity: 1 },
+      }
+      return (
+        <Transition
+        in={props.inProp}
+        timeout={duration}
+        appear={true}
+        key={index}>
+          {(state) => {
+            <li style={{
+              ...defaultStyle,
+              ...transitionStyles[state]
+            }}>{i}</li>
+          }}
+        </Transition>
+      )
+    }
   )
   return listFrag
 }
@@ -21,13 +39,28 @@ const FadeList = function (props) {
 export default class GreetFlower extends Component {
   constructor () {
     super()
+    this.state = {
+      show: false
+    }
+  }
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({
+        show: true
+      })
+    }, 0)
   }
   render() {
+    const { show } = this.state
     return (
       <div className="greet-flower">
-        <ul className="fade-list">
-          <FadeList theme={this.props.theme}></FadeList>
-        </ul>
+        <TransitionGroup className="fade-list">
+          {this.props.poem.map((item, i) => (
+            <Fade key={i}>
+              <p>{`${item}`}</p>
+            </Fade>
+          ))}
+        </TransitionGroup>
       </div>
     )
   }

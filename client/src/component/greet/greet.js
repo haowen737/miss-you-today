@@ -31,19 +31,23 @@ export default class Greet extends Component {
   indexManager () {
     this.setState((prev) => ({
       heroIndex: prev.heroIndex > 2 ? 0 : prev.heroIndex + 1
-    }))    
+    }))
   }
   render() {
+    const { action, heroIndex } = this.state
+    const hero = Hero[heroIndex]
     return (
-      <div className="container" style={{backgroundColor: Hero[this.state.heroIndex].theme}}>
-        <Header theme={Hero[this.state.heroIndex].headerTheme}></Header>
+      <div className="container" style={{backgroundColor: hero.theme}}>
+        <Header theme={hero.headerTheme}></Header>
         <div className="asideStyle">
-          <GreetFlower theme={Hero[this.state.heroIndex].headerTheme}></GreetFlower>
+          <GreetFlower
+          theme={hero.headerTheme}
+          poem={hero.poem}></GreetFlower>
         </div>
         <div className="content">
           <GreetContent
-          hero={Hero[this.state.heroIndex]}
-          action={this.state.action}
+          hero={hero}
+          action={action}
           ref={(c) => { this.greetContent = c; }}></GreetContent>
         </div>
       </div>
