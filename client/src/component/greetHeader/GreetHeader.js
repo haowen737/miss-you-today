@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './Header.css'
+import './GreetHeader.css'
 
-import nav from './Nav.service'
+import GreetNav from './GreetNav.service'
 
 const Logo = function (props) {
   return <Link className="logo" to="/" style={{color: props.color}}>Haowen</Link>
 }
 
-const NavInner = function (props) {
-  return nav.map((n, i) => (
+const Nav = function (props) {
+  return GreetNav.map((n, i) => (
     <Link key={i} to="/blog" style={{color: props.color}}>{n.title}</Link>
   ))
 }
@@ -20,7 +20,7 @@ export default class Header extends Component {
       <div className="header-container">
         <Logo color={this.props.theme}></Logo>
         <nav className="nav">
-          <NavInner color={this.props.theme}></NavInner>
+          <Nav color={this.props.theme}></Nav>
         </nav>
       </div>
     )

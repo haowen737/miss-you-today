@@ -1,0 +1,22 @@
+.greet-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.greet-content-layout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+.greet-flower-layout {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}

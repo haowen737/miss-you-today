@@ -27,7 +27,7 @@ const Poems = (props) => {
 const renderDefaultStyle = (i) => {
   ++i
   return {
-    transition: `all ${i - i * 0.6}s ease`,
+    transition: `all ${(i - i * 0.6) > 1.2 ? (i - i * 0.7) : (i - i * 0.6)}s ease`,
     opacity: 0,
     transform: `translateX('0')`,
   }
@@ -70,7 +70,7 @@ export default class GreetFlower extends Component {
         show: true,
         poem: this.props.poem
       })
-    }, 3000)
+    }, 1500)
   }
 
   render() {

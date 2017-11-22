@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import { Link } from 'react-router-dom'
 import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor';
 
 import './BlogArticles.css'
@@ -9,13 +10,16 @@ const articleSkeleton = ({ article, index }) => {
   const Summary = createSkeletonElement('p', 'pending-home')
   const Date = createSkeletonElement('span', 'pending-home')
   return (
-    <div className="article">
+    <Link to={{
+      pathname: '/blog/article',
+      search: `id=${article.file_id}`
+    }} className="article">
       <div className="article-header clearfix">
         <Title className="article-title">{article.title}</Title>
         <Date className="article-date">{article.created_at}</Date>
       </div>
       <Summary className="article-summary">{article.summary}</Summary>
-    </div>
+    </Link>
   )  
 }
 
