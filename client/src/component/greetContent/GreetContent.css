@@ -19,6 +19,7 @@
   line-height: 1;
   margin-left: 8%;
   text-align: left;
+  animation: content-wrap-animation .5s linear;
 }
 .herotitle {
   position: relative;
@@ -35,14 +36,22 @@
   margin: auto;
   position: absolute;
   right: -4px;
-  top: 0;
+  top: 10px;
   height: 1rem;
   width: 1px;
-  height: 80%;
+  height: 70%;
   background-color: #666;
-  animation: cursorAnimation 1.5s step-end infinite;
+  animation: cursor-animation 1.5s step-end infinite;
 }
-@keyframes cursorAnimation {
+.hero-title-br {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .hero-title-br {
+    display: block;
+  }
+}
+@keyframes cursor-animation {
   0% {
     opacity: 0;
   }
@@ -51,5 +60,15 @@
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes content-wrap-animation {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

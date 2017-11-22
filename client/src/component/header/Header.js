@@ -1,39 +1,16 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
-const nav = [{
-  title: '博客',
-  url: '/blog',
-  target: ''
-}, {
-  title: '关于我',
-  url: '/me',
-  target: ''
-}, {
-  title: 'Github',
-  url: 'https://github.com/haowen737',
-  target: '_blank'
-}, {
-  title: '微博',
-  url: 'http://weibo.com/311170900/',
-  target: '_blank'
-}, {
-  title: '知乎',
-  url: 'https://zhuanlan.zhihu.com/fe-sketch',
-  target: '_blank'
-}, {
-  title: '聊天室',
-  url: 'https://discord.gg/HcvpmuK',
-  target: '_blank'
-}]
+import nav from './Nav.service'
 
 const Logo = function (props) {
-  return <a className="logo" style={{color: props.color}}>Haowen</a>
+  return <Link className="logo" to="/" style={{color: props.color}}>Haowen</Link>
 }
 
 const NavInner = function (props) {
   return nav.map((n, i) => (
-    <a key={i} style={{color: props.color}}>{n.title}</a>
+    <Link key={i} to="/blog" style={{color: props.color}}>{n.title}</Link>
   ))
 }
 

@@ -50,6 +50,7 @@ export default class GreetContent extends Component {
       <div className="contentWrap">
         <p className="herotitle">
           Make it&nbsp;
+          <br className="hero-title-br"/>
           <Adjectives
           name={this.state.name}
           color={this.state.color}></Adjectives>

@@ -3,25 +3,24 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import './GreetFlower.css'
 
 const Poems = (props) => {
-  const { i, children, show, theme } = props
-  const defaultStyle = renderDefaultStyle()
+  const { show, theme } = props
   const doc = props.poem.map((item, i) => (
-      <Transition
-      in={show}
-      timeout={0}
-      appear={true}
-      key={i}>
-        {(state) => (
-          <p style={{
-            color: theme,
-            ...renderDefaultStyle(i),
-            ...renderTransitionStyles(i)[state]
-          }}>
-            {`${item}`}
-          </p>
-        )}
-      </Transition>
-    ))
+    <Transition
+    in={show}
+    timeout={0}
+    appear={true}
+    key={i}>
+      {(state) => (
+        <p style={{
+          color: theme,
+          ...renderDefaultStyle(i),
+          ...renderTransitionStyles(i)[state]
+        }}>
+          {`${item}`}
+        </p>
+      )}
+    </Transition>
+  ))
   return doc
 }
 
