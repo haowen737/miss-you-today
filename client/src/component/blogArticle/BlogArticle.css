@@ -1,0 +1,44 @@
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  font-family:'HelveticaNeueda58208fb1a95c', sans-serif;
+  animation: markdown-body-animation .6s linear;
+}
+.markdown-body h1 {
+  text-align: center;
+  margin: 2rem 0;
+  animation: markdown-h1-animation .6s linear;
+}
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
+}
+.loading-layout p {
+  position: absolute;
+  margin: auto;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+@keyframes markdown-h1-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes markdown-body-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

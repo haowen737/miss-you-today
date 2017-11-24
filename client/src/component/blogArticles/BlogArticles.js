@@ -10,10 +10,13 @@ const articleSkeleton = ({ article, index }) => {
   const Summary = createSkeletonElement('p', 'pending-home')
   const Date = createSkeletonElement('span', 'pending-home')
   return (
-    <Link to={{
-      pathname: '/blog/article',
-      search: `id=${article.file_id}`
-    }} className="article">
+    <Link to={ article.file_id
+      ? {
+        pathname: '/blog/article',
+        search: `id=${article.file_id}` }
+      : {
+        pathname: '/blog' }
+      } className="article">
       <div className="article-header clearfix">
         <Title className="article-title">{article.title}</Title>
         <Date className="article-date">{article.created_at}</Date>
@@ -42,10 +45,7 @@ export default class BlogArticles extends Component {
     }
   }
   componentDidMount () {
-    setTimeout(() => {
-      this.setState({ articles: [] })
-      this.getArticles()
-    }, 2000)
+    this.getArticles()
   }
   getArticles () {
     Axios

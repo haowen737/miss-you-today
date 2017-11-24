@@ -49,15 +49,7 @@ const hero = [{
   btnColor: '#fff',
   headerTheme: '#666',
   poem: poem1
-},{
-  name: 'Creative.',
-  theme: '#f9efe6',
-  color: '#afa7a1',
-  btnTheme: '#000',
-  btnColor: '#fff',
-  headerTheme: '#666',
-  poem: poem2
-},{
+}, {
   name: 'Cool.',
   theme: '#39393b',
   color: '#919191',
@@ -65,6 +57,14 @@ const hero = [{
   btnColor: '#000',
   headerTheme: '#fff',
   poem: poem3
+}, {
+  name: 'Creative.',
+  theme: '#f9efe6',
+  color: '#afa7a1',
+  btnTheme: '#000',
+  btnColor: '#fff',
+  headerTheme: '#666',
+  poem: poem2
 }, {
   name: 'Crazy.',
   theme: '#6f8fa8',

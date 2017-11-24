@@ -1,7 +1,26 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import ReactMarkdown from 'react-markdown'
+import LoadingBall from './../../widgets/loadingBall/LoadingBall'
+
+import './github-markdown.css'
+import './BlogArticle.css'
+
+const Loading = () => {
+  return (
+    <div className="loading-layout">
+      <p>在载入中</p>
+    </div>
+  )
+}
 
 export default class BlogArticle extends Component {
+  constructor () {
+    super()
+    this.state = {
+      article: ''
+    }
+  }
   componentWillMount (props) {
     console.log(this.props.location)
     this.getArticle()
@@ -11,20 +30,28 @@ export default class BlogArticle extends Component {
     id && this.query(id)
   }
   query (id) {
-    console.log(id)
     Axios
       .get(`/api/article/getArticle/${id}`)
       .then(({ data }) => {
-        this.setState({ articles: data })
+        setTimeout(() => {
+          this.setState({ article: data.content })
+        }, 0)
       })
       .catch((err) => {
         console.log(err)
       })
   }
   render() {
+    const { article } = this.state
     return (
-      <div>
-        123
+      <div className="article-wrap">
+      {
+        article ? (
+          <ReactMarkdown className="markdown-body" source={article} />
+        ) : (
+          <LoadingBall color="#666"></LoadingBall>
+        )
+      }
       </div>
     )
   }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group';
+import SpinningSpread from './../../widgets/spinningSpread/SpinningSpread';
+import PlayList from './../../widgets/playList/PlayList';
+
 import './GreetFlower.css'
 
 const Poems = (props) => {
@@ -36,8 +39,8 @@ const renderDefaultStyle = (i) => {
 const renderTransitionStyles = (i) => {
   ++i
   const entering = { opacity: 0, transform: `translateX(-10%)` }
-  const entered = { opacity: 1 - 0.1 * i, transform: `translateX(0)` }
-  const exiting = { opacity: 1 - 0.1 * i, transform: `translateX(0%)` }
+  const entered = { opacity: 1 - 0.2 * i, transform: `translateX(0)` }
+  const exiting = { opacity: 1 - 0.2 * i, transform: `translateX(0%)` }
   const exited = { opacity: 0, transform: `translateX(10%)` }
   return {
     entering,
@@ -70,7 +73,7 @@ export default class GreetFlower extends Component {
         show: true,
         poem: this.props.poem
       })
-    }, 1500)
+    }, 1000)
   }
 
   render() {
@@ -78,6 +81,8 @@ export default class GreetFlower extends Component {
     const { theme } = this.props
     return (
       <div className="greet-flower">
+        {/* <SpinningSpread></SpinningSpread> */}
+        <PlayList theme={theme}></PlayList>
         <TransitionGroup className="fade-list">
           <Poems poem={poem} show={show} theme={theme}></Poems>
         </TransitionGroup>

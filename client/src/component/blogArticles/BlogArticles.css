@@ -4,7 +4,7 @@
   padding: 10px;
   margin: 5rem auto;
   transition: all 2s;
-  animation: article-animation .6s linear;
+  animation: article-animation .3s linear;
   cursor: pointer;
 }
 .article-title {
@@ -16,7 +16,7 @@
   transition: all .2s ease;
 }
 .article:hover {
-  transform: translateX(-3px);
+  transform: translate3d(-3px, 0, 0);
 }
 .article-summary {
   padding: 3px 0;
@@ -56,7 +56,7 @@
 @keyframes article-animation {
   from {
     opacity: 0;
-    transform: translate3d(0, -30%, 0);
+    transform: translate3d(0, -10%, 0);
   }
   to {
     opacity: 1;

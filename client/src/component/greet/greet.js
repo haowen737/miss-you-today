@@ -15,7 +15,10 @@ export default class Greet extends Component {
     }
   }
   componentDidMount() {
-    this.typeWriterProcess()
+    this.typeWriterProcessWrite()
+    setTimeout(() => {
+      this.typeWriterProcessErease()
+    }, 7000)
   }
   componentWillUnmount() {
     clearTimeout(this.writeText)
@@ -24,13 +27,20 @@ export default class Greet extends Component {
   }
   typeWriterProcess () {
     this.writeText = setTimeout(() => {
-      this.greetContent.typeWriter(1)
+      this.typeWriterProcessWrite()
     }, 2000)
     this.ereaseText = setTimeout(() => {
-      this.greetContent.typeWriter(0)
-      this.typeWriterProcess()
-      this.indexManager()
+      this.typeWriterProcessErease()
     }, 7000 )
+  }
+  typeWriterProcessWrite () {
+    console.log('执行写入')
+    this.greetContent && this.greetContent.typeWriter(1)
+  }
+  typeWriterProcessErease () {
+    this.greetContent && this.greetContent.typeWriter(0)
+    this.typeWriterProcess()
+    this.indexManager()
   }
   indexManager () {
     this.setState((prev) => ({
