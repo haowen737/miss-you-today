@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group';
 import SpinningSpread from './../../widgets/spinningSpread/SpinningSpread';
-import PlayList from './../../widgets/playList/PlayList';
+import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import './GreetFlower.css'
 
@@ -82,7 +82,7 @@ export default class GreetFlower extends Component {
     return (
       <div className="greet-flower">
         {/* <SpinningSpread></SpinningSpread> */}
-        <PlayList theme={theme}></PlayList>
+        <MusicPlayer theme={theme}></MusicPlayer>
         <TransitionGroup className="fade-list">
           <Poems poem={poem} show={show} theme={theme}></Poems>
         </TransitionGroup>

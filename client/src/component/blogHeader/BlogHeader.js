@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { Transition, TransitionGroup } from 'react-transition-group'
 
 import './BlogHeader.css'
 
@@ -15,15 +15,29 @@ const Logo = (props) => (
   <Link className="logo" to="/" style={{color: props.color}}>withyoufriends</Link>
 )
 
+const defaultStyle = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
+}
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
+}
+
 const Nav = ({ children, ...props }) => {
-  console.log(children, {...props})
+  console.log({...props})
   return (
-    <CSSTransition
-      {...props}
-      classNames="fade"
-    >
-      {children}
-    </CSSTransition>
+    <Transition in={true} timeout={2000}>
+      {(state) => (
+        <a style={{
+          ...defaultStyle,
+          ...transitionStyles[state]
+        }}>
+          {children}
+        </a>
+      )}
+    </Transition>
   )
 }
 
@@ -49,9 +63,7 @@ export default class BlogHeader extends Component {
           <TransitionGroup>
             {
               navService.map((n, i) => (
-                <Nav key={n} appear={true} timeout={(100 + (500 * i))}>
-                  <a>{n}</a>
-                </Nav>
+                <Nav key={n} appear={true} timeout={(100 + (500 * i))}>{n}</Nav>
               ))
             }
           </TransitionGroup>

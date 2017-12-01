@@ -1,0 +1,39 @@
+.music-player {
+  position: absolute;
+  bottom: 10%;
+  height: 110px;
+  background-color: #000;
+  color: #fff;
+}
+.cover {
+  float: left;
+  width: 110px;
+  height: 110px;
+  background-color: #334433;
+}
+.control-play {
+  width: 110px;
+  height: 110px;
+  background-color: #fff;
+  float: left;
+}
+.content {
+  padding: 10px 20px;
+  font-weight: lighter !important;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.title {
+  font-size: 1.6rem;
+  font-weight: lighter;
+  line-height: 1.1;
+}
+.artist {
+  font-size: 1.1rem;
+  line-height: 1.1;
+  font-weight: lighter;
+}
