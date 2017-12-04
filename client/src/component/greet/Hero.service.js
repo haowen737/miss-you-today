@@ -68,7 +68,7 @@ const hero = [{
   btnTheme: '#000',
   btnColor: '#fff',
   headerTheme: '#666',
-  musicPlayerBg: '#57b4c4',
+  musicPlayerBg: '#ffcece',
   musicPlayerColor: '#fff',
   poem: poem2
 }, {
