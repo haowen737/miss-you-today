@@ -81,10 +81,9 @@ export default class GreetFlower extends Component {
     const { theme } = this.props
     return (
       <div className="greet-flower">
-        {/* <SpinningSpread></SpinningSpread> */}
         <MusicPlayer theme={theme}></MusicPlayer>
         <TransitionGroup className="fade-list">
-          <Poems poem={poem} show={show} theme={theme}></Poems>
+          <Poems poem={poem} show={show} theme={theme.headerTheme}></Poems>
         </TransitionGroup>
       </div>
     )

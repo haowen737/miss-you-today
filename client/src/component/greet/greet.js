@@ -55,7 +55,7 @@ export default class Greet extends Component {
         <GreetHeader theme={hero.headerTheme}></GreetHeader>
         <div className="greet-flower-layout">
           <GreetFlower
-          theme={hero.headerTheme}
+          theme={hero}
           poem={hero.poem}></GreetFlower>
         </div>
         <div className="greet-content-layout">

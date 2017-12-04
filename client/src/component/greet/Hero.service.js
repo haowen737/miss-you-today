@@ -48,6 +48,8 @@ const hero = [{
   btnTheme: '#000',
   btnColor: '#fff',
   headerTheme: '#666',
+  musicPlayerBg: '#8a8a8a',
+  musicPlayerColor: '#fff',
   poem: poem1
 }, {
   name: 'Cool.',
@@ -56,6 +58,8 @@ const hero = [{
   btnTheme: '#fff',
   btnColor: '#000',
   headerTheme: '#fff',
+  musicPlayerBg: '#dddde5',
+  musicPlayerColor: '#000',
   poem: poem3
 }, {
   name: 'Creative.',
@@ -64,6 +68,8 @@ const hero = [{
   btnTheme: '#000',
   btnColor: '#fff',
   headerTheme: '#666',
+  musicPlayerBg: '#57b4c4',
+  musicPlayerColor: '#fff',
   poem: poem2
 }, {
   name: 'Crazy.',
@@ -73,6 +79,8 @@ const hero = [{
   btnTheme: '#fff',
   btnColor: '#000',
   headerTheme: '#fff',
+  musicPlayerBg: '#000000',
+  musicPlayerColor: '#fff',
   poem: poem4
 }]
 
