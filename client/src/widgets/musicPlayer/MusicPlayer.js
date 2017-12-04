@@ -52,7 +52,7 @@ export default class MusicPlayer extends Component {
       })
       this.playPause.playSegments([170, 193], true)
       this.playPause.setDirection(-1)
-    }, 500)
+    }, 200)
   }
   onPlayStatusChange () {
     this.setState(prev => ({

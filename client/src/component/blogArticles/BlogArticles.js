@@ -51,7 +51,10 @@ export default class BlogArticles extends Component {
     Axios
       .get('/api/article/getArticles')
       .then(({ data }) => {
-        this.setState({ articles: data })
+        this.setState({ articles: [] })
+        setTimeout(() => {
+          this.setState({ articles: data })
+        }, 0)
       })
       .catch((err) => {
         console.log(err)

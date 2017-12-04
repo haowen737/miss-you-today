@@ -7,16 +7,21 @@
   transition: all 1s linear;
 }
 .cover {
+  position: relative;
   float: left;
   width: 80px;
   height: 80px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  animation: cover-animatioin .6s linear;
+  z-index: 100;
 }
 .control-player-container {
+  position: relative;
   cursor: pointer;
   float: left;
+  z-index: 90;
 }
 .control-play {
   display: flex;
@@ -25,6 +30,7 @@
   width: 80px;
   height: 80px;
   background-color: #fff;
+  animation: control-play .6s linear;
 }
 .content {
   float: left;
@@ -40,14 +46,14 @@
   animation: content-animation 1s ease;
 }
 .title {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: lighter;
-  line-height: 1.1;
+  line-height: 1.3;
   animation: title-animation 1s ease;
 }
 .artist {
-  font-size: 1.1rem;
-  line-height: 1.1;
+  font-size: 1rem;
+  line-height: 1.3;
   font-weight: lighter;
 }
 .control-play {
@@ -78,4 +84,33 @@
 }
 #bm {
   transform: scale(1.5);
+  animation: bm-animation 1s linear;
+}
+@keyframes cover-animatioin {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0)
+  }
+}
+@keyframes control-play {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+@keyframes bm-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(20%) scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1.5);
+  }
 }
