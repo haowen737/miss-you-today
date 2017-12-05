@@ -50,6 +50,7 @@ export default class Greet extends Component {
   render() {
     const { heroIndex } = this.state
     const hero = Hero[heroIndex]
+    window.hero = hero
     return (
       <div className="greet-container" style={{backgroundColor: hero.theme}}>
         <GreetHeader theme={hero.headerTheme}></GreetHeader>

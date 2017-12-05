@@ -66,7 +66,10 @@ export default class BlogArticles extends Component {
       <div className="article-list">
       {
         articles.map((a, i) => (
-          <Article article={a} key={i} index={i}></Article>
+          <Article
+          article={a}
+          key={i}
+          index={i}></Article>
         ))
       }
       </div>

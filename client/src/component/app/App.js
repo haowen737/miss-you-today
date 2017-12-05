@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog';
+import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import { Route, Switch } from 'react-router-dom'
 
@@ -19,6 +20,7 @@ export default class App extends Component {
             <Route path="/" exact component={Greet} />
           </Switch>
         </div>
+        <MusicPlayer theme={{}}></MusicPlayer>
       </div>
     )
   }

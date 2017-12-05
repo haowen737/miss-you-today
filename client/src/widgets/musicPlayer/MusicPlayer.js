@@ -66,7 +66,7 @@ export default class MusicPlayer extends Component {
   render() {
     const { theme } = this.props
     const { currMusic, playStatus } = this.state
-    console.log(theme)
+    console.log(theme, window.hero)
     return (
       <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg}}>
         <div className="cover"

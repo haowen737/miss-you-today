@@ -8,6 +8,7 @@
   background-color: #fff;
   opacity: .9;
   overflow: hidden;
+  z-index: 10;
 }
 .blogheader-nav {
   float: right;
