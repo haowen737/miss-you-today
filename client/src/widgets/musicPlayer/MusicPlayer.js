@@ -4,14 +4,16 @@ import './MusicPlayer.css'
 
 import MyMusic from './MyMusic'
 
+import PlayerContent from './PlayerContent'
+
 import bodymovin from 'bodymovin'
 
 import playPauseData from './../../resource/lottie/PlayPause.json'
 
-const ControlPlayer = ({ currMusic, onPlayStatusChange, playStatus }) => {
+const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
   let player = null
   const control = (type) => {
-    player.paused ? player.play() : player.pause()
+    player.paused ? player.pause() : player.pause()
     onPlayStatusChange()
   }
   // status控制播放器 播放 暂停
@@ -22,7 +24,7 @@ const ControlPlayer = ({ currMusic, onPlayStatusChange, playStatus }) => {
           <PlayPauseButton type={playStatus} control={control}></PlayPauseButton>
         }
       </div>
-      <audio src={currMusic.src} autoPlay ref={(el) => { player = el }}></audio>
+      <audio src={currMusic.src} autoPlay="false" ref={(el) => { player = el }}></audio>
     </div>
   )
 }
@@ -64,21 +66,22 @@ export default class MusicPlayer extends Component {
   render() {
     const { theme } = this.props
     const { currMusic, playStatus } = this.state
-    console.log(theme)
+    console.log(theme, window.hero)
     return (
       <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg}}>
         <div className="cover"
           style={{backgroundImage: `url(${currMusic.cover})`}}
         ></div>
-        <ControlPlayer
+        <PlayerControl
           currMusic={currMusic}
           playStatus={playStatus}
           onPlayStatusChange={this.onPlayStatusChange.bind(this)}>
-        </ControlPlayer>
-        <div className="content" style={{color: theme.musicPlayerColor}}>
-          <h3 className="title">{currMusic.title}</h3>
-          <p className="artist">By {currMusic.artist}</p>
-        </div>
+        </PlayerControl>
+        <PlayerContent
+          currMusic={currMusic}
+          theme={theme}
+          playList={MyMusic}>
+        </PlayerContent>
       </div>
     )
   }

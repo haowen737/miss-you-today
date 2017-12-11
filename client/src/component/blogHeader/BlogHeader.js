@@ -16,22 +16,22 @@ const Logo = (props) => (
 )
 
 const defaultStyle = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 }
+  transition: `all 600ms ease`,
+  opacity: 0
 }
 
 const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 }
+  entering: { opacity: 0, transform: `translate3d(30%, 0, 0)` },
+  entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
 }
 
-const Nav = ({ children, ...props }) => {
-  console.log({...props})
+const Nav = ({ children, index }) => {
   return (
-    <Transition in={true} timeout={2000}>
+    <Transition in={true} appear={true} timeout={(100 + (100 * index))}>
       {(state) => (
         <a style={{
           ...defaultStyle,
+          ...{transform: `translate3d(${index * 10}%, 0, 0)`},
           ...transitionStyles[state]
         }}>
           {children}
@@ -48,11 +48,6 @@ export default class BlogHeader extends Component {
       navIn: false
     }
   }
-  // componentDidMount () {
-  //   setInterval(() => {
-  //     this.setState({ navIn: !this.state.navIn })
-  //   }, 2000)
-  // }
   render() {
     const { navIn } = this.state
     console.log(navIn)
@@ -63,7 +58,7 @@ export default class BlogHeader extends Component {
           <TransitionGroup>
             {
               navService.map((n, i) => (
-                <Nav key={n} appear={true} timeout={(100 + (500 * i))}>{n}</Nav>
+                <Nav key={n} index={i}>{n}</Nav>
               ))
             }
           </TransitionGroup>
