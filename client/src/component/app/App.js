@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Greet from './../greet/Greet'
+import Greet from './../greet/jGreet'
 import Blog from './../blog/Blog';
 import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
