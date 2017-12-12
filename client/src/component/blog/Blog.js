@@ -6,7 +6,7 @@ import { themeChange } from './../../actions'
 
 import BlogArticles from './../blogArticles/BlogArticles'
 import BlogArticle from './../blogArticle/BlogArticle'
-import BlogTags from './../blogTags2/BlogTags2'
+import BlogTags from './../blogTags/BlogTags'
 import BlogHeader from './../blogHeader/BlogHeader'
 
 import { BlogTheme } from './../../Hero.service'
