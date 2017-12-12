@@ -1,60 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import './MusicPlayer.css'
 
 import MyMusic from './MyMusic'
+import DefaultPlayer from './DefaultPlayer'
+import MiniPlayer from './MiniPlayer'
 
-import PlayerContent from './PlayerContent'
-
-import bodymovin from 'bodymovin'
-
-import playPauseData from './../../resource/lottie/PlayPause.json'
-
-const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
-  let player = null
-  const control = (type) => {
-    player.paused ? player.pause() : player.pause()
-    onPlayStatusChange()
-  }
-  // status控制播放器 播放 暂停
-  return (
-    <div className="control-player-container">
-      <div className="control-play">
-        {
-          <PlayPauseButton type={playStatus} control={control}></PlayPauseButton>
-        }
-      </div>
-      <audio src={currMusic.src} autoPlay="false" ref={(el) => { player = el }}></audio>
-    </div>
-  )
-}
-
-const PlayPauseButton = ({type, control}) => {
-  return (
-    <div className="" onClick={control} id="bm"></div>
-  )
-}
-
-export default class MusicPlayer extends Component {
+class MusicPlayer extends Component {
   constructor() {
     super()
     this.state = {
       currMusic: MyMusic[0],
       playStatus: false
     }
-  }
-  componentDidMount () {
-    setTimeout(() => {
-      this.playPause = bodymovin.loadAnimation({
-        container: document.getElementById('bm'),
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        animationData: playPauseData
-      })
-      this.playPause.playSegments([170, 193], true)
-      this.playPause.setDirection(-1)
-    }, 200)
   }
   onPlayStatusChange () {
     this.setState(prev => ({
@@ -63,26 +22,30 @@ export default class MusicPlayer extends Component {
     this.playPause.setDirection(this.state.playStatus ? -1 : 1)
     this.playPause.play()
   }
+  renderMusicPlayerStyle (theme) {
+    return {
+      backgroundColor: theme.musicPlayerBg
+    }
+  }
   render() {
     const { theme } = this.props
     const { currMusic, playStatus } = this.state
-    console.log(theme, window.hero)
     return (
-      <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg}}>
-        <div className="cover"
-          style={{backgroundImage: `url(${currMusic.cover})`}}
-        ></div>
-        <PlayerControl
-          currMusic={currMusic}
-          playStatus={playStatus}
-          onPlayStatusChange={this.onPlayStatusChange.bind(this)}>
-        </PlayerControl>
-        <PlayerContent
-          currMusic={currMusic}
-          theme={theme}
-          playList={MyMusic}>
-        </PlayerContent>
+      <div className="music-player-container">
+      {
+        theme.miniMusicPlayer
+        ? <MiniPlayer theme={theme} MyMusic={MyMusic} currMusic={currMusic} playStatus={playStatus}></MiniPlayer>
+        : <DefaultPlayer theme={theme} MyMusic={MyMusic} currMusic={currMusic} playStatus={playStatus}></DefaultPlayer>
+      }
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  theme: state.theme
+})
+
+export default connect(
+  mapStateToProps
+)(MusicPlayer)

@@ -75,7 +75,7 @@ export default class PlayerContent extends Component {
     const { currMusic, theme, playList } = this.props
     const { listShow } = this.state
     return (
-      <div className="player-content">
+      <div className="player-content" style={{left: `translateX(-100%)`}}>
         <ListItem
           currMusic={currMusic}
           theme={theme}

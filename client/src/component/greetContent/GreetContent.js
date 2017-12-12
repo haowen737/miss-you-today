@@ -1,62 +1,84 @@
 import React, { Component } from 'react'
 import './GreetContent.css'
 
-const Adjectives = function (props) {
-  return <span className="adjectives" style={{color: props.color}}>{props.name}</span>
+const TypeWritter = function ({ color, currName }) {
+  console.log(currName)
+  return <span className="typeWritter" style={{ color }}>{currName}</span>
 }
 
-const StartButton = function (props) {
-  return <a className="buttonStyle" style={{color: props.color, backgroundColor: props.theme}}>START A TRIP</a>
+const StartButton = function ({ color, backgroundColor }) {
+  return <a className="buttonStyle" style={{ color, backgroundColor }}>START A TRIP</a>
 }
 
 export default class GreetContent extends Component {
   constructor () {
     super()
     this.state = {
-      name: '',
-      color: '',
-      btnTheme: '',
-      btnColor: '',
+      currName: '',
+      penIsWriting: false//重写名字中，勿扰
     }
   }
-  componentDidMount () {
-    this.fillFontColor()
-  }
-  typeWriter (action) {
-    // type0时擦除，1时写入
-    const name = this.props.hero.name
-    let index = action ? 0 : name.length
-    let timerTyper = setInterval(() => {
-      this.setState({
-        name: name.slice(0, index)
-      })
-      if (index === (action ? name.length : 0)) {
-        console.log(`${['擦除', '写入'][action]}定时器已清除`);
-        clearInterval(timerTyper)
-        this.fillFontColor()
+  pen (name) {
+    console.log('开始写入')
+    if (!name) return
+    let index = 0
+    let spacing = Math.random() * 100 + 50
+    let penSelf = setInterval(() => {
+      ++index
+      this.setState(prev => ({
+        penIsWriting: true,
+        currName: name.slice(0, index)
+      }))
+      if (index === name.length) { 
+        this.setState({ penIsWriting: false })
+        clearInterval(penSelf)
       }
-      action ? index++ : index--
-    }, 70 + Math.random() * 100)
+    }, spacing)
   }
-  fillFontColor () {
-    this.setState({
-      color: this.props.hero.color,
-      btnTheme: this.props.hero.btnTheme,
-      btnColor: this.props.hero.btnColor
+  erease () {
+    console.log('开始擦除')
+    return new Promise((resolve, reject) => {
+      const { currName } = this.state
+      if (!currName) { resolve(); return }
+      let spacing = Math.random() * 100 + 50
+      let index = this.state.currName.length
+      let ereaseSelf = setInterval(() => {
+        --index
+        this.setState(prev => ({
+          penIsWriting: true,
+          currName: prev.currName.slice(0, index)
+        }))
+        if (index === 0) {
+          resolve()
+          this.setState( { penIsWriting: true })
+          clearInterval(ereaseSelf)
+        }
+      }, spacing)
     })
   }
+  startRewriteName (currName, name) {
+    this.erease().then(() => { this.pen(name) })
+  }
+  shouldReWriteName (theme, currName) {
+    if (currName !== theme.name && !this.state.penIsWriting) {
+      this.startRewriteName(currName, theme.name)
+    }
+  }
   render() {
+    const { currName } = this.state
+    const { theme } = this.props
+    this.shouldReWriteName(theme, currName)
     return (
       <div className="contentWrap">
         <p className="herotitle">
           Make it&nbsp;
           <br className="hero-title-br"/>
-          <Adjectives
-          name={this.state.name}
-          color={this.state.color}></Adjectives>
+          <TypeWritter
+          currName={currName}
+          color={theme.color}></TypeWritter>
         </p>
         <p className="heroSummary">Code · Design · Create · Capture · Inspire</p>
-        <StartButton color={this.state.btnColor} theme={this.state.btnTheme}></StartButton>
+        <StartButton color={theme.btnColor} backgroundColor={theme.btnTheme}></StartButton>
       </div>
     )
   }

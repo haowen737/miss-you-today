@@ -40,7 +40,7 @@ const poem4 = [
   'Тут вечно скрип коек, убит кое-кто остальные в запое... '
 ]
 
-const hero = [{
+const theme = [{
   name: 'Beautiful.',
   theme: '#ececec',
   titleColor: '#212121',
@@ -48,8 +48,9 @@ const hero = [{
   btnTheme: '#000',
   btnColor: '#fff',
   headerTheme: '#666',
-  musicPlayerBg: '#8a8a8a',
+  musicPlayerBg: '#c0c8ce',
   musicPlayerColor: '#fff',
+  musicPlayerStatus: 'spread',
   poem: poem1
 }, {
   name: 'Cool.',
@@ -58,8 +59,9 @@ const hero = [{
   btnTheme: '#fff',
   btnColor: '#000',
   headerTheme: '#fff',
-  musicPlayerBg: '#dddde5',
-  musicPlayerColor: '#000',
+  musicPlayerBg: '#959595',
+  musicPlayerColor: '#fff',
+  musicPlayerStatus: 'spread',
   poem: poem3
 }, {
   name: 'Creative.',
@@ -70,6 +72,7 @@ const hero = [{
   headerTheme: '#666',
   musicPlayerBg: '#ffcece',
   musicPlayerColor: '#fff',
+  musicPlayerStatus: 'spread',
   poem: poem2
 }, {
   name: 'Crazy.',
@@ -81,7 +84,12 @@ const hero = [{
   headerTheme: '#fff',
   musicPlayerBg: '#000000',
   musicPlayerColor: '#fff',
+  musicPlayerStatus: 'spread',
   poem: poem4
+}, {
+  musicPlayerBg: '#c2c2c2',
+  musicPlayerColor: '#fff',
+  musicPlayerStatus: 'spread',
 }]
 
-export const Hero = hero
+export const Theme = theme

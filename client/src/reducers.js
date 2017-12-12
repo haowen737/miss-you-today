@@ -6,9 +6,9 @@ function theme (state = {}, action) {
   console.log('reducer------>', state, action)
   switch (action.type) {
     case 'THEME_CHANGE':
-      return state
+      return action.theme || state
     default: 
-      return state
+      return action.theme || state
   }
 }
 

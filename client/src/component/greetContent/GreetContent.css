@@ -27,11 +27,11 @@
   color: #191919;
   text-indent: -0.2rem;
 }
-.adjectives {
+.typeWritter {
   position: relative;
   color: #666;
 }
-.adjectives::after {
+.typeWritter::after {
   content: '';
   margin: auto;
   position: absolute;
