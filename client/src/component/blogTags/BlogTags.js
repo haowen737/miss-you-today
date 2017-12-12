@@ -10,18 +10,18 @@ const defaultStyle = {
 }
 
 const transitionStyles = {
-  entering: { opacity: 0, transform: `translate3d(0, 30%, 0)` },
+  entering: { opacity: 0, transform: `translate3d(0, -30%, 0)` },
   entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
 }
 
 const Tag = ({ children, index, tag }) => {
   return (
-    <Transition in={true} appear={true} timeout={(100 + (100 * index))}>
+    <Transition in={true} appear={true} timeout={(50 + (50 * index))}>
     {(state) => (
       <li 
       style={{
         ...defaultStyle,
-        ...{transform: `translate3d(0, ${index * 10}%, 0)`},
+        ...{transform: `translate3d(0, -${index * 10}%, 0)`},
         ...transitionStyles[state]
       }}>
         {children}
