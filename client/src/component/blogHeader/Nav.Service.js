@@ -5,7 +5,7 @@ export default [
   },
   {
     name: '标签',
-    to: '/blog/bookmarks'
+    to: '/blog/tags'
   },
   {
     name: '收藏',

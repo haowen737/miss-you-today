@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
+import Axios from 'axios'
 import { Link } from 'react-router-dom'
-import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor';
+import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor'
 
 import './BlogArticles.css'
 
