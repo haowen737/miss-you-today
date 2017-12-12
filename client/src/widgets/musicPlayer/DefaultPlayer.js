@@ -50,8 +50,10 @@ export default class DefaultPlayer extends Component {
       })
       this.playPause.playSegments([170, 193], true)
       this.playPause.setDirection(-1)
-      this.renderMusicPlayerStyle()
     }, 200)
+  }
+  componentWillReceiveProps ({ theme }) {
+    this.renderMusicPlayerStyle(theme)
   }
   onPlayStatusChange () {
     this.setState(prev => ({
@@ -61,7 +63,7 @@ export default class DefaultPlayer extends Component {
     this.playPause.play()
   }
   onClickCover (theme) {
-    const type = theme.musicPlayerType
+    console.log(theme)
     this.renderMusicPlayerStyle(theme)
   }
   renderMusicPlayerStyle (theme) {

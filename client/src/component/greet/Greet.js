@@ -6,7 +6,6 @@ import GreetFlower from './../greetFlower/GreetFlower'
 import GreetHeader from './../greetHeader/GreetHeader';
 
 import { themeChange } from './../../actions'
-
 import { Theme } from './../../Hero.service'
 
 import './Greet.css'
