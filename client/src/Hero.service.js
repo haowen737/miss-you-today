@@ -50,7 +50,6 @@ const theme = [{
   headerTheme: '#666',
   musicPlayerBg: '#c0c8ce',
   musicPlayerColor: '#fff',
-  musicPlayerStatus: 'spread',
   poem: poem1
 }, {
   name: 'Cool.',
@@ -61,7 +60,6 @@ const theme = [{
   headerTheme: '#fff',
   musicPlayerBg: '#959595',
   musicPlayerColor: '#fff',
-  musicPlayerStatus: 'spread',
   poem: poem3
 }, {
   name: 'Creative.',
@@ -72,7 +70,6 @@ const theme = [{
   headerTheme: '#666',
   musicPlayerBg: '#ffcece',
   musicPlayerColor: '#fff',
-  musicPlayerStatus: 'spread',
   poem: poem2
 }, {
   name: 'Crazy.',
@@ -84,15 +81,13 @@ const theme = [{
   headerTheme: '#fff',
   musicPlayerBg: '#000000',
   musicPlayerColor: '#fff',
-  musicPlayerStatus: 'spread',
   poem: poem4
 }]
 
 const blogTheme = {
   musicPlayerBg: '#c2c2c2',
   musicPlayerColor: '#fff',
-  musicPlayerStatus: 'spread',
-  musicPlayerType: 'hide'
+  musicPlayerHide: true
 }
 
 export const Theme = theme

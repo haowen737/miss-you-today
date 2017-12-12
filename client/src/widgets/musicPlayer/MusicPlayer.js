@@ -5,7 +5,6 @@ import './MusicPlayer.css'
 
 import MyMusic from './MyMusic'
 import DefaultPlayer from './DefaultPlayer'
-import MiniPlayer from './MiniPlayer'
 
 class MusicPlayer extends Component {
   constructor() {

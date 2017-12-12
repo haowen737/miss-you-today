@@ -6,14 +6,6 @@ import LoadingBall from './../../widgets/loadingBall/LoadingBall'
 import './github-markdown.css'
 import './BlogArticle.css'
 
-const Loading = () => {
-  return (
-    <div className="loading-layout">
-      <p>在载入中</p>
-    </div>
-  )
-}
-
 export default class BlogArticle extends Component {
   constructor () {
     super()

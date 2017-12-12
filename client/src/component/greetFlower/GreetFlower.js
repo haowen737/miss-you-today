@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group';
-import SpinningSpread from './../../widgets/spinningSpread/SpinningSpread';
 
 import './GreetFlower.css'
 

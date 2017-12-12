@@ -4,10 +4,6 @@ import PlayerContent from './PlayerContent'
 
 import playPauseData from './../../resource/lottie/PlayPause.json'
 
-const PlayerFold = () => (
-  <div className="player-fold"></div>
-)
-
 const PlayPauseButton = ({type, control}) => {
   return (
     <div className="" onClick={control} id="bm"></div>
@@ -34,6 +30,13 @@ const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
 }
 
 export default class DefaultPlayer extends Component {
+  constructor () {
+    super()
+    this.state = {
+      musicPlayerHide: false,
+      musicStyle: {}
+    }
+  }
   componentDidMount () {
     let target = document.getElementById('bm')
     if (!target) { return }
@@ -47,6 +50,7 @@ export default class DefaultPlayer extends Component {
       })
       this.playPause.playSegments([170, 193], true)
       this.playPause.setDirection(-1)
+      this.renderMusicPlayerStyle()
     }, 200)
   }
   onPlayStatusChange () {
@@ -56,17 +60,24 @@ export default class DefaultPlayer extends Component {
     this.playPause.setDirection(this.state.playStatus ? -1 : 1)
     this.playPause.play()
   }
-  renderMusicPlayerStyle (theme, left) {
-    console.log(left)
-    return {
-      backgroundColor: theme.musicPlayerBg,
-      transform: `translate3d(${left}, 0, 0)`
-    }
+  onClickCover (theme) {
+    const type = theme.musicPlayerType
+    this.renderMusicPlayerStyle(theme)
+  }
+  renderMusicPlayerStyle (theme) {
+    theme = theme || this.props.theme
+    this.musicPlayerHide = this.musicPlayerHide ? !this.musicPlayerHide : theme.musicPlayerHide
+    this.setState({
+      musicStyle: {
+        transform: `translate3d(${this.musicPlayerHide ? '-90%' : '0%'}, 0, 0)`
+      }
+    })
   }
   render() {
     const { theme, MyMusic, currMusic, playStatus, left} = this.props
+    const { musicStyle } = this.state
     return (
-      <div className="music-player clearfix" style={this.renderMusicPlayerStyle(theme, left)}>
+      <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg,  ...musicStyle}}>
         <PlayerContent
           currMusic={currMusic}
           theme={theme}
@@ -78,8 +89,10 @@ export default class DefaultPlayer extends Component {
           playStatus={playStatus}
           onPlayStatusChange={this.onPlayStatusChange.bind(this)}>
         </PlayerControl>
-        <div className="cover"
+        <div
+          className="cover"
           style={{backgroundImage: `url(${currMusic.cover})`}}
+          onClick={this.onClickCover.bind(this, theme)}
         ></div>
         {/* <PlayerFold></PlayerFold> */}
       </div>

@@ -4,14 +4,10 @@ import Blog from './../blog/Blog';
 import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import { Route, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 import './App.css'
 
 class App extends Component {
-  constructor () {
-    super()
-  }
   render() {
     return (
       <div className="app">
@@ -21,17 +17,10 @@ class App extends Component {
             <Route path="/" exact component={Greet} />
           </Switch>
         </div>
-        <MusicPlayer theme={{}}></MusicPlayer>
+        <MusicPlayer></MusicPlayer>
       </div>
     )
   }
 }
 
-const theme = (state) => (
-  {
-    getTheme: () => state
-  }
-)
-
 export default App
-// export default connect()(App)

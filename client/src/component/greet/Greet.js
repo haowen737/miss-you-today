@@ -23,7 +23,7 @@ class Greet extends Component {
     this.greetMan = setInterval(this.indexManager.bind(this), 5000)
   }
   componentWillUnmount() {
-    this.greetMan && clearInterval(this.indexManager.bind(this))
+    this.greetMan && clearInterval(this.greetMan)
   }
   indexManager () {
     this.setState((prev) => {
@@ -39,8 +39,7 @@ class Greet extends Component {
     this.props.themeChange(hero)
   }
   render() {
-    const { dispatch, theme } = this.props
-    console.log('dispatch', theme)
+    const { theme } = this.props
     return (
       <div className="greet-container" style={{backgroundColor: theme.theme}}>
         <GreetHeader theme={theme.headerTheme}></GreetHeader>

@@ -18,12 +18,16 @@ export default class GreetContent extends Component {
       penIsWriting: false//重写名字中，勿扰
     }
   }
+  componentWillUnmount () {
+    clearInterval(this.penSelf)
+    clearInterval(this.ereaseSelf)
+  }
   pen (name) {
     console.log('开始写入')
     if (!name) return
     let index = 0
     let spacing = Math.random() * 100 + 50
-    let penSelf = setInterval(() => {
+    this.penSelf = setInterval(() => {
       ++index
       this.setState(prev => ({
         penIsWriting: true,
@@ -31,7 +35,7 @@ export default class GreetContent extends Component {
       }))
       if (index === name.length) { 
         this.setState({ penIsWriting: false })
-        clearInterval(penSelf)
+        clearInterval(this.penSelf)
       }
     }, spacing)
   }
@@ -42,7 +46,7 @@ export default class GreetContent extends Component {
       if (!currName) { resolve(); return }
       let spacing = Math.random() * 100 + 50
       let index = this.state.currName.length
-      let ereaseSelf = setInterval(() => {
+      this.ereaseSelf = setInterval(() => {
         --index
         this.setState(prev => ({
           penIsWriting: true,
@@ -51,7 +55,7 @@ export default class GreetContent extends Component {
         if (index === 0) {
           resolve()
           this.setState( { penIsWriting: true })
-          clearInterval(ereaseSelf)
+          clearInterval(this.ereaseSelf)
         }
       }, spacing)
     })
