@@ -90,5 +90,12 @@ const blogTheme = {
   musicPlayerHide: true
 }
 
+const meTheme = {
+  musicPlayerBg: '#c2c2c2',
+  musicPlayerColor: '#fff',
+  musicPlayerHide: true
+}
+
 export const Theme = theme
 export const BlogTheme = blogTheme
+export const MeTheme = meTheme

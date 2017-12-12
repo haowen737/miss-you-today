@@ -6,6 +6,7 @@ import { themeChange } from './../../actions'
 
 import BlogArticles from './../blogArticles/BlogArticles'
 import BlogArticle from './../blogArticle/BlogArticle'
+import BlogBookmarks from './../blogBookmarks/BlogBookmarks'
 import BlogHeader from './../blogHeader/BlogHeader'
 
 import { BlogTheme } from './../../Hero.service'
@@ -23,6 +24,7 @@ class Blog extends Component {
         <div className="blog-main">
           <Switch>
             <Route path="/blog" exact component={BlogArticles} />
+            <Route path="/blog/bookmarks" exact component={BlogBookmarks} />
             <Route path="/blog/article" component={BlogArticle} />
           </Switch>
         </div>

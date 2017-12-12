@@ -10,7 +10,7 @@ const Logo = function (props) {
 
 const Nav = function (props) {
   return GreetNav.map((n, i) => (
-    <Link key={i} to="/blog" style={{color: props.color}}>{n.title}</Link>
+    <Link key={i} to={n.url} style={{color: props.color}}>{n.title}</Link>
   ))
 }
 

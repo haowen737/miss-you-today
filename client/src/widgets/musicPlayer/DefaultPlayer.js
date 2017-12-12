@@ -13,7 +13,8 @@ const PlayPauseButton = ({type, control}) => {
 const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
   let player = null
   const control = (type) => {
-    player.paused ? player.pause() : player.pause()
+    console.log(player)
+    player.paused ? player.play() : player.pause()
     onPlayStatusChange()
   }
   // status控制播放器 播放 暂停
@@ -34,7 +35,8 @@ export default class DefaultPlayer extends Component {
     super()
     this.state = {
       musicPlayerHide: false,
-      musicStyle: {}
+      musicStyle: {},
+      playStatus: false
     }
   }
   componentDidMount () {
@@ -76,8 +78,8 @@ export default class DefaultPlayer extends Component {
     })
   }
   render() {
-    const { theme, MyMusic, currMusic, playStatus, left} = this.props
-    const { musicStyle } = this.state
+    const { theme, MyMusic, currMusic, left} = this.props
+    const { musicStyle, playStatus } = this.state
     return (
       <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg,  ...musicStyle}}>
         <PlayerContent

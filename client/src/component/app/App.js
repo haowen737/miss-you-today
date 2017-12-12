@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog';
+import Me from './../me/Me';
 import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import { Route, Switch } from 'react-router-dom'
@@ -13,7 +14,8 @@ class App extends Component {
       <div className="app">
         <div className="page">
           <Switch>
-            <Route path="/blog" exact component={Blog} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/me" component={Me} />
             <Route path="/" exact component={Greet} />
           </Switch>
         </div>

@@ -1,11 +1,9 @@
 export default [{
   title: '博客',
-  url: '/blog',
-  target: ''
+  url: '/blog'
 }, {
   title: '关于我',
-  url: '/me',
-  target: ''
+  url: '/me'
 }, {
   title: 'Github',
   url: 'https://github.com/haowen737',

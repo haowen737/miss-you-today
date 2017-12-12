@@ -2,14 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Transition, TransitionGroup } from 'react-transition-group'
 
-import './BlogHeader.css'
+import NavService from './Nav.Service'
 
-const navService = [
-  '标签',
-  '收藏',
-  '留言',
-  '关于我'
-]
+import './BlogHeader.css'
 
 const Logo = (props) => (
   <Link className="logo" to="/" style={{color: props.color}}>withyoufriends</Link>
@@ -25,17 +20,19 @@ const transitionStyles = {
   entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
 }
 
-const Nav = ({ children, index }) => {
+const Nav = ({ children, index, data }) => {
   return (
     <Transition in={true} appear={true} timeout={(100 + (100 * index))}>
       {(state) => (
-        <a style={{
+        <Link 
+        style={{
           ...defaultStyle,
           ...{transform: `translate3d(${index * 10}%, 0, 0)`},
           ...transitionStyles[state]
-        }}>
+        }}
+        to={data.to}>
           {children}
-        </a>
+        </Link>
       )}
     </Transition>
   )
@@ -50,15 +47,14 @@ export default class BlogHeader extends Component {
   }
   render() {
     const { navIn } = this.state
-    console.log(navIn)
     return (
       <div className="blog-header-layout">
         <Logo></Logo>
         <nav className="blogheader-nav">
           <TransitionGroup>
             {
-              navService.map((n, i) => (
-                <Nav key={n} index={i}>{n}</Nav>
+              NavService.map((n, i) => (
+                <Nav key={i} index={i} data={n}>{n.name}</Nav>
               ))
             }
           </TransitionGroup>

@@ -10,8 +10,7 @@ class MusicPlayer extends Component {
   constructor() {
     super()
     this.state = {
-      currMusic: MyMusic[0],
-      playStatus: false
+      currMusic: MyMusic[0]
     }
   }
   renderPlayerLeft (theme) {
@@ -20,15 +19,14 @@ class MusicPlayer extends Component {
   }
   render() {
     const { theme } = this.props
-    const { currMusic, playStatus } = this.state
+    const { currMusic } = this.state
     return (
       <div className="music-player-container">
         <DefaultPlayer
         left={this.renderPlayerLeft(theme)}
         theme={theme}
         MyMusic={MyMusic}
-        currMusic={currMusic}
-        playStatus={playStatus} />
+        currMusic={currMusic} />
       </div>
     )
   }
