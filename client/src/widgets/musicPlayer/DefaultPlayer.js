@@ -33,11 +33,13 @@ const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
   )
 }
 
-export default class componentName extends Component {
+export default class DefaultPlayer extends Component {
   componentDidMount () {
+    let target = document.getElementById('bm')
+    if (!target) { return }
     setTimeout(() => {
       this.playPause = bodymovin.loadAnimation({
-        container: document.getElementById('bm'),
+        container: target,
         renderer: 'svg',
         loop: false,
         autoplay: false,
@@ -54,29 +56,31 @@ export default class componentName extends Component {
     this.playPause.setDirection(this.state.playStatus ? -1 : 1)
     this.playPause.play()
   }
-  renderMusicPlayerStyle (theme) {
+  renderMusicPlayerStyle (theme, left) {
+    console.log(left)
     return {
-      backgroundColor: theme.musicPlayerBg
+      backgroundColor: theme.musicPlayerBg,
+      transform: `translate3d(${left}, 0, 0)`
     }
   }
   render() {
-    const { theme, MyMusic, currMusic, playStatus} = this.props
+    const { theme, MyMusic, currMusic, playStatus, left} = this.props
     return (
-      <div className="music-player clearfix" style={this.renderMusicPlayerStyle(theme)}>
-        <div className="cover"
-          style={{backgroundImage: `url(${currMusic.cover})`}}
-        ></div>
+      <div className="music-player clearfix" style={this.renderMusicPlayerStyle(theme, left)}>
+        <PlayerContent
+          currMusic={currMusic}
+          theme={theme}
+          playList={MyMusic}>
+        </PlayerContent>
         <PlayerControl
           currMusic={currMusic}
           theme={theme}
           playStatus={playStatus}
           onPlayStatusChange={this.onPlayStatusChange.bind(this)}>
         </PlayerControl>
-        <PlayerContent
-          currMusic={currMusic}
-          theme={theme}
-          playList={MyMusic}>
-        </PlayerContent>
+        <div className="cover"
+          style={{backgroundImage: `url(${currMusic.cover})`}}
+        ></div>
         {/* <PlayerFold></PlayerFold> */}
       </div>
     )

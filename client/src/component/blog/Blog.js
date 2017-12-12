@@ -8,13 +8,13 @@ import BlogArticles from './../blogArticles/BlogArticles'
 import BlogArticle from './../blogArticle/BlogArticle'
 import BlogHeader from './../blogHeader/BlogHeader'
 
-import { Theme } from './../../Hero.service'
+import { BlogTheme } from './../../Hero.service'
 
 import './Blog.css'
 
 class Blog extends Component {
   componentDidMount () {
-    this.props.themeChange(Theme[4])
+    this.props.themeChange(BlogTheme)
   }
   render() {
     return (

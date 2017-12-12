@@ -15,28 +15,21 @@ class MusicPlayer extends Component {
       playStatus: false
     }
   }
-  onPlayStatusChange () {
-    this.setState(prev => ({
-      playStatus: !prev.playStatus
-    }))
-    this.playPause.setDirection(this.state.playStatus ? -1 : 1)
-    this.playPause.play()
-  }
-  renderMusicPlayerStyle (theme) {
-    return {
-      backgroundColor: theme.musicPlayerBg
-    }
+  renderPlayerLeft (theme) {
+    const type = theme.musicPlayerType
+    return type === 'hide' ? `-90%` : '-20px'
   }
   render() {
     const { theme } = this.props
     const { currMusic, playStatus } = this.state
     return (
       <div className="music-player-container">
-      {
-        theme.miniMusicPlayer
-        ? <MiniPlayer theme={theme} MyMusic={MyMusic} currMusic={currMusic} playStatus={playStatus}></MiniPlayer>
-        : <DefaultPlayer theme={theme} MyMusic={MyMusic} currMusic={currMusic} playStatus={playStatus}></DefaultPlayer>
-      }
+        <DefaultPlayer
+        left={this.renderPlayerLeft(theme)}
+        theme={theme}
+        MyMusic={MyMusic}
+        currMusic={currMusic}
+        playStatus={playStatus} />
       </div>
     )
   }

@@ -86,10 +86,14 @@ const theme = [{
   musicPlayerColor: '#fff',
   musicPlayerStatus: 'spread',
   poem: poem4
-}, {
+}]
+
+const blogTheme = {
   musicPlayerBg: '#c2c2c2',
   musicPlayerColor: '#fff',
   musicPlayerStatus: 'spread',
-}]
+  musicPlayerType: 'hide'
+}
 
 export const Theme = theme
+export const BlogTheme = blogTheme

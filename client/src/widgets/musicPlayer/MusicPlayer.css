@@ -4,8 +4,9 @@
   height: 80px;
   color: #fff;
   z-index: 20;
-  transition: all 1s linear;
+  transition: all .8s cubic-bezier(0, 1.05, 0.38, 1.13);;
   box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  padding-left: 20px;
 }
 .cover {
   position: relative;
@@ -145,4 +146,10 @@
   height: 10px;
   border-top: 1px solid #fff;
   border-right: 1px solid #fff;
+}
+/* mini player */
+.mini-player {
+  position: fixed;
+  left: 0;
+  bottom: 10%;
 }
