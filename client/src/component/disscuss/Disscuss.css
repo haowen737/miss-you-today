@@ -1,0 +1,69 @@
+.disscuss-layout {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.disscuss-header {
+  margin-top: 30px;
+}
+.disscuss-header h1 {
+  display: block;
+  font-size: 2rem;
+  line-height: 4rem;
+  text-align: center;
+  color: rgba(0,0,0,0.1);
+}
+.disscuss-nav a {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #666;
+  padding: 20px;
+}
+.disscuss-header nav {
+  text-align: center;
+}
+.disscuss-add {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  background-color: rgb(176, 226, 255);
+}
+.disscuss-add {
+
+}
+.discuss-list li {
+  position: relative;
+  margin: 20px;
+  padding: 10px 20px;
+}
+.discuss-list li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0,0,0,0.1);
+  transform: scaleY(.5);
+}
+.disscuss-name {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #333;
+}
+.disscuss-content {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #333;
+}
+/* 表单 */
+.disscuss-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 100;
+}

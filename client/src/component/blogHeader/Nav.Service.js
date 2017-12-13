@@ -13,7 +13,7 @@ export default [
   },
   {
     name: '留言',
-    to: '/reply'
+    to: '/discuss'
   },
   {
     name: '关于我',
