@@ -5,6 +5,7 @@ html {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 ul {
   list-style-type: none;

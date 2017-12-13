@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Transition, TransitionGroup } from 'react-transition-group'
-import Axios from 'axios'
 import { connect } from 'react-redux'
+import Axios from 'axios'
 
 import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
@@ -12,7 +12,7 @@ import { themeChange } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
 
 import './Disscuss.css'
-import { defaultStyle, transitionStyles } from './../blogTags/TransitionConfig'
+import { defaultStyle, transitionStyles } from './TransitionConfig'
 
 const DisscussItem = ({ children, index }) => {
   return (
@@ -31,9 +31,11 @@ const DisscussItem = ({ children, index }) => {
   )
 }
 
-const DisscussAdd = ({ onClickAdd }) => {
+const DisscussAdd = ({ onClickAdd, formIn }) => {
   return (
-    <a className="disscuss-add" onClick={onClickAdd}></a>
+    <a style={formIn ? {transform: `translate3d(0, 100px, 0)`} : {}}
+    className="disscuss-add"
+    onClick={onClickAdd}></a>
   )
 }
 
@@ -41,7 +43,8 @@ class Disscuss extends Component {
   constructor () {
     super()
     this.state = {
-      disscussList: []
+      disscussList: [],
+      formIn: true
     }
   }
   componentDidMount () {
@@ -49,7 +52,7 @@ class Disscuss extends Component {
     this.getDisscuss()
   }
   onClickAdd () {
-    console.log('click add')
+    this.setState({ formIn: true })
   }
   getDisscuss () {
     Axios
@@ -59,17 +62,28 @@ class Disscuss extends Component {
           disscussList: data.reverse()
         })
       })
-      .catch(({data}) => {
-        // this.$warning(data.msg)
+      .catch((err) => {
+        console.log(err)
       })
   }
+  onClickCancel () {
+    this.setState({ formIn: false })
+    console.log('click cancel')
+  }
+  onClickConfirm () {
+    console.log('click confirm')
+  }
   render() {
-    const { disscussList, itemIn } = this.state
+    const { disscussList, itemIn, formIn } = this.state
     return (
       <div className="disscuss-layout">
         <DisscussHeader></DisscussHeader>
-        <DisscussAdd onClickAdd={this.onClickAdd}></DisscussAdd>
-        <DisscussForm onClickAdd={this.onClickAdd}></DisscussForm>
+        <DisscussAdd formIn={formIn} onClickAdd={this.onClickAdd.bind(this)}></DisscussAdd>
+        <DisscussForm
+          formIn={formIn}
+          onClickCancel={this.onClickCancel.bind(this)}
+          onClickConfirm={this.onClickConfirm.bind(this)}
+        ></DisscussForm>
         <ul className="discuss-list">
           {
             disscussList.map((item, i) => (
