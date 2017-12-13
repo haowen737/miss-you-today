@@ -2,31 +2,35 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import { Transition, TransitionGroup } from 'react-transition-group'
 
-const Article = ({ children }) => {
+import { defaultStyle, transitionStyles } from './TransitionConfig'
+
+const Article = ({ children, index, article, articleListIn }) => {
   return (
-    <div>{children}</div>
+    <Transition in={articleListIn} appear={true} timeout={(50 + (50 * index))}>
+    {(state) => (
+      <li 
+      style={{
+        ...defaultStyle,
+        ...{transform: `translate3d(0, -${index * 10}%, 0)`},
+        ...transitionStyles[state]
+      }}>
+        {children}
+      </li>
+    )}
+  </Transition>
   )
 }
-
-const defaultStyle = {
-  transition: `all 600ms ease-in-out`,
-  transform: `translate3d(-20px, 0, 0)`,
-  opacity: 0,
-}
-
-const transitionStyles = {
-  entering: { opacity: 0, transform: `translate3d(-20px, 0, 0)` },
-  entered:  { opacity: 1, transform: `translate3d(-50px, 0, 0)` },
-};
 
 export default class ArticleList extends Component {
   constructor () {
     super()
     this.state = {
-      articleList: []
+      articleList: [],
+      articleListIn: false
     }
   }
   componentWillReceiveProps ({ activeTag }) {
+    this.setState({ articleListIn: false })
     this.getArticles(activeTag)
   }
   getArticles (activeTag) {
@@ -34,30 +38,27 @@ export default class ArticleList extends Component {
       .get('/api/article/getTags/' + activeTag)
       .then(({ data }) => {
         this.setState({ articleList: data })
+        setTimeout(() => {
+          this.setState({ articleListIn: true })
+        }, 600);
       })
       .catch((err) => {
         console.log(err)
       })
   }
   render() {
-    const { articleList } = this.state
-    const { activeTag } = this.props
+    const { articleList, articleListIn } = this.state
+    console.log(articleListIn)
     return (
       <div className="article-list-container">
-        <Transition in={true} appear={true} timeout={600}>
-          {
-            (state) => (
-              <header style={{
-                ...defaultStyle,
-                ...transitionStyles[state]
-              }}>{ activeTag }</header>
-            )
-          }
-        </Transition>
         <ul className="article-list">
           {
-            articleList.map((article) => (
-              <Article>
+            articleList.map((article, i) => (
+              <Article
+              key={i}
+              article={article}
+              articleListIn={articleListIn}
+              index={i}>
                 <div className="article-card clearfix">
                   <div className="article-left">
                     <p>{article.created_at}</p>

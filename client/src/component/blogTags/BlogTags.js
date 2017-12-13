@@ -4,20 +4,11 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 
 import ArticleList from './ArticleList'
 
+import { defaultStyle, transitionStyles, defaultHeaderStyle, transitionHeaderStyles } from './TransitionConfig'
+
 import './BlogTags.css'
 
-const defaultStyle = {
-  transition: `all 300ms ease`,
-  opacity: 0
-}
-
-const transitionStyles = {
-  entering: { opacity: 0, transform: `translate3d(0, -30%, 0)` },
-  entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
-}
-
 const Tag = ({ children, index, tag, activeTag, onClickTag }) => {
-  console.log(activeTag)
   return (
     <Transition in={true} appear={true} timeout={(50 + (50 * index))}>
     {(state) => (
@@ -41,7 +32,8 @@ export default class BlogTags extends Component {
     super()
     this.state = {
       tags: [],
-      activeTag: ''
+      activeTag: '',
+      activeTagIn: true
     }
   }
   componentWillMount () {
@@ -61,10 +53,14 @@ export default class BlogTags extends Component {
       })
   }
   onClickTag (tag) {
-    this.setState({ activeTag: tag })
+    // 首先清空activeTag，触发离场动画
+    this.setState({ activeTagIn: false })
+    setTimeout(() => {
+      this.setState({ activeTag: tag, activeTagIn: true })
+    }, 400)
   }
   render() {
-    const { tags, activeTag } = this.state
+    const { tags, activeTag, activeTagIn } = this.state
     return (
       <div className="tags-container">
         <ul className="tags-list">
@@ -82,6 +78,18 @@ export default class BlogTags extends Component {
               }
             </TransitionGroup>
         </ul>
+        <Transition in={activeTagIn} appear={true} timeout={300}>
+          {
+            (state) => (
+              <header
+              className="article-list-header"
+              style={{
+                ...defaultHeaderStyle,
+                ...transitionHeaderStyles[state]
+              }}>{ activeTag }</header>
+            )
+          }
+        </Transition>
         <ArticleList activeTag={activeTag}></ArticleList>
       </div>
     )
