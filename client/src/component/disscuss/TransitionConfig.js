@@ -27,6 +27,36 @@ export const transitionFormStyles = {
   }
 }
 
+export const defaultFormInnerStyle = {
+  transition: `all 600ms cubic-bezier(0.04, 0.35, 0.19, 1.01)`,
+  opacity: 0,
+  transform: `translate3d(0, 0, 0)`,
+  zIndex: -1
+}
+
+export const transitionFormInnerStyles = {
+  entering: {
+    opacity: 0,
+    transform: `translate3d(-20px, 0, 0)`,  
+    zIndex: 100
+  },
+  entered: {
+    opacity: 1,
+    transform: `translate3d(0, 0, 0)`,  
+    zIndex: 100
+  },
+  exiting: {
+    opacity: 1,
+    transform: `translate3d(0, 0, 0)`,  
+    zIndex: 100
+  },
+  exited: {
+    opacity: 0,
+    transform: `translate3d(20px, 0, 0)`,
+    zIndex: -1
+  }
+}
+
 export const defaultStyle = {
   transition: `all 300ms ease`,
   opacity: 0

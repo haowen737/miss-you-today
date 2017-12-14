@@ -1,33 +1,21 @@
 import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
+import Axios from 'axios'
 
-import { defaultFormStyle, transitionFormStyles } from './TransitionConfig'
+import { defaultFormStyle, transitionFormStyles, transitionFormInnerStyles, defaultFormInnerStyle } from './TransitionConfig'
 
-const CancelButton = ({ onClick }) => (
-  <a onClick={onClick}>取消</a>
-)
-
-const NextButton = ({ onClick }) => (
-  <a onClick={onClick}>下一步</a>
-)
-
-const ConfirmButton = ({ onClick }) => (
-  <a onClick={onClick}>写好了</a>
-)
- 
-const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext }) => (
-  <div className="button-group">
-  {
-    onClickConfirm ? (
-      <ConfirmButton onClick={onClickConfirm}></ConfirmButton>
-    ) : (
-      <div>
-        <CancelButton onClick={onClickCancel}></CancelButton>
-        <NextButton onClick={onClickNext}></NextButton>
-      </div>
-    )
-  }
-  </div>
+const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext, onClickBack }) => (
+  onClickConfirm ? (
+    <div className="button-group">
+      <a onClick={onClickCancel}>我不想写了</a>
+      <a onClick={onClickConfirm}>写好了</a>
+    </div>
+  ) : (
+    <div className="button-group">
+      <a onClick={onClickCancel}>我不想写了</a>
+      <a onClick={onClickNext}>然后</a>
+    </div>
+  )
 )
 
 const MailInput = ({ value, handleChange }) => (
@@ -48,10 +36,11 @@ const NameInput = ({ value, handleChange }) => (
 
 const ContentInput = ({ value, handleChange }) => (
   <textarea
-  value={value}
-  onChange={handleChange}
-  placeholder="在这里写留言😘"
-  autoFocus />
+    value={value}
+    onChange={handleChange}
+    placeholder="在这里写留言😘"
+    autoFocus
+  />
 )
 
 export default class DisscussForm extends Component {
@@ -61,7 +50,8 @@ export default class DisscussForm extends Component {
       textareaValue: '',
       mail: '',
       username: '',
-      isContentFilled: false
+      isContentFilled: false,
+      formType: -1// 0：输入留言内容, 1: 输入留言人信息
     }
   }
   componentWillReceiveProps ({ formIn }) {
@@ -82,19 +72,41 @@ export default class DisscussForm extends Component {
   onClickNext () {
     const { textareaValue } = this.state
     if (textareaValue) {
-      this.setState({ isContentFilled: true })
+      this.formTypeChange(1)
       // 加载用户名输入的form
     }
   }
+  onClickBack () {
+    this.formTypeChange(0)
+  }
+  formTypeChange (type) {
+    this.setState({ formType: -1 })
+    setTimeout(() => {
+      this.setState({ isContentFilled: true, formType: type })
+    }, 600);
+  }
   onClickConfirm () {
     const { textareaValue, username, mail } = this.state
+    Axios
+      .post('/api/comment/addComment', {
+        userName: username,
+        content: textareaValue,
+        mail: mail
+      })
+      .then((res) => {
+        this.props.onFormSent()
+        this.props.onClickCancel()
+      })
+      .catch((err) => {
+        // this.$warning(err.msg)
+      })
     console.log(textareaValue, username, mail)
   }
   render() {
     const { onClickCancel, formIn } = this.props
-    const { textareaValue, isContentFilled, mail, username } = this.state
+    const { textareaValue, isContentFilled, mail, username, formType } = this.state
     return (
-      <Transition in={formIn} appear={true} timeout={300}>
+      <Transition in={formIn} appear={true} timeout={300} onEntered={() => this.setState({formType: 0})}>
       {
         (state) => (
           <div className="disscuss-form-container"
@@ -103,33 +115,56 @@ export default class DisscussForm extends Component {
             ...transitionFormStyles[state]
           }}>
             <div className="disscuss-form">
-              {
-                isContentFilled ? (
-                  <div>
-                    <MailInput
-                      handleChange={this.handleMailChange.bind(this)}
-                      value={mail}
-                    />
-                    <NameInput
-                      handleChange={this.handleNameChange.bind(this)}
-                      value={username}
-                    />
-                    <ButtonGroup
-                      onClickConfirm={this.onClickConfirm.bind(this)}
-                    />
-                  </div>
-                ) : (
-                  <div>
-                    <ContentInput
-                      handleChange={this.handleTextareaChange.bind(this)}
-                      value={textareaValue} />
-                    <ButtonGroup
-                      onClickCancel={onClickCancel}
-                      onClickNext={this.onClickNext.bind(this)}
-                    />
-                  </div>
-                )
-              }
+            {
+              isContentFilled ? (
+                <Transition in={formType === 1} appear={true} timeout={300}>
+                {
+                  (state) => (
+                    <div
+                    className="disscuss-form-inner"
+                    style={{
+                      ...defaultFormInnerStyle,
+                      ...transitionFormInnerStyles[state]
+                    }}>
+                      <MailInput
+                        handleChange={this.handleMailChange.bind(this)}
+                        value={mail}
+                      />
+                      <NameInput
+                        handleChange={this.handleNameChange.bind(this)}
+                        value={username}
+                      />
+                      <ButtonGroup
+                        onClickConfirm={this.onClickConfirm.bind(this)}
+                        onClickCancel={onClickCancel}
+                      />
+                    </div>
+                  )
+                }
+                </Transition>
+              ) : (
+                <Transition in={formType === 0} appear={true} timeout={300}>
+                {
+                  (state) => (
+                    <div
+                    className="disscuss-form-inner"
+                    style={{
+                      ...defaultFormInnerStyle,
+                      ...transitionFormInnerStyles[state]
+                    }}>
+                      <ContentInput
+                        handleChange={this.handleTextareaChange.bind(this)}
+                        value={textareaValue} />
+                      <ButtonGroup
+                        onClickCancel={onClickCancel}
+                        onClickNext={this.onClickNext.bind(this)}
+                      />
+                    </div>
+                  )
+                }
+                </Transition>
+              )
+            }
             </div>
           </div>
         )

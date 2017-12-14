@@ -44,7 +44,7 @@ class Disscuss extends Component {
     super()
     this.state = {
       disscussList: [],
-      formIn: true
+      formIn: false
     }
   }
   componentDidMount () {
@@ -58,9 +58,7 @@ class Disscuss extends Component {
     Axios
       .get('/api/comment/getComments')
       .then(({ data }) => {
-        this.setState({
-          disscussList: data.reverse()
-        })
+        this.setState({ disscussList: data.reverse(), formIn: false })
       })
       .catch((err) => {
         console.log(err)
@@ -81,6 +79,7 @@ class Disscuss extends Component {
         <DisscussAdd formIn={formIn} onClickAdd={this.onClickAdd.bind(this)}></DisscussAdd>
         <DisscussForm
           formIn={formIn}
+          onFormSent={this.getDisscuss.bind(this)}
           onClickCancel={this.onClickCancel.bind(this)}
           onClickConfirm={this.onClickConfirm.bind(this)}
         ></DisscussForm>

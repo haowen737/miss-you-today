@@ -33,8 +33,12 @@ class Greet extends Component {
       }
     })
   }
+  rd (n, m){
+    let c = m - n + 1  
+    return Math.floor(Math.random() * c + n)
+  }
   emitThemeChange (index) {
-    const hero = Theme[index || 0]
+    const hero = Theme[index || this.rd(0, 3)]
     this.props.themeChange(hero)
   }
   render() {
