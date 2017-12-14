@@ -95,7 +95,6 @@ export default class DisscussForm extends Component {
       })
       .then((res) => {
         this.props.onFormSent()
-        this.props.onClickCancel()
       })
       .catch((err) => {
         // this.$warning(err.msg)
