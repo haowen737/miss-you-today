@@ -2,8 +2,9 @@ const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
 
-const api = require('./routes/api');
+// router.use('/api', api.routes(), api.allowedMethods());
 
-router.use('/api', api.routes(), api.allowedMethods());
+// app.use(response_formatter('^/api'));
+app.use(require('koa-static')(__dirname + '/client/build'));
 
-app.listen(3000);
+app.listen(3302);
