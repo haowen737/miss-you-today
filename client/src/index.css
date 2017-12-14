@@ -1,3 +1,7 @@
+@font-face {
+  font-family: slim-joe;
+  src: url('./resource/slim-joe.otf');
+}
 html,body,h1,h2,h3,h4,h5,h6,div,ul,li,p{margin:0;padding:0;}
 header,footer,section,article,aside,nav{display:block;}
 html {
@@ -13,7 +17,6 @@ ul {
 body {
   margin: 0;
   padding: 0;
-  font-family: ;
   font-family:'HelveticaNeueda58208fb1a95c', sans-serif;
 }
 .clearfix {
