@@ -30,7 +30,7 @@ export default class GreetContent extends Component {
   }
   pen (name) {
     let index = 0
-    let spacing = Math.random() * 120 + 80
+    let spacing = Math.random() * 120 + 50
     if (!name) { return }
     this.penSelf = setInterval(() => {
       ++index
@@ -48,7 +48,7 @@ export default class GreetContent extends Component {
     const { currName } = this.state
     return new Promise((resolve) => {
       if (currName) {
-        let spacing = Math.random() * 120 + 80
+        let spacing = Math.random() * 120 + 50
         let index = this.state.currName.length
         this.ereaseSelf = setInterval(() => {
           --index

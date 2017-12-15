@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import GreetContent from './../greetContent/GreetContent'
 import GreetFlower from './../greetFlower/GreetFlower'
-import GreetHeader from './../greetHeader/GreetHeader';
+import GreetHeader from './../greetHeader/GreetHeader'
+import SocialLinkList from './SocialLinkList'
 
 import { themeChange } from './../../actions'
 import { Theme } from './../../Hero.service'
@@ -55,6 +56,7 @@ class Greet extends Component {
           <GreetContent
           theme={theme}
           ref={(c) => { this.greetContent = c; }}></GreetContent>
+          <SocialLinkList theme={theme}></SocialLinkList>
         </div>
       </div>
     )
