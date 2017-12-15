@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+
+import Disscuss from './../disscuss/Disscuss'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog'
 import Me from './../me/Me'
-import Disscuss from './../disscuss/Disscuss'
-import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
-import { Route, Switch } from 'react-router-dom'
+import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import './App.css'
 

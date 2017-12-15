@@ -8,11 +8,10 @@ import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
 
 import { themeChange } from './../../actions'
-
 import { BlogTheme } from './../../Hero.service'
+import { defaultStyle, transitionStyles } from './TransitionConfig'
 
 import './Disscuss.css'
-import { defaultStyle, transitionStyles } from './TransitionConfig'
 
 const DisscussItem = ({ children, index }) => {
   return (
@@ -21,8 +20,8 @@ const DisscussItem = ({ children, index }) => {
         <li 
         style={{
           ...defaultStyle,
-          ...{transform: `translate3d(0, -${index * 10}%, 0)`},
-          ...transitionStyles[state]
+          ...transitionStyles[state],
+          ...{transform: `translate3d(0, -${index * 10}%, 0)`}
         }}>
           {children}
         </li>
@@ -66,7 +65,6 @@ class Disscuss extends Component {
   }
   onClickCancel () {
     this.setState({ formIn: false })
-    console.log('click cancel')
   }
   onClickConfirm () {
     console.log('click confirm')
@@ -78,10 +76,10 @@ class Disscuss extends Component {
         <DisscussHeader></DisscussHeader>
         <DisscussAdd formIn={formIn} onClickAdd={this.onClickAdd.bind(this)}></DisscussAdd>
         <DisscussForm
-          formIn={formIn}
-          onFormSent={this.getDisscuss.bind(this)}
-          onClickCancel={this.onClickCancel.bind(this)}
-          onClickConfirm={this.onClickConfirm.bind(this)}
+        formIn={formIn}
+        onFormSent={this.getDisscuss.bind(this)}
+        onClickCancel={this.onClickCancel.bind(this)}
+        onClickConfirm={this.onClickConfirm.bind(this)}
         ></DisscussForm>
         <ul className="discuss-list">
           {

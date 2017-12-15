@@ -21,6 +21,33 @@ const Article = ({ children, index, article, articleListIn }) => {
   )
 }
 
+const ListSelf = ({ articleList, articleListIn }) => (
+  <ul className="article-list">
+  {
+    articleList.map((article, i) => (
+      <Article
+      key={i}
+      article={article}
+      articleListIn={articleListIn}
+      index={i}>
+        <div className="article-card clearfix">
+          <div className="article-left">
+            <p>{article.created_at}</p>
+          </div>
+          <div className="article-right">
+            <h2>{article.title}</h2>
+          </div>
+        </div>
+      </Article>
+    ))
+  }
+  </ul>
+)
+
+const EmptyList = () => (
+  <div>这是空</div>
+)
+
 export default class ArticleList extends Component {
   constructor () {
     super()
@@ -48,29 +75,13 @@ export default class ArticleList extends Component {
   }
   render() {
     const { articleList, articleListIn } = this.state
-    console.log(articleListIn)
     return (
       <div className="article-list-container">
-        <ul className="article-list">
-          {
-            articleList.map((article, i) => (
-              <Article
-              key={i}
-              article={article}
-              articleListIn={articleListIn}
-              index={i}>
-                <div className="article-card clearfix">
-                  <div className="article-left">
-                    <p>{article.created_at}</p>
-                  </div>
-                  <div className="article-right">
-                    <h2>{article.title}</h2>
-                  </div>
-                </div>
-              </Article>
-            ))
-          }
-        </ul>
+      {
+        articleList.length
+        ? <ListSelf articleList={articleList} articleListIn={articleListIn} />
+        : <EmptyList />
+      }
       </div>
     )
   }

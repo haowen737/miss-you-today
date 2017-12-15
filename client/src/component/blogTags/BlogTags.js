@@ -37,9 +37,9 @@ export default class BlogTags extends Component {
     }
   }
   componentWillMount () {
-    this.getTags()
+    this.getTagList()
   }
-  getTags () {
+  getTagList () {
     Axios
       .get('/api/article/getTags')
       .then(({ data }) => {
