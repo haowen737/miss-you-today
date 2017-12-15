@@ -58,7 +58,7 @@ export default class ArticleList extends Component {
   }
   componentWillReceiveProps ({ activeTag }) {
     this.setState({ articleListIn: false })
-    // this.getArticles(activeTag)
+    this.getArticles(activeTag)
   }
   getArticles (activeTag) {
     Axios
