@@ -6,7 +6,7 @@ export default class SocialLinkList extends Component {
   }
   onClickSocial (i) {
     const targets = [
-      'http://weibo.com/311170900/',
+      'https://weibo.com/311170900/',
       'https://zhuanlan.zhihu.com/fe-sketch',
       'https://github.com/haowen737',
       'https://www.instagram.com/hi_haowen/',
