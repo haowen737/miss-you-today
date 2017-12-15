@@ -5,41 +5,45 @@ import Axios from 'axios'
 import { defaultFormStyle, transitionFormStyles, transitionFormInnerStyles, defaultFormInnerStyle } from './TransitionConfig'
 
 const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext, onClickBack }) => (
-  onClickConfirm ? (
     <div className="button-group">
-      <a onClick={onClickCancel}>我不想写了</a>
-      <a onClick={onClickConfirm}>写好了</a>
+    {
+      onClickConfirm ? (
+        <React.Fragment>
+          <a onClick={onClickCancel}>我不想写了</a>
+          <a onClick={onClickConfirm}>写好了</a>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <a onClick={onClickCancel}>我不想写了</a>
+          <a onClick={onClickNext}>然后</a>
+        </React.Fragment>
+      )
+    }
     </div>
-  ) : (
-    <div className="button-group">
-      <a onClick={onClickCancel}>我不想写了</a>
-      <a onClick={onClickNext}>然后</a>
-    </div>
-  )
 )
 
 const MailInput = ({ value, handleChange }) => (
   <input
-    placeholder="在这里写你的邮箱📮"
-    value={value}
-    onChange={handleChange}
-    autoFocus
+  placeholder="在这里写你的邮箱📮"
+  value={value}
+  onChange={handleChange}
+  autoFocus
   />
 )
 const NameInput = ({ value, handleChange }) => (
   <input
-    placeholder="在这里写你的称呼🤗"
-    value={value}
-    onChange={handleChange}
+  placeholder="在这里写你的称呼🤗"
+  value={value}
+  onChange={handleChange}
   />
 )
 
 const ContentInput = ({ value, handleChange }) => (
   <textarea
-    value={value}
-    onChange={handleChange}
-    placeholder="在这里写留言😘"
-    autoFocus
+  value={value}
+  onChange={handleChange}
+  placeholder="在这里写你要说的话😘"
+  autoFocus
   />
 )
 
@@ -126,16 +130,16 @@ export default class DisscussForm extends Component {
                       ...transitionFormInnerStyles[state]
                     }}>
                       <MailInput
-                        handleChange={this.handleMailChange.bind(this)}
-                        value={mail}
+                      handleChange={this.handleMailChange.bind(this)}
+                      value={mail}
                       />
                       <NameInput
-                        handleChange={this.handleNameChange.bind(this)}
-                        value={username}
+                      handleChange={this.handleNameChange.bind(this)}
+                      value={username}
                       />
                       <ButtonGroup
-                        onClickConfirm={this.onClickConfirm.bind(this)}
-                        onClickCancel={onClickCancel}
+                      onClickConfirm={this.onClickConfirm.bind(this)}
+                      onClickCancel={onClickCancel}
                       />
                     </div>
                   )
@@ -152,11 +156,11 @@ export default class DisscussForm extends Component {
                       ...transitionFormInnerStyles[state]
                     }}>
                       <ContentInput
-                        handleChange={this.handleTextareaChange.bind(this)}
-                        value={textareaValue} />
+                      handleChange={this.handleTextareaChange.bind(this)}
+                      value={textareaValue} />
                       <ButtonGroup
-                        onClickCancel={onClickCancel}
-                        onClickNext={this.onClickNext.bind(this)}
+                      onClickCancel={onClickCancel}
+                      onClickNext={this.onClickNext.bind(this)}
                       />
                     </div>
                   )

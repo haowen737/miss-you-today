@@ -6,6 +6,7 @@ import Axios from 'axios'
 
 import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
+import DisscussReply from './DisscussReply'
 
 import { themeChange } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
@@ -18,10 +19,11 @@ const DisscussItem = ({ children, index }) => {
     <Transition in={true} appear={true} timeout={(50 + (50 * index))}>
       {(state) => (
         <li
+        className="disscuss-item"
         style={{
           ...defaultStyle,
           ...transitionStyles[state],
-          ...{transform: `translate3d(0, -${index * 10}%, 0)`}
+          ...{transformDuration: `${index * 10 + 100}ms`}
         }}>
           {children}
         </li>
@@ -29,6 +31,28 @@ const DisscussItem = ({ children, index }) => {
     </Transition>
   )
 }
+
+const DisscussItemChild = ({ children }) => (
+  <ul className="disscuss-children">
+    {
+      children.map((child, index) => (
+        <Transition in={true} appear={true} timeout={(400 + (50 * index))}>
+          {(state) => (
+            <li
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+              ...{transformDuration: `${index * 10 + 100}ms`}
+            }}>
+              <span className="disscuss-children-name">{child.user_name}: </span>
+              {child.content}
+            </li>
+          )}
+        </Transition>
+      ))
+    }
+  </ul>
+)
 
 const DisscussAdd = ({ onClickAdd, formIn }) => {
   return (
@@ -69,8 +93,16 @@ class Disscuss extends Component {
   onClickConfirm () {
     console.log('click confirm')
   }
+  onClickShowReply (item, i, disscussList) {
+    disscussList[i].showReply = item.showReply ? false : true
+    this.setState({ disscussList })
+  }
+  onReplySent () {
+    console.log('发送成功')
+    this.getDisscuss()
+  }
   render() {
-    const { disscussList, itemIn, formIn } = this.state
+    const { disscussList, itemIn, formIn, replyValue } = this.state
     return (
       <div className="disscuss-layout">
         <DisscussHeader></DisscussHeader>
@@ -83,15 +115,29 @@ class Disscuss extends Component {
         ></DisscussForm>
         <ul className="discuss-list">
           {
-            disscussList.map((item, i) => (
-              <DisscussItem
-              key={i}
-              item={item}
-              itemIn={itemIn}
-              index={i}>
-                <p className="disscuss-name">{item.user_name}</p>
-                <h2 className="disscuss-content">{item.content}</h2>
-              </DisscussItem>
+            disscussList.map((item, i, disscussList) => (
+              <React.Fragment key={i}>
+                <DisscussItem
+                item={item}
+                itemIn={itemIn}
+                index={i}>
+                  <p className="disscuss-name">@&nbsp;{item.user_name}</p>
+                  <h2 className="disscuss-content">{item.content}</h2>
+                  <a className="discuss-reply" onClick={this.onClickShowReply.bind(this, item, i, disscussList)}>回复</a>
+                </DisscussItem>
+                {
+                  item.children.length
+                  ? <DisscussItemChild children={item.children} />
+                  : null
+                }
+                {
+                  item.showReply
+                  && <DisscussReply
+                  onClickCancel={this.onClickShowReply.bind(this, item, i, disscussList)}
+                  onReplySent={this.onReplySent.bind(this)}
+                  item={item} />
+                }
+              </React.Fragment>
             ))
           }
         </ul>

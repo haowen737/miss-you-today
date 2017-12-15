@@ -8,6 +8,7 @@ import BlogArticles from './../blogArticles/BlogArticles'
 import BlogArticle from './../blogArticle/BlogArticle'
 import BlogTags from './../blogTags/BlogTags'
 import BlogHeader from './../blogHeader/BlogHeader'
+import BlogCollect from './../blogCollect/BlogCollect'
 
 import { BlogTheme } from './../../Hero.service'
 
@@ -26,6 +27,7 @@ class Blog extends Component {
             <Route path="/blog" exact component={BlogArticles} />
             <Route path="/blog/tags" exact component={BlogTags} />
             <Route path="/blog/article" component={BlogArticle} />
+            <Route path="/blog/collect" exact component={BlogCollect} />
           </Switch>
         </div>
       </div>

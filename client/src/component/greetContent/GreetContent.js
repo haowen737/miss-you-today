@@ -28,45 +28,51 @@ export default class GreetContent extends Component {
   componentWillUnmount () {
     this.endWriteName()
   }
-  pen (name) {
-    let index = 0
+  pen (nextName) {
+    let index = 1
     let spacing = Math.random() * 120 + 50
-    if (!name) { return }
+    if (!nextName) { return }
     this.penSelf = setInterval(() => {
-      ++index
-      this.setState(prev => ({
-        penIsWriting: true,
-        currName: name.slice(0, index)
-      }))
-      if (index === name.length) { 
-        this.setState({ penIsWriting: false })
-        clearInterval(this.penSelf)
-      }
+      this.executePen(index, nextName)
+      index++
     }, spacing)
+  }
+  executePen (index, nextName) {
+    this.setState(prev => ({
+      penIsWriting: true,
+      currName: nextName.slice(0, index)
+    }))
+    if (index === nextName.length) { 
+      this.setState({ penIsWriting: false })
+      clearInterval(this.penSelf)
+    }
   }
   erease () {
     const { currName } = this.state
     return new Promise((resolve) => {
       if (currName) {
-        let spacing = Math.random() * 120 + 50
-        let index = this.state.currName.length
-        this.ereaseSelf = setInterval(() => {
-          --index
-          this.setState(prev => ({
-            penIsWriting: true,
-            currName: prev.currName.slice(0, index)
-          }))
-          if (index === 0) {
-            resolve()
-            this.setState({ penIsWriting: true })
-            clearInterval(this.ereaseSelf)
-          }
-        }, spacing)
+        this.executeErease(resolve, currName)
       } else { resolve() }
     })
   }
-  startRewriteName (currName, name) {
-    this.erease().then(() => { this.pen(name) })
+  executeErease (resolve, currName) {
+    let spacing = Math.random() * 120 + 50
+    let index = currName.length
+    this.ereaseSelf = setInterval(() => {
+      --index
+      this.setState(prev => ({
+        penIsWriting: true,
+        currName: prev.currName.slice(0, index)
+      }))
+      if (index === 0) {
+        resolve()
+        this.setState({ penIsWriting: true })
+        clearInterval(this.ereaseSelf)
+      }
+    }, spacing)
+  }
+  startRewriteName (currName, nextName) {
+    this.erease().then(() => { this.pen(nextName) })
   }
   endWriteName (currName, name) {
     this.setState({ writingActive: false })
