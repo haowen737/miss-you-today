@@ -37,8 +37,8 @@ const renderDefaultStyle = (i) => {
 const renderTransitionStyles = (i) => {
   ++i
   const entering = { opacity: 0, transform: `translateX(-10%)` }
-  const entered = { opacity: 1 - 0.2 * i, transform: `translateX(0)` }
-  const exiting = { opacity: 1 - 0.2 * i, transform: `translateX(0%)` }
+  const entered = { opacity: 1 - 0.1 * i, transform: `translateX(0)` }
+  const exiting = { opacity: 1 - 0.1 * i, transform: `translateX(0%)` }
   const exited = { opacity: 0, transform: `translateX(10%)` }
   return {
     entering,

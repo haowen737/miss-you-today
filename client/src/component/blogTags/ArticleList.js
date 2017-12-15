@@ -45,7 +45,7 @@ const ListSelf = ({ articleList, articleListIn }) => (
 )
 
 const EmptyList = () => (
-  <div>这是空</div>
+  <div className="empty-list">搜索中...</div>
 )
 
 export default class ArticleList extends Component {
@@ -58,7 +58,9 @@ export default class ArticleList extends Component {
   }
   componentWillReceiveProps ({ activeTag }) {
     this.setState({ articleListIn: false })
-    this.getArticles(activeTag)
+    setTimeout(() => {
+      this.getArticles(activeTag)
+    }, 600)
   }
   getArticles (activeTag) {
     Axios

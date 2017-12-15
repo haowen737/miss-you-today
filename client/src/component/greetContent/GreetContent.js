@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import './GreetContent.css'
 
 const TypeWritter = function ({ color, currName }) {
@@ -6,7 +8,12 @@ const TypeWritter = function ({ color, currName }) {
 }
 
 const StartButton = function ({ color, backgroundColor }) {
-  return <a className="buttonStyle" style={{ color, backgroundColor }}>START A TRIP</a>
+  return <Link
+  to="/blog"
+  className="buttonStyle"
+  style={{ color, backgroundColor }}>
+    START A TRIP
+  </Link>
 }
 
 export default class GreetContent extends Component {
