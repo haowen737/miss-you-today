@@ -58,9 +58,7 @@ export default class ArticleList extends Component {
   }
   componentWillReceiveProps ({ activeTag }) {
     this.setState({ articleListIn: false })
-    setTimeout(() => {
-      this.getArticles(activeTag)
-    }, 600)
+    // this.getArticles(activeTag)
   }
   getArticles (activeTag) {
     Axios

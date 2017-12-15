@@ -98,10 +98,9 @@
   line-height: 20px;
 }
 .empty-list {
-  width: 50px;
-  height: 50px;
+  font-size: 1.3rem;
   border-radius: 100px;
-  color: rgba(182, 182, 182, .1);
+  color: rgba(95, 95, 95, 0.7);
   animation: empty-list-animation 2s ease-in-out infinite;
 }
 @keyframes empty-list-animation {

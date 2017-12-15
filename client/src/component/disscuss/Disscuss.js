@@ -17,7 +17,7 @@ const DisscussItem = ({ children, index }) => {
   return (
     <Transition in={true} appear={true} timeout={(50 + (50 * index))}>
       {(state) => (
-        <li 
+        <li
         style={{
           ...defaultStyle,
           ...transitionStyles[state],
@@ -34,7 +34,7 @@ const DisscussAdd = ({ onClickAdd, formIn }) => {
   return (
     <a style={formIn ? {transform: `translate3d(0, 100px, 0)`} : {}}
     className="disscuss-add"
-    onClick={onClickAdd}></a>
+    onClick={onClickAdd}>留言</a>
   )
 }
 
