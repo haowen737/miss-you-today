@@ -7,8 +7,32 @@ import Axios from 'axios'
 import { themeChange } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
 
+import './SignIn.css'
+
 const SignInHeader = () => (
-  <div>this is sign in</div>
+  <div className="signin-greet">With You Friends</div>
+)
+
+const NavBack = ({ history }) => {
+  return (
+    <a className="signin-navback" onClick={history.goBack}>
+      <i className="iconfont">&#xe608;</i>
+      Back To Review
+    </a>
+  )
+}
+
+const NavNext = () => {
+  return (
+    <a className="signin-navnext">下一步</a>
+  )
+}
+
+const MailInput = () => (
+  <div className="mail-input-container">
+    <i className="iconfont">&#xe69f;</i>
+    <input placeholder="Email"></input>
+  </div>
 )
 
 class SignIn extends Component {
@@ -16,9 +40,14 @@ class SignIn extends Component {
     this.props.themeChange(BlogTheme)
   }
   render() {
+    console.log(this.props)
+    const { history } = this.props
     return (
       <div className="signin-container">
-        <SignInHeader></SignInHeader>
+        <NavBack history={history} />
+        <SignInHeader />
+        <MailInput />
+        <NavNext />
       </div>
     )
   }
