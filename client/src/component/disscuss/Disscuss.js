@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { Transition, TransitionGroup } from 'react-transition-group'
+import { Transition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 
@@ -8,7 +7,7 @@ import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
 import DisscussReply from './DisscussReply'
 
-import { themeChange } from './../../actions'
+import { themeChange, checkUser } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 
@@ -36,7 +35,7 @@ const DisscussItemChild = ({ children }) => (
   <ul className="disscuss-children">
     {
       children.map((child, index) => (
-        <Transition in={true} appear={true} timeout={(400 + (50 * index))}>
+        <Transition key={index} in={true} appear={true} timeout={(400 + (50 * index))}>
           {(state) => (
             <li
             style={{
@@ -75,7 +74,8 @@ class Disscuss extends Component {
     this.getDisscuss()
   }
   onClickAdd () {
-    this.setState({ formIn: true })
+    const { user, history } = this.props
+    user ? this.setState({ formIn: true }) : history.push('/signin')
   }
   getDisscuss () {
     Axios
@@ -147,7 +147,8 @@ class Disscuss extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.theme
+  theme: state.theme,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => {

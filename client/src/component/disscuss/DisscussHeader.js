@@ -34,7 +34,7 @@ export default class DisscussHeader extends Component {
     this.rdSayHi()
   }
   rdSayHi () {
-    this.setState({ greetWord: sayHi[parseInt(Math.random() * 10)] })
+    this.setState({ greetWord: sayHi[parseInt(Math.random() * 10, 10)] })
   }
   render() {
     const { greetWord } = this.state

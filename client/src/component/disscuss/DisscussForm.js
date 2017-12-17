@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Transition, TransitionGroup } from 'react-transition-group'
+import { Transition } from 'react-transition-group'
 import Axios from 'axios'
 
 import { defaultFormStyle, transitionFormStyles, transitionFormInnerStyles, defaultFormInnerStyle } from './TransitionConfig'
