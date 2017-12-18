@@ -16,7 +16,7 @@ const DisscussItem = ({ list, item, itemIndex, onClickReply }) => {
           ...transitionStyles[state],
           ...{transformDuration: `${itemIndex * 10 + 100}ms`}
         }}>
-          <p className="disscuss-name">@&nbsp;{item.nick_name}</p>
+          <p className="disscuss-name">@{item.nick_name}</p>
           <h2 className="disscuss-content">{item.content}</h2>
           <a className="discuss-reply" onClick={() => onClickReply({ list, item, itemIndex })}>回复</a>
         </li>
@@ -55,7 +55,7 @@ const DisscussItemChildUsers = ({ child }) => {
         (child.nick_name !== child.reply_to_name && child.reply_to)
         && (
           <React.Fragment>
-            <span className="disscuss-children-reply">&nbsp;回复&nbsp;</span>
+            <span className="disscuss-children-reply">&nbsp;回复了&nbsp;</span>
             <span className="disscuss-children-name">{child.reply_to_name}</span>
           </React.Fragment>
         )
@@ -86,8 +86,11 @@ export default class DisscussList extends Component {
       })
   }
   onClickShowReply ({ list, item, itemIndex, child }) {
+    console.log('child--->', child, this.props)
+    const { user, history } = this.props
+    !user.id && history.push('/signin')
     list[itemIndex].showReply = true
-    this.setState({ disscussList: list, replyTo: child })
+    this.setState({ disscussList: list, item: item, replyTo: child })
   }
   onClickReplyCancel ({ list, item, itemIndex }) {
     list[itemIndex].showReply = false

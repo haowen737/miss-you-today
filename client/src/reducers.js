@@ -13,13 +13,14 @@ function theme (state = {}, action) {
 
 function user (state = {}, action) {
   let user = window.localStorage.getItem('user')
+  user = user ? JSON.parse(user) : null
   switch (action.type) {
     case UPDATE_USER:
       window.localStorage.setItem('user', JSON.stringify(action.user))
       return action.user
       break
     default:
-      return state.user|| JSON.parse(user || {})
+      return user || state.user || {}
       break
   }
 }

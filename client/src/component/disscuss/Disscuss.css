@@ -102,13 +102,14 @@
 .disscuss-children-name {
   color: #7594B3;
   padding-right: 5px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .disscuss-children-reply {
   padding-right: 5px;
 }
 .disscuss-children-content {
   padding-left: 10px;
+  font-size: 1.1rem;
 }
 /* 回复框 */
 .replydialog-container {
@@ -151,7 +152,7 @@
   margin-right: 10px;
 }
 .replydialog-btn-group a:last-child {
-  background-color: rgb(176, 231, 176);
+  background-color: #fde7ea;
   margin-right: 10px;
 }
 .replydialog-btn-group a {

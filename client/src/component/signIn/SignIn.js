@@ -32,13 +32,13 @@ const Greet = ({ greetIn, user, history }) => {
       <Transition in={greetIn} appear={true} timeout={500}>
       {(state) => (
         <div
-        className="disscuss-item"
+        className="signin-greet-container"
         style={{
           ...defaultStyle,
           ...transitionStyles[state]
         }}>
-          <div className="signin-greet">welcome, {user.nick_name}</div>
-          <a onClick={history.goBack}>Click Here to Return</a>
+          <div className="signin-greet">😌好久不见，{user.nick_name}</div>
+          <a onClick={history.goBack}>点这里可以返回上一个页面</a>
         </div>
       )}
       </Transition>

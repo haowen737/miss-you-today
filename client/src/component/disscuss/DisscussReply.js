@@ -13,8 +13,8 @@ export default class DisscussReply extends Component {
   }
   onReadySendReply () {
     const { replyValue } = this.state
-    const { replyTo, user } = this.props
-    console.log(replyTo, user)
+    const { replyTo, user, item } = this.props
+    console.log(replyTo, user, item)
     if (!replyValue) {
       window.alert('呸！没有输入提交什么表单')
       return
@@ -25,11 +25,10 @@ export default class DisscussReply extends Component {
     }
     this.send({
       content: replyValue,
-      parentId: replyTo.parent_id,
-      replyToUser: replyTo.reply_to,
+      parentId: replyTo ? replyTo.parent_id : item.id,
+      replyToUser: replyTo ? replyTo.user_id : null,
       userId: user.id
     })
-    // this.props.onReadySendReply(replyValue)
   }
   send (data) {
     Axios

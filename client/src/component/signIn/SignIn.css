@@ -147,6 +147,14 @@
   text-align: center;
   animation: signin-mail-input-animation .4s ease-in-out;
 }
+.signin-greet-container {
+  text-align: center;
+  color: #fff;
+}
+.signin-greet-container a {
+  display: block;
+  margin-top: 20px;
+}
 .signin-form-container {
   position: absolute;
   top: 50%;

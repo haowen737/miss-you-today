@@ -31,7 +31,9 @@ class Disscuss extends Component {
   }
   onClickAdd () {
     const { user, history } = this.props
-    user.id ? this.setState({ formIn: true }) : history.push('/signin')
+    user.id
+    ? this.setState({ formIn: true })
+    : history.push('/signin')
   }
   onClickCancel () {
     this.setState({ formIn: false })
@@ -39,17 +41,16 @@ class Disscuss extends Component {
   onClickConfirm () {
     this.setState({ formIn: false })
   }
-  onReplySent () {
-    this.getDisscuss()
-    this.setState({ formIn: false })
-  }
   onFormSent () {
-    console.log('onFormSent!!')
-    this.getDisscuss()
+    this.disscussList.getDisscuss()
+    this.setState({ formIn: false })
+    setTimeout(() => {
+      this.disscussForm.refreshForm()
+    }, 2000)
   }
   render() {
-    const { disscussList, itemIn, formIn, replyValue, replyTo } = this.state
-    const { user } = this.props
+    const { itemIn, formIn, replyValue, replyTo } = this.state
+    const { user, history } = this.props
     return (
       <div className="disscuss-layout">
         <DisscussHeader></DisscussHeader>
@@ -59,10 +60,12 @@ class Disscuss extends Component {
         formIn={formIn}
         onFormSent={this.onFormSent.bind(this)}
         onClickCancel={this.onClickCancel.bind(this)}
-        onClickConfirm={this.onClickConfirm.bind(this)} />
+        onClickConfirm={this.onClickConfirm.bind(this)}
+        ref={form => {this.disscussForm = form}} />
         <DisscussList
         user={user}
-        onReplySent={this.onFormSent.bind(this)} />
+        history={history}
+        ref={list => {this.disscussList = list}} />
       </div>
     )
   }

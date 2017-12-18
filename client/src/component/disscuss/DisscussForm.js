@@ -4,19 +4,13 @@ import Axios from 'axios'
 
 import { defaultFormStyle, transitionFormStyles, transitionFormInnerStyles, defaultFormInnerStyle } from './TransitionConfig'
 
-const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext }) => (
+const ButtonGroup = ({ onClickCancel, onClickNext }) => (
     <div className="button-group">
     {
-      onClickConfirm ? (
-        <React.Fragment>
-          <a onClick={onClickConfirm}>写好了</a>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <a onClick={onClickCancel}>我不想写了</a>
-          <a onClick={onClickNext}>然后</a>
-        </React.Fragment>
-      )
+      <React.Fragment>
+        <a onClick={onClickCancel}>我不想写了</a>
+        <a onClick={onClickNext}>然后</a>
+      </React.Fragment>
     }
     </div>
 )
@@ -40,7 +34,7 @@ export default class DisscussForm extends Component {
     this.state = {
       textareaValue: '',
       isContentFilled: false,
-      formType: -1// 0：输入留言内容, 1: 载入中
+      formType: 0// 0：输入留言内容, 1: 载入中
     }
   }
   componentWillReceiveProps ({ formIn }) {
@@ -64,7 +58,7 @@ export default class DisscussForm extends Component {
     setTimeout(() => {
       this.setState({ isContentFilled: true, formType: type })
       this.SendDisscuss()
-    }, 600);
+    }, 600)
   }
   SendDisscuss () {
     const { textareaValue } = this.state
@@ -81,11 +75,15 @@ export default class DisscussForm extends Component {
         // this.$warning(err.msg)
       })
   }
+  refreshForm () {
+    this.setState({ formType: 0,  isContentFilled: false, textareaValue: '' })
+  }
   render() {
-    const { onClickCancel, formIn, onClickConfirm } = this.props
+    const { onClickCancel, formIn } = this.props
     const { textareaValue, isContentFilled, formType } = this.state
+    console.log(formType)
     return (
-      <Transition in={formIn} appear={true} timeout={300} onEntered={() => this.setState({formType: 0})}>
+      <Transition in={formIn} appear={true} timeout={300}>
       {
         (state) => (
           <div className="disscuss-form-container"
@@ -106,10 +104,6 @@ export default class DisscussForm extends Component {
                       ...transitionFormInnerStyles[state]
                     }}>
                       <SendingDisscuss />
-                      <ButtonGroup
-                      onClickConfirm={onClickConfirm}
-                      onClickCancel={onClickCancel}
-                      />
                     </div>
                   )
                 }
