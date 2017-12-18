@@ -3,7 +3,7 @@
  */
 export const THEME_CHANGE = 'THEME_CHANGE'
 
-export const CHECK_USER = 'CHECK_USER'
+export const UPDATE_USER = 'UPDATE_USER'
 
 /*
  * action 创建函数
@@ -13,6 +13,6 @@ export function themeChange (theme) {
   return { type: THEME_CHANGE, theme }
 }
 
-export function checkUser (user) {
-  return { type: CHECK_USER, user }
+export function updateUser (user) {
+  return { type: UPDATE_USER, user }
 }

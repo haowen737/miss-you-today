@@ -46,6 +46,9 @@
   z-index: 100;
   transition: all 500ms cubic-bezier(0.85, 0.02, 0.18, 0.96);
 }
+.discuss-list {
+  font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+}
 .discuss-list>li {
   position: relative;
   margin-top: 20px;
@@ -64,22 +67,22 @@
 .disscuss-name {
   font-size: 1.1rem;
   font-weight: 300;
-  color: #333;
+  color: #7594B3;
 }
 .disscuss-content {
   margin-right: 30px;
   font-size: 1.3rem;
   font-weight: 300;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.7);
 }
 .discuss-reply {
-  opacity: 0;
+  opacity: .3;
   position: absolute;
   right: 0;
   bottom: 0;
   padding: 10px 20px;
-  color: #333;
-  transition: all .6s;
+  color: rgb(36, 36, 36);
+  transition: all .3s;
 }
 .discuss-list li:hover a{
   opacity: 1;
@@ -90,11 +93,22 @@
 .disscuss-children {
   margin-top: 10px;
   padding: 0 30px;
-  color: #444;
+  color: rgb(97, 97, 97);
+}
+.disscuss-children li {
+  padding: 1px 0;
+  line-height: 1.7;
 }
 .disscuss-children-name {
+  color: #7594B3;
+  padding-right: 5px;
   font-size: 1.2rem;
-  font-weight: 600;
+}
+.disscuss-children-reply {
+  padding-right: 5px;
+}
+.disscuss-children-content {
+  padding-left: 10px;
 }
 /* 回复框 */
 .replydialog-container {
@@ -264,5 +278,24 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.disscuss-sending {
+  position: absolute;
+  color: #666;
+  top: 50%;
+  left: 50%;
+  transform: transition(-50%,-50%);
+  animation: disscuss-sending-animation 1.3s linear infinite;
+}
+@keyframes disscuss-sending-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0;
   }
 }

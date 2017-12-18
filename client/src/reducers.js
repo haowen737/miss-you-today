@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import { THEME_CHANGE, CHECK_USER } from './actions'
+import { THEME_CHANGE, UPDATE_USER } from './actions'
 
 function theme (state = {}, action) {
   switch (action.type) {
@@ -12,18 +12,21 @@ function theme (state = {}, action) {
 }
 
 function user (state = {}, action) {
-  const user = window.localStorage.getItem('user')
-  console.log(user)
+  let user = window.localStorage.getItem('user')
   switch (action.type) {
-    case CHECK_USER:
-      return action.user || state
+    case UPDATE_USER:
+      window.localStorage.setItem('user', JSON.stringify(action.user))
+      return action.user
+      break
     default:
-      return action.user || state
+      return state.user|| JSON.parse(user || {})
+      break
   }
 }
 
 const myRedux = combineReducers({
-  theme
+  theme,
+  user
 })
 
 export default myRedux

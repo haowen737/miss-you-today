@@ -4,12 +4,11 @@ import Axios from 'axios'
 
 import { defaultFormStyle, transitionFormStyles, transitionFormInnerStyles, defaultFormInnerStyle } from './TransitionConfig'
 
-const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext, onClickBack }) => (
+const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext }) => (
     <div className="button-group">
     {
       onClickConfirm ? (
         <React.Fragment>
-          <a onClick={onClickCancel}>我不想写了</a>
           <a onClick={onClickConfirm}>写好了</a>
         </React.Fragment>
       ) : (
@@ -22,20 +21,8 @@ const ButtonGroup = ({ onClickConfirm, onClickCancel, onClickNext, onClickBack }
     </div>
 )
 
-const MailInput = ({ value, handleChange }) => (
-  <input
-  placeholder="在这里写你的邮箱📮"
-  value={value}
-  onChange={handleChange}
-  autoFocus
-  />
-)
-const NameInput = ({ value, handleChange }) => (
-  <input
-  placeholder="在这里写你的称呼🤗"
-  value={value}
-  onChange={handleChange}
-  />
+const SendingDisscuss = () => (
+  <div className="disscuss-sending">发送中...</div>
 )
 
 const ContentInput = ({ value, handleChange }) => (
@@ -52,10 +39,8 @@ export default class DisscussForm extends Component {
     super()
     this.state = {
       textareaValue: '',
-      mail: '',
-      username: '',
       isContentFilled: false,
-      formType: -1// 0：输入留言内容, 1: 输入留言人信息
+      formType: -1// 0：输入留言内容, 1: 载入中
     }
   }
   componentWillReceiveProps ({ formIn }) {
@@ -67,12 +52,6 @@ export default class DisscussForm extends Component {
   handleTextareaChange (ev) {
     this.setState({ textareaValue: ev.target.value })
   }
-  handleMailChange (ev) {
-    this.setState({ mail: ev.target.value })
-  }
-  handleNameChange (ev) {
-    this.setState({ username: ev.target.value })
-  }
   onClickNext () {
     const { textareaValue } = this.state
     if (textareaValue) {
@@ -80,22 +59,20 @@ export default class DisscussForm extends Component {
       // 加载用户名输入的form
     }
   }
-  onClickBack () {
-    this.formTypeChange(0)
-  }
   formTypeChange (type) {
     this.setState({ formType: -1 })
     setTimeout(() => {
       this.setState({ isContentFilled: true, formType: type })
+      this.SendDisscuss()
     }, 600);
   }
-  onClickConfirm () {
-    const { textareaValue, username, mail } = this.state
+  SendDisscuss () {
+    const { textareaValue } = this.state
+    const { user } = this.props
     Axios
       .post('/api/comment/addComment', {
-        userName: username,
-        content: textareaValue,
-        mail: mail
+        user,
+        content: textareaValue
       })
       .then((res) => {
         this.props.onFormSent()
@@ -103,11 +80,10 @@ export default class DisscussForm extends Component {
       .catch((err) => {
         // this.$warning(err.msg)
       })
-    console.log(textareaValue, username, mail)
   }
   render() {
-    const { onClickCancel, formIn } = this.props
-    const { textareaValue, isContentFilled, mail, username, formType } = this.state
+    const { onClickCancel, formIn, onClickConfirm } = this.props
+    const { textareaValue, isContentFilled, formType } = this.state
     return (
       <Transition in={formIn} appear={true} timeout={300} onEntered={() => this.setState({formType: 0})}>
       {
@@ -129,16 +105,9 @@ export default class DisscussForm extends Component {
                       ...defaultFormInnerStyle,
                       ...transitionFormInnerStyles[state]
                     }}>
-                      <MailInput
-                      handleChange={this.handleMailChange.bind(this)}
-                      value={mail}
-                      />
-                      <NameInput
-                      handleChange={this.handleNameChange.bind(this)}
-                      value={username}
-                      />
+                      <SendingDisscuss />
                       <ButtonGroup
-                      onClickConfirm={this.onClickConfirm.bind(this)}
+                      onClickConfirm={onClickConfirm}
                       onClickCancel={onClickCancel}
                       />
                     </div>

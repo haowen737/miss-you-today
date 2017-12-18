@@ -11,43 +11,50 @@ export default class DisscussReply extends Component {
   handleReplyChange (ev) {
     this.setState({ replyValue: ev.target.value })
   }
-  onReadySendReply (item) {
+  onReadySendReply () {
     const { replyValue } = this.state
+    const { replyTo, user } = this.props
+    console.log(replyTo, user)
     if (!replyValue) {
-      alert('呸！没有输入提交什么表单')
+      window.alert('呸！没有输入提交什么表单')
+      return
     }
-    this.send(replyValue, item)
+    if (!user || !user.nick_name) {
+      window.alert('need login')
+      return
+    }
+    this.send({
+      content: replyValue,
+      parentId: replyTo.parent_id,
+      replyToUser: replyTo.reply_to,
+      userId: user.id
+    })
     // this.props.onReadySendReply(replyValue)
   }
-  send (val, item) {
+  send (data) {
     Axios
-    .post('/api/comment/reply', {
-      userName: 'test',
-      content: val,
-      parentName: item.user_name,
-      parent_id: item.id
-    })
+    .post('/api/comment/reply', data)
     .then((res) => {
       this.props.onReplySent()
     })
     .catch((err) => {
       // this.$warning(err.msg)
     })
-    console.log(val, item)
   }
   render() {
     const { replyValue } = this.state
-    const { item, onClickCancel, onClickSend } = this.props
+    const { item, onClickCancel, onClickSend, list, itemIndex, replyTo } = this.props
+    console.log(replyTo)
     return (
       <div className="replydialog-container">
         <input
         value={replyValue}
         onChange={this.handleReplyChange.bind(this)}
-        placeholder="添加公开回复"
+        placeholder={`${replyTo ? '@' + replyTo.nick_name : '添加公开回复'}`}
         autoFocus></input>
         <div className="replydialog-btn-group">
-          <a className="replydialog-cancel" onClick={onClickCancel}>取消</a>
-          <a className="replydialog-cancel" onClick={this.onReadySendReply.bind(this, item)}>提交</a>
+          <a className="replydialog-cancel" onClick={() => onClickCancel({ list, item, itemIndex })}>取消</a>
+          <a className="replydialog-cancel" onClick={this.onReadySendReply.bind(this)}>提交</a>
         </div>
       </div>
     )
