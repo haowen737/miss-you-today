@@ -7,6 +7,8 @@
   transition: all .8s cubic-bezier(0.85, 0.02, 0.18, 0.96);
   box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
   padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .cover {
   position: relative;
@@ -153,4 +155,31 @@
   position: fixed;
   left: 0;
   bottom: 10%;
+}
+@media screen and (max-width: 1100px) {
+  .music-player {
+    bottom: 15%;
+  }
+  .content {
+    padding: 5px;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  .cover {
+    animation: none;
+  }
+  .control-play {
+    animation: none;
+  }
+  .content {
+    animation: none;
+  }
+  .title {
+    animation: none;
+  }
+}
+@media screen and (max-width: 320px) {
+  .cover {
+  }
 }
