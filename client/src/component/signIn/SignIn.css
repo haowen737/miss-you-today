@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 510386 */
-  src: url('//at.alicdn.com/t/font_510386_5dce967jkrdd9529.eot');
-  src: url('//at.alicdn.com/t/font_510386_5dce967jkrdd9529.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_510386_5dce967jkrdd9529.woff') format('woff'),
-  url('//at.alicdn.com/t/font_510386_5dce967jkrdd9529.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_510386_5dce967jkrdd9529.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_510386_8yjr7s7dl07ldi.eot');
+  src: url('//at.alicdn.com/t/font_510386_8yjr7s7dl07ldi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_510386_8yjr7s7dl07ldi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_510386_8yjr7s7dl07ldi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_510386_8yjr7s7dl07ldi.svg#iconfont') format('svg');
 }
 .signin-container {
   position: absolute;
@@ -12,17 +12,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-image: -webkit-gradient(linear, left bottom, left top, from(#1c2337), to(#4e5d91)); */
-  /* background-image: -webkit-linear-gradient(top, #1c2337, #4e5d91); */
-  /* background-image: -moz-linear-gradient(top, #1c2337, #4e5d91); */
-  background-image: linear-gradient(to top right, rgb(28, 35, 55), rgb(78, 93, 145));
+  background-color: #fff;
+  /* animation: signin-container-animation 1s linear infinite; */
+  transition: all 1s ease;
+}
+@keyframes signin-container-animation {
+  0% {
+    background-image: linear-gradient(to top right, rgb(60, 60, 60), rgb(183, 183, 183));
+  }
+  100% {
+    background-image: linear-gradient(to top right, rgb(183, 183, 183), rgb(60, 60, 60));
+  }
 }
 .signin-navback:hover i {
   padding: 0px 0px;
 }
 .signin-navback {
   font-size: 1.3rem;
-  color: #fff;
+  color: #333;
   padding: 10px;
   position: absolute;
   left: 20px;
@@ -42,7 +49,7 @@
   height: 50px;
   text-align: center;
   font-size: 2rem;
-  color: rgba(255,255,255,.9);
+  color: #333;
   animation: signin-header-animation .6s ease-in-out;
 }
 .signin-navnext {
@@ -52,7 +59,7 @@
   text-align: center;
   font-size: 1.3rem;
   padding: 10px 0;
-  color: rgba(255,255,255,.9);
+  color: #333;;
   animation: signin-navnext-animation .4s ease-in-out;
 }
 .mail-input-container i {
@@ -68,7 +75,7 @@
   padding-left:0px;
   transition: all .6s linear;
   line-height: 50px;
-  color: rgba(255,255,255,.7);
+  color: #333;
 }
 .mail-input-container {
   position: relative;
@@ -85,19 +92,19 @@
   left: 0px;
   height: 1px;
   width: 100%;
-  background-color: rgba(255,255,255,.7);
+  background-color: #333;
   transform: scaleY(.5);
   /* animation: reply-container-animation 1s cubic-bezier(0.85, 0.02, 0.18, 0.96); */
   transform-origin: left center;
 }
 .mail-input-container input::-webkit-input-placeholder {
-  color: rgba(255,255,255,.3);
+  color: #333;
 }
 .mail-input-container input:-moz-placeholder {
-  color: rgba(255,255,255,.3);
+  color: #333;
 }
 .mail-input-container input:-ms-input-placeholder {
-  color: rgba(255,255,255,.3);
+  color: #333;
 }
 .mail-input-container input {
   width: 100%;
@@ -106,7 +113,7 @@
   text-indent: 40px;
   outline: none;
   border: none;
-  color: #fff;
+  color: #333;
   background: transparent;
 }
 @keyframes signin-header-animation {
@@ -142,14 +149,14 @@
 .signin-greet {
   width: 500px;
   height: 50px;
-  color: #fff;
+  color: #333;
   font-size: 2rem;
   text-align: center;
   animation: signin-mail-input-animation .4s ease-in-out;
 }
 .signin-greet-container {
   text-align: center;
-  color: #fff;
+  color: #333;
 }
 .signin-greet-container a {
   display: block;
@@ -160,4 +167,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.signin-notice {
+  color: #333;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.signin-notice-icon {
+  display: block;
+}
+.signin-notice p {
+  padding: 20px 0;
+}
+.signin-notice a {
+  cursor: pointer;
 }

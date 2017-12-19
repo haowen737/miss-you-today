@@ -26,7 +26,7 @@ export default class SignInForm extends Component {
   constructor () {
     super()
     this.state = {
-      email: 'test2@gmail.com'
+      email: ''
     }
   }
   onEmailChange (ev) {

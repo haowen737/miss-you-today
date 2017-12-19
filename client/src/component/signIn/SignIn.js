@@ -27,7 +27,7 @@ const NavBack = ({ history }) => {
 
 const Greet = ({ greetIn, user, history }) => {
   return (
-    user
+    greetIn
     ? (
       <Transition in={greetIn} appear={true} timeout={500}>
       {(state) => (
@@ -46,11 +46,30 @@ const Greet = ({ greetIn, user, history }) => {
   )
 }
 
+const Notice = ({ onNoticeConfirmed, noticeFormIn }) => (
+  <Transition in={noticeFormIn} appear={true} timeout={500}>
+  {(state) => (
+    <div
+    className="signin-notice"
+    style={{
+      ...defaultStyle,
+      ...transitionStyles[state]
+    }}>
+      <div className="signin-notice-icon">
+        Hi！你好哇，记录一下你的名字才可以继续刚才的动作
+      </div>
+      <p></p>
+      <a onClick={onNoticeConfirmed}>知道啦</a>
+    </div>
+  )}
+  </Transition>
+)
+
 class SignIn extends Component {
   constructor () {
     super()
     this.state = {
-      formType: 'signIn'
+      formType: 'notice'
     }
   }
   componentDidMount () {
@@ -62,6 +81,9 @@ class SignIn extends Component {
     this.setState({ formType: type })
     this.props.updateUser(user)
   }
+  onNoticeConfirmed () {
+    this.setState({ formType: 'signIn' })
+  }
   render() {
     const { formType } = this.state
     const { history, user } = this.props
@@ -71,6 +93,7 @@ class SignIn extends Component {
         <NavBack history={history} />
         <SignInHeader />
         <div className="signin-form-container">
+          <Notice noticeFormIn={formType === 'notice'} onNoticeConfirmed={this.onNoticeConfirmed.bind(this)} />
           <SignInForm signInFormIn={formType === 'signIn'} onFormSubmited={this.onFormSubmited.bind(this)} />
           <SignUpForm signUpFormIn={formType === 'signUp'} user={user} onFormSubmited={this.onFormSubmited.bind(this)} />
           <Greet greetIn={formType === 'greet'} user={user} history={history} />

@@ -1,5 +1,5 @@
 export const defaultStyle = {
-  transition: `all 300ms ease`,
+  transition: `all 500ms ease`,
   transform: `translate3d(0, -30%, 0)`,
   opacity: 0
 }
