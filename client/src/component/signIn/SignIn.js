@@ -12,8 +12,12 @@ import SignUpForm from './SignUpForm'
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import './SignIn.css'
 
-const SignInHeader = () => (
-  <div className="signin-header">With You Friends</div>
+const SignInHeader = ({history, onClickConfirmNotice}) => (
+  <React.Fragment>
+    <div className="signin-header">With You Friends</div>
+    <NavBack history={history} />
+    <Notice onClickConfirmNotice={onClickConfirmNotice} />
+  </React.Fragment>
 )
 
 const NavBack = ({ history }) => {
@@ -24,6 +28,25 @@ const NavBack = ({ history }) => {
     </a>
   )
 }
+
+const Notice = ({ onClickConfirmNotice }) => (
+  <React.Fragment>
+    <a className="signin-notice-btn" onClick={onClickConfirmNotice}>
+      为什么我到了这里？
+    </a>
+    <div className="signin-notice"></div>
+  </React.Fragment>
+)
+
+const NoticeBoard = ({ onClickConfirmNotice, noticeBoardIn }) => (
+  noticeBoardIn ? (
+    <div className="signin-noticeboard">
+      <p>因为刚刚的才做需要留一个名字才能继续</p>
+      <p>因为Withyoufriends想要认识你</p>
+      <a onClick={onClickConfirmNotice}>知道啦</a>
+    </div>
+  ) : null
+)
 
 const Greet = ({ greetIn, user, history }) => {
   return (
@@ -46,30 +69,12 @@ const Greet = ({ greetIn, user, history }) => {
   )
 }
 
-const Notice = ({ onNoticeConfirmed, noticeFormIn }) => (
-  <Transition in={noticeFormIn} appear={true} timeout={500}>
-  {(state) => (
-    <div
-    className="signin-notice"
-    style={{
-      ...defaultStyle,
-      ...transitionStyles[state]
-    }}>
-      <div className="signin-notice-icon">
-        Hi！你好哇，记录一下你的名字才可以继续刚才的动作
-      </div>
-      <p></p>
-      <a onClick={onNoticeConfirmed}>知道啦</a>
-    </div>
-  )}
-  </Transition>
-)
-
 class SignIn extends Component {
   constructor () {
     super()
     this.state = {
-      formType: 'notice'
+      formType: 'signIn',
+      noticeBoardIn: false
     }
   }
   componentDidMount () {
@@ -81,24 +86,25 @@ class SignIn extends Component {
     this.setState({ formType: type })
     this.props.updateUser(user)
   }
-  onNoticeConfirmed () {
-    this.setState({ formType: 'signIn' })
+  onClickConfirmNotice () {
+    this.setState(prev => ({ noticeBoardIn: !prev.noticeBoardIn }))
   }
   render() {
-    const { formType } = this.state
+    const { formType, noticeBoardIn } = this.state
     const { history, user } = this.props
-    console.log(user)
+    console.log(noticeBoardIn)
     return (
-      <div className="signin-container">
-        <NavBack history={history} />
-        <SignInHeader />
-        <div className="signin-form-container">
-          <Notice noticeFormIn={formType === 'notice'} onNoticeConfirmed={this.onNoticeConfirmed.bind(this)} />
-          <SignInForm signInFormIn={formType === 'signIn'} onFormSubmited={this.onFormSubmited.bind(this)} />
-          <SignUpForm signUpFormIn={formType === 'signUp'} user={user} onFormSubmited={this.onFormSubmited.bind(this)} />
-          <Greet greetIn={formType === 'greet'} user={user} history={history} />
+      <React.Fragment>
+        <div className="signin-container" className={noticeBoardIn ? 'unfocus' : ''}>
+          <SignInHeader history={history} onClickConfirmNotice={this.onClickConfirmNotice.bind(this)} />
+          <div className="signin-form-container">
+            <SignInForm signInFormIn={formType === 'signIn'} onFormSubmited={this.onFormSubmited.bind(this)} />
+            <SignUpForm signUpFormIn={formType === 'signUp'} user={user} onFormSubmited={this.onFormSubmited.bind(this)} />
+            <Greet greetIn={formType === 'greet'} user={user} history={history} />
+          </div>
         </div>
-      </div>
+        <NoticeBoard noticeBoardIn={noticeBoardIn} onClickConfirmNotice={this.onClickConfirmNotice.bind(this)} />
+      </React.Fragment>
     )
   }
 }

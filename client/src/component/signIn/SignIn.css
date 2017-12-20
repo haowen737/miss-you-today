@@ -12,16 +12,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  /* animation: signin-container-animation 1s linear infinite; */
+  background: linear-gradient(to bottom, #afe7ff -10%, #ffedef);
+  animation: signin-container-animation 1s linear;
   transition: all 1s ease;
+  filter: blur(0px);
 }
 @keyframes signin-container-animation {
   0% {
-    background-image: linear-gradient(to top right, rgb(60, 60, 60), rgb(183, 183, 183));
+    opacity: 0;
   }
   100% {
-    background-image: linear-gradient(to top right, rgb(183, 183, 183), rgb(60, 60, 60));
+    opacity: 1;
   }
 }
 .signin-navback:hover i {
@@ -168,17 +169,50 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.signin-notice {
+.signin-notice-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 10px;
   color: #333;
-  text-align: center;
   font-size: 1.3rem;
 }
-.signin-notice-icon {
-  display: block;
+.signin-notice {
+  display: none;
 }
-.signin-notice p {
+.signin-noticeboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: #333;
+  font-size: 2rem;
+  animation: signin-noticeboard-animation 1s ease;
+  transition: all 1s ease;
+}
+@keyframes signin-noticeboard-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.signin-noticeboard p {
+  padding: 10px 0;
+}
+.signin-noticeboard a {
+  font-size: 1.3rem;
   padding: 20px 0;
 }
-.signin-notice a {
-  cursor: pointer;
+.unfocus {
+  filter: blur(5px);
 }
