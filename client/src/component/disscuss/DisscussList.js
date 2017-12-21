@@ -5,6 +5,8 @@ import { Transition } from 'react-transition-group'
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import DisscussReply from './DisscussReply'
 
+import LoadingCircle from './../../widgets/loadingCircle'
+
 const DisscussItem = ({ list, item, itemIndex, onClickReply }) => {
   return (
     <Transition in={true} appear={true} timeout={(50 + (50 * itemIndex))}>
@@ -65,6 +67,12 @@ const DisscussItemChildUsers = ({ child }) => {
   )
 }
 
+const ListEmpty = () => (
+  <div className="list-empty-container">
+    <LoadingCircle></LoadingCircle>
+  </div>
+)
+
 export default class DisscussList extends Component {
   constructor () {
     super()
@@ -105,37 +113,39 @@ export default class DisscussList extends Component {
     return (
       <ul className="discuss-list">
       {
-        list.map((item, i, list) => (
-          <React.Fragment key={i}>
-            <DisscussItem
-            list={list}
-            item={item}
-            itemIn={itemIn}
-            onClickReply={this.onClickShowReply.bind(this)}
-            itemIndex={i} />
-            {
-              item.children.length
-              ? <DisscussItemChild
-                list={list}
-                children={item.children}
-                itemIndex={i}
-                onClickReply={this.onClickShowReply.bind(this)} />
-              : null
-            }
-            {
-              item.showReply
-              && <DisscussReply
-              user={user}
+        list.length
+          ? list.map((item, i, list) => (
+            <React.Fragment key={i}>
+              <DisscussItem
               list={list}
               item={item}
-              itemIndex={i}
-              replyTo={replyTo}
-              onClickCancel={this.onClickReplyCancel.bind(this)}
-              onReplySent={this.onReplySent.bind(this)}
-              item={item} />
-            }
-          </React.Fragment>
-        ))
+              itemIn={itemIn}
+              onClickReply={this.onClickShowReply.bind(this)}
+              itemIndex={i} />
+              {
+                item.children.length
+                ? <DisscussItemChild
+                  list={list}
+                  children={item.children}
+                  itemIndex={i}
+                  onClickReply={this.onClickShowReply.bind(this)} />
+                : null
+              }
+              {
+                item.showReply
+                && <DisscussReply
+                user={user}
+                list={list}
+                item={item}
+                itemIndex={i}
+                replyTo={replyTo}
+                onClickCancel={this.onClickReplyCancel.bind(this)}
+                onReplySent={this.onReplySent.bind(this)}
+                item={item} />
+              }
+            </React.Fragment>
+          ))
+        : <ListEmpty></ListEmpty>
       }
       </ul>
     )

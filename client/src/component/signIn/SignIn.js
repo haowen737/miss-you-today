@@ -8,6 +8,7 @@ import { BlogTheme } from './../../Hero.service'
 
 import SignInForm from './SignInForm'
 import SignUpForm from './SignUpForm'
+import ParticelCanvas from './../../widgets/particelCanvas'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import './SignIn.css'
@@ -95,6 +96,7 @@ class SignIn extends Component {
     console.log(noticeBoardIn)
     return (
       <React.Fragment>
+        <ParticelCanvas />
         <div className="signin-container" className={noticeBoardIn ? 'unfocus' : ''}>
           <SignInHeader history={history} onClickConfirmNotice={this.onClickConfirmNotice.bind(this)} />
           <div className="signin-form-container">

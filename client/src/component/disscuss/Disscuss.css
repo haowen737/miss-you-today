@@ -300,3 +300,8 @@
     opacity: 0;
   }
 }
+.list-empty-container {
+  margin-top: 30%;
+  width: 100%;
+  text-align: center;
+}
