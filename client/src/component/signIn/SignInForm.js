@@ -26,7 +26,7 @@ export default class SignInForm extends Component {
   constructor () {
     super()
     this.state = {
-      email: ''
+      email: 'haowen7372@gmail.com'
     }
   }
   onEmailChange (ev) {
@@ -55,22 +55,20 @@ export default class SignInForm extends Component {
     const { signInFormIn } = this.props
     const { email } = this.state
     return (
-      signInFormIn
-      ? (
       <Transition in={signInFormIn} appear={true} timeout={500}>
-        {(state) => (
-          <div
+      {(state) => (
+        <div
           className="disscuss-item"
           style={{
             ...defaultStyle,
             ...transitionStyles[state]
-          }}>
-            <MailInput value={email} onEmailChange={this.onEmailChange.bind(this)} />
-            <NavNext onClickNext={this.onClickNext.bind(this)} />
-          </div>
-        )}
-        </Transition>
-      ) : null
+          }}
+        >
+          <MailInput value={email} onEmailChange={this.onEmailChange.bind(this)} />
+          <NavNext onClickNext={this.onClickNext.bind(this)} />
+        </div>
+      )}
+      </Transition>
     )
   }
 }

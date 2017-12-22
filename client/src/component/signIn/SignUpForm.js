@@ -50,22 +50,20 @@ export default class SignInForm extends Component {
     const { signUpFormIn } = this.props
     const { nickName } = this.state
     return (
-      signUpFormIn
-      ? (
-        <Transition in={signUpFormIn} appear={true} timeout={500}>
+      <Transition in={signUpFormIn} appear={true} timeout={500}>
         {(state) => (
           <div
-          className="disscuss-item"
-          style={{
-            ...defaultStyle,
-            ...transitionStyles[state]
-          }}>
+            className="disscuss-item"
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state]
+            }}
+          >
             <NameInput value={nickName} onNameChange={this.onNameChange.bind(this)} />
             <NavNext onClickNext={this.onClickNext.bind(this)} />
           </div>
         )}
-        </Transition>
-      ) : null
+      </Transition>
     )
   }
 }

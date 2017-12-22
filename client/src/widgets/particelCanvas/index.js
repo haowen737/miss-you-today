@@ -28,7 +28,7 @@ export default class ParticelCanvas extends Component {
     // }
 
     let dots = []
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 100; i++) {
       let x = Math.random() * (cvs.width + 2 * extendDis) - extendDis
       let y = Math.random() * (cvs.height + 2 * extendDis) - extendDis
       let xa = (Math.random() * 2 - 1) / 1.5
