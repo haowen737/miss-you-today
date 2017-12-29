@@ -42,8 +42,7 @@ const Notice = ({ onClickConfirmNotice }) => (
 const NoticeBoard = ({ onClickConfirmNotice, noticeBoardIn }) => (
   noticeBoardIn ? (
     <div className="signin-noticeboard">
-      <p>因为刚刚的才做需要留一个名字才能继续</p>
-      <p>因为Withyoufriends想要认识你</p>
+      <p>🤔因为需要留一个名字才能继续刚刚的动作</p>
       <a onClick={onClickConfirmNotice}>知道啦</a>
     </div>
   ) : null

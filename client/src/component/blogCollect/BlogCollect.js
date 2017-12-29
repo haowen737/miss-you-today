@@ -2,14 +2,11 @@ import React, { Component } from 'react'
 
 export default class BlogCollect extends Component {
   componentDidMount () {
-    this.tryIn = setInterval(() => {
-      console.log(new Date().getSeconds())
-    }, 1000)
   }
   render() {
     return (
-      <div>
-        thisis co
+      <div style={{textAlign: 'center', fontSize: '15px', color: '#333'}}>
+        😔还没有来得及写完收藏功能呢
       </div>
     )
   }

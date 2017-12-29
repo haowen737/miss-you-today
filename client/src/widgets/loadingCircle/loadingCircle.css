@@ -10,12 +10,24 @@
 }
 .loading-circle-large-inner, .loading-circle-middle-inner, .loading-circle-middle, .loading-circle-small, .loading-circle-small-inner {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -2px;
+  left: 4px;
   bottom: 0;
   right: 0;
   margin: auto;
+  animation: inner-animation 1s linear infinite;
   background-color: #fff;
+}
+@keyframes inner-animation {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.3);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 .loading-circle-large {
   width: 100px;
@@ -52,7 +64,7 @@
   height: 60px;
   border-radius: 60px;
   background-color: #888;
-  animation: middle-animation 900ms linear infinite;
+  animation: middle-animation 600ms linear infinite;
   overflow: hidden;
 }
 .loading-circle-small-inner {
