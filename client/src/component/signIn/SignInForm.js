@@ -26,7 +26,7 @@ export default class SignInForm extends Component {
   constructor () {
     super()
     this.state = {
-      email: 'haowen7372@gmail.com'
+      email: ''
     }
   }
   onEmailChange (ev) {
@@ -54,6 +54,7 @@ export default class SignInForm extends Component {
   render() {
     const { signInFormIn } = this.props
     const { email } = this.state
+    console.log(signInFormIn)
     return (
       <Transition in={signInFormIn} appear={true} timeout={500}>
       {(state) => (

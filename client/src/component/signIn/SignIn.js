@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Transition } from 'react-transition-group'
+import { Transition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 
@@ -8,7 +8,7 @@ import { BlogTheme } from './../../Hero.service'
 
 import SignInForm from './SignInForm'
 import SignUpForm from './SignUpForm'
-import ParticelCanvas from './../../widgets/particelCanvas'
+// import ParticelCanvas from './../../widgets/particelCanvas'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import './SignIn.css'
@@ -92,16 +92,17 @@ class SignIn extends Component {
   render() {
     const { formType, noticeBoardIn } = this.state
     const { history, user } = this.props
-    console.log(noticeBoardIn)
+    console.log(formType)
     return (
       <React.Fragment>
-        <ParticelCanvas />
-        <div className="signin-container" className={noticeBoardIn ? 'unfocus' : ''}>
+        <div className={noticeBoardIn ? 'unfocus signin-container' : 'signin-container'}>
           <SignInHeader history={history} onClickConfirmNotice={this.onClickConfirmNotice.bind(this)} />
           <div className="signin-form-container">
-            <SignInForm signInFormIn={formType === 'signIn'} onFormSubmited={this.onFormSubmited.bind(this)} />
-            <SignUpForm signUpFormIn={formType === 'signUp'} user={user} onFormSubmited={this.onFormSubmited.bind(this)} />
-            <Greet greetIn={formType === 'greet'} user={user} history={history} />
+            <TransitionGroup className='todo-list'>
+              <SignInForm signInFormIn={formType === 'signIn'} onFormSubmited={this.onFormSubmited.bind(this)} />
+              <SignUpForm signUpFormIn={formType === 'signUp'} user={user} onFormSubmited={this.onFormSubmited.bind(this)} />
+              <Greet greetIn={formType === 'greet'} user={user} history={history} />
+            </TransitionGroup>
           </div>
         </div>
         <NoticeBoard noticeBoardIn={noticeBoardIn} onClickConfirmNotice={this.onClickConfirmNotice.bind(this)} />
