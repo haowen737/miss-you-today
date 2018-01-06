@@ -45,6 +45,7 @@ export default class GreetContent extends Component {
     if (index === nextName.length) { 
       this.setState({ penIsWriting: false })
       clearInterval(this.penSelf)
+      console.log('写入动作完成')
     }
   }
   erease () {
@@ -67,6 +68,7 @@ export default class GreetContent extends Component {
       if (index === 0) {
         resolve()
         this.setState({ penIsWriting: true })
+        console.log('擦除动作完成')
         clearInterval(this.ereaseSelf)
       }
     }, spacing)
@@ -78,12 +80,13 @@ export default class GreetContent extends Component {
     this.setState({ writingActive: false })
     clearInterval(this.penSelf)
     clearInterval(this.ereaseSelf)
+    console.log('写入动作完成')
   }
   shouldReWriteName (theme, currName) {
-    // console.log('检车师父需要写入')
     const { writingActive, penIsWriting } = this.state
     if (!writingActive) { return }
     if (currName !== theme.name && !penIsWriting) {
+      console.log('开始重新写入')
       this.startRewriteName(currName, theme.name)
     }
   }

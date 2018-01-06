@@ -3,6 +3,8 @@ import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor'
 
+import Utils from './../../utils'
+
 import './BlogArticles.css'
 
 const articleSkeleton = ({ article, index }) => {
@@ -19,7 +21,7 @@ const articleSkeleton = ({ article, index }) => {
       } className="article">
       <div className="article-header clearfix">
         <Title className="article-title">{article.title}</Title>
-        <Date className="article-date">{article.created_at}</Date>
+        <Date className="article-date">{Utils.DateFormat(article.created_at, 'YYYY-MM-DD hh:mm:ss')}</Date>
       </div>
       <Summary className="article-summary">{article.summary}</Summary>
     </Link>
