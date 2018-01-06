@@ -10,34 +10,41 @@ const poem1 = [
 ]
 
 const poem2 = [
-  'Another day at the weekend ',
-  'You met a guy named Jack ',
-  'Gave him the keys to the castle ',
-  'But he never called you back ',
-  'You met a guy in vacation',
-  'And you were in paradise ',
-  'Only found when you got home',
-  'He had 3 kids and a wife'
+  'All of my friends are settling down ',
+  'They\'re only kids but they\'re married now ',
+  'Let\'s follow the lights, follow the crowd ',
+  'Baby we gotta get out ',
+  'Let\'s get outta this town ',
+  'I want an ocean view, somewhere ',
+  'As long as I\'m next to you, I don\'t care ',
+  'I don\'t wanna live my life in circles ',
+  'I just wanna find an empty road ',
+  'Let\'s get away form here, let\'s go ',
+  'Nothing ever changes here, I know ',
+  'Another day, another year, same old ',
+  'I don\'t wanna live my life in circles ',
+  'I wanna find an empty road '
 ]
 const poem3 = [
-  '-...And I mean absolutely...Not a word to a soul. ',
-  'This is the only hope you have. Keep that in mind...always. ',
-  'And when you reappear, everything will be as it was before... ',
-  'As if you \' d awakened from a horrible dream',
-  'Don\' t you believe me?... ',
-  '你难道不相信我？',
-  'Well, then, do just as you wish. ',
-  '好吧 那 就去做你想做的'
+  'I\'m breathing, I\'m feeling alone',
+  'I know that you\'re leaving',
+  'While we\'re still undone',
+  'It\'s gone right before our faces',
+  'Gone without a trace',
+  'We had something special',
+  'I don\'t need no space'
 ]
 const poem4 = [
-  'В цвет залипает мозг, я розгами бы коцал спины. ',
-  'Фуфло вопрос, если обоссан двор кругом рванина. ',
-  'Но покуда меня не загнать в угол спрячь зубы. ',
-  'Врач в рупор кричал "Твой близко был палач с*ка!"',
-  'Ноги водили меня по пятам старых злых духов. ',
-  'Но мой посыл в ухо вдруг прослыл грубым. ',
-  'Я в кроличьей норе мать его. ',
-  'Тут вечно скрип коек, убит кое-кто остальные в запое... '
+  'We were lovers for the first time ',
+  'Running all the red lights ',
+  'The middle finger was our peace sign ',
+  'We were sipping on emotions ',
+  'Smoking and inhaling every moment ',
+  'It was reckless and we owned it ',
+  'We were high and we were sober ',
+  'We were under, we were over ',
+  'We were young and now I\'m older ',
+  'But I\'d do it all again '
 ]
 
 const theme = [{
