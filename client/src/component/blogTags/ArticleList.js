@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { Transition, TransitionGroup } from 'react-transition-group'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
+import Utils from './../../utils'
 
 const Article = ({ children, index, article, articleListIn }) => {
   return (
@@ -32,7 +33,7 @@ const ListSelf = ({ articleList, articleListIn }) => (
       index={i}>
         <div className="article-card clearfix">
           <div className="article-left">
-            <p>{article.created_at}</p>
+            <p>{Utils.DateFormat(article.created_at, 'YYYY-MM-DD hh:mm:ss')}</p>
           </div>
           <div className="article-right">
             <h2>{article.title}</h2>

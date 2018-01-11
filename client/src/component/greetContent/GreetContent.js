@@ -32,7 +32,7 @@ export default class GreetContent extends Component {
     let index = 1
     let spacing = Math.random() * 120 + 50
     if (!nextName) { return }
-    this.penSelf = setInterval(() => {
+    window.penSelf = setInterval(() => {
       this.executePen(index, nextName)
       index++
     }, spacing)
@@ -44,7 +44,7 @@ export default class GreetContent extends Component {
     }))
     if (index === nextName.length) { 
       this.setState({ penIsWriting: false })
-      clearInterval(this.penSelf)
+      clearInterval(window.penSelf)
       console.log('写入动作完成')
     }
   }
@@ -59,7 +59,7 @@ export default class GreetContent extends Component {
   executeErease (resolve, currName) {
     let spacing = Math.random() * 120 + 50
     let index = currName.length
-    this.ereaseSelf = setInterval(() => {
+    window.ereaseSelf = setInterval(() => {
       --index
       this.setState(prev => ({
         penIsWriting: true,
@@ -69,7 +69,7 @@ export default class GreetContent extends Component {
         resolve()
         this.setState({ penIsWriting: true })
         console.log('擦除动作完成')
-        clearInterval(this.ereaseSelf)
+        clearInterval(window.ereaseSelf)
       }
     }, spacing)
   }
@@ -78,8 +78,8 @@ export default class GreetContent extends Component {
   }
   endWriteName (currName, name) {
     this.setState({ writingActive: false })
-    clearInterval(this.penSelf)
-    clearInterval(this.ereaseSelf)
+    clearInterval(window.penSelf)
+    clearInterval(window.ereaseSelf)
     console.log('写入动作完成')
   }
   shouldReWriteName (theme, currName) {

@@ -59,7 +59,7 @@
   max-width: 1000px;
   margin-right: 10%;
   margin-left: 10%;
-  /* background-color: red; */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .article-list-header {
   position: absolute;
@@ -85,12 +85,12 @@
 }
 .article-left p {
   font-size: 1.3rem;
-  color: #333;
+  color: #444;
 }
 .article-right h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  color: #333;
+  color: #444;
 }
 .article-right {
   position: absolute;
