@@ -53,7 +53,6 @@ export default class BlogArticle extends Component {
             </div>
           )
         }
-        
       </React.Fragment>
     )
   }
