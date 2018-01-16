@@ -13,6 +13,9 @@
   margin: 2rem 0;
   animation: markdown-h1-animation .6s linear;
 }
+.markdown-body {
+  font-size: 1.2rem;
+}
 @media (max-width: 767px) {
   .markdown-body {
     padding: 15px;
@@ -42,4 +45,35 @@
   100% {
     opacity: 1;
   }
+}
+.article-wrap {
+}
+.blog-article-footer {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 30px auto;
+}
+.tag-list {
+  display: inline-block;
+  vertical-align: middle;
+}
+.tag-list a {
+  float: left;
+  margin: 0 5px;
+  padding: 0 20px;
+  line-height: 2;
+  font-size: 1.3rem;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  color: #333;
+}
+.taglist-container i {
+  vertical-align: middle;
+}
+.taglist-container {
+  vertical-align: middle;
+}
+.loading-wrap {
+  height: 40rem;
 }

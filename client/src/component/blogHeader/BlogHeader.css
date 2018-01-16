@@ -64,3 +64,10 @@
   opacity: 0;
   transition-property: all;
 }
+@media screen and (max-width: 1200px) {
+  .blogheader-nav {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 350px) {
+}

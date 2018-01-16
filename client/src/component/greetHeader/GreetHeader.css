@@ -50,12 +50,7 @@
 }
 @media screen and (max-width: 1200px) {
   .logo {
-    width: 100%;
-    display: block;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    padding: 0;
+    display: none;
   }
   .nav {
     width: 100%;

@@ -3,6 +3,8 @@ import Axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import LoadingBall from './../../widgets/loadingBall/LoadingBall'
 
+import BlogArticleFooter from './BlogArticleFooter'
+
 import './github-markdown.css'
 import './BlogArticle.css'
 
@@ -10,7 +12,7 @@ export default class BlogArticle extends Component {
   constructor () {
     super()
     this.state = {
-      article: ''
+      data: {}
     }
   }
   componentWillMount (props) {
@@ -26,7 +28,7 @@ export default class BlogArticle extends Component {
       .get(`/api/article/getArticle/${id}`)
       .then(({ data }) => {
         setTimeout(() => {
-          this.setState({ article: data.content })
+          this.setState({ data })
         }, 0)
       })
       .catch((err) => {
@@ -34,17 +36,25 @@ export default class BlogArticle extends Component {
       })
   }
   render() {
-    const { article } = this.state
+    const { data } = this.state
     return (
-      <div className="article-wrap">
-      {
-        article ? (
-          <ReactMarkdown className="markdown-body" source={article} />
-        ) : (
-          <LoadingBall color="#666"></LoadingBall>
-        )
-      }
-      </div>
+      <React.Fragment>
+        {
+          data.content ? (
+            <div className="article-wrap">
+              <ReactMarkdown className="markdown-body" source={data.content} />
+                <BlogArticleFooter
+                data={data}
+              />
+            </div>
+          ) : (
+            <div className="loading-wrap">
+              <LoadingBall color="#666"></LoadingBall>
+            </div>
+          )
+        }
+        
+      </React.Fragment>
     )
   }
 }

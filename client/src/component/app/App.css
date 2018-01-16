@@ -18,3 +18,11 @@
     width: 100%;
   }
 }
+@font-face {
+  font-family: 'iconfont';  /* project id 510386 */
+  src: url('//at.alicdn.com/t/font_510386_vo6ffysui4er8uxr.eot');
+  src: url('//at.alicdn.com/t/font_510386_vo6ffysui4er8uxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_510386_vo6ffysui4er8uxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_510386_vo6ffysui4er8uxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_510386_vo6ffysui4er8uxr.svg#iconfont') format('svg');
+}
