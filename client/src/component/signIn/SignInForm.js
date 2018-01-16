@@ -4,7 +4,7 @@ import Axios from 'axios'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 
-const regEmail = /(@163.com)|(@qq.com)|(@126.com)|(@live.com)|(gmail.com)|(@yahoo.com)|(@msn.com)|(@hotmail.com)/
+const regEmail = /(@foxmail.com)|(@163.com)|(@qq.com)|(@126.com)|(@live.com)|(gmail.com)|(@yahoo.com)|(@msn.com)|(@hotmail.com)/
 
 const NavNext = ({ onClickNext }) => {
   return (
