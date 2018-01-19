@@ -9,6 +9,7 @@ export default class SocialLinkList extends Component {
       'https://weibo.com/311170900/',
       'https://zhuanlan.zhihu.com/fe-sketch',
       'https://github.com/haowen737',
+      'https://codepen.io/hi_haowen/',
       'https://www.instagram.com/hi_haowen/',
       'https://500px.com/Haowen'
     ]
@@ -18,11 +19,12 @@ export default class SocialLinkList extends Component {
     const { theme } = this.props
     return (
       <div className="sociallink-list-container" style={{color: theme.color}}>
-        <i className="iconfont" style={this.renderStyle(600)} onClick={this.onClickSocial.bind(this, 0)}>&#xe611;</i>
-        <i className="iconfont" style={this.renderStyle(800)} onClick={this.onClickSocial.bind(this, 1)}>&#xe619;</i>
-        <i className="iconfont" style={this.renderStyle(1100)} onClick={this.onClickSocial.bind(this, 2)}>&#xe600;</i>
-        <i className="iconfont" style={this.renderStyle(1500)} onClick={this.onClickSocial.bind(this, 3)}>&#xe7b0;</i>
-        <i className="iconfont" style={this.renderStyle(2000)} onClick={this.onClickSocial.bind(this, 4)}>&#xe604;</i>
+        <i className="iconfont" style={this.renderStyle(600)} onClick={() => { this.onClickSocial(0) }}>&#xe611;</i>
+        <i className="iconfont" style={this.renderStyle(800)} onClick={() => { this.onClickSocial(1) }}>&#xe619;</i>
+        <i className="iconfont" style={this.renderStyle(1100)} onClick={() => { this.onClickSocial(2) }}>&#xe600;</i>
+        <i className="iconfont" style={this.renderStyle(1100)} onClick={() => { this.onClickSocial(3) }}>&#xe9eb;</i>
+        <i className="iconfont" style={this.renderStyle(1500)} onClick={() => { this.onClickSocial(4) }}>&#xe7b0;</i>
+        <i className="iconfont" style={this.renderStyle(2000)} onClick={() => { this.onClickSocial(5) }}>&#xe604;</i>
       </div>
     )
   }

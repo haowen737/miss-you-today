@@ -42,7 +42,6 @@ const TagList = ({ tags }) => (
 export default class BlogArticleFooter extends Component {
   render() {
     const { data } = this.props
-    console.log(data)
     return (
       <div className="blog-article-footer">
         <TagList

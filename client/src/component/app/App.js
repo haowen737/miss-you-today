@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Disscuss from './../disscuss/Disscuss'
+import Nomatch from './../nomatch/Nomatch'
 import SignIn from './../signIn/SignIn'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog'
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/signin" component={SignIn} />
             <Route path="/discuss" component={Disscuss} />
             <Route path="/" exact component={Greet} />
+            <Route component={Nomatch} />
           </Switch>
         </div>
         <MusicPlayer></MusicPlayer>
