@@ -59,11 +59,14 @@ export default class BlogTags extends Component {
       this.setState({ activeTag: tag, activeTagIn: true })
     }, 400)
   }
+  onTouchMove (ev) {
+    console.log(ev)
+  }
   render() {
     const { tags, activeTag, activeTagIn } = this.state
     return (
       <div className="tags-container">
-        <ul className="tags-list">
+        <ul className="tags-list" onTouchMove={this.onTouchMove}>
           <TransitionGroup>
               {
                 tags.map((tag, i) => (

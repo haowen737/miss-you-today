@@ -7,6 +7,7 @@
   top: 50%;
   transform: translateY(-50%);
   right: 8%;
+  z-index: 2;
 }
 .tags-list li {
   position: relative;
@@ -89,7 +90,7 @@
 }
 .article-right h2 {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 200;
   color: #444;
 }
 .article-right {
@@ -112,5 +113,23 @@
   }
   100% {
     opacity: 0;
+  }
+}
+@media screen and (max-width:1100px) {
+  .tags-list{
+    right: -30%;
+    background-color: #fff;
+  }
+  .article-left {
+    display: none;
+  }
+  .article-right {
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 100px;
+    box-sizing: border-box;
+    width: 80%;
   }
 }
