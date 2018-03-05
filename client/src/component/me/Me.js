@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { themeChange } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
 
+import './me.css'
+
+const Window = () => {
+  return (
+    <div className="window">Haowen</div>
+  )
+}
+
 class Me extends Component {
   componentDidMount () {
     this.props.themeChange(BlogTheme)
@@ -11,7 +19,7 @@ class Me extends Component {
   render() {
     return (
       <div>
-        this is me
+        <Window></Window>
       </div>
     )
   }
