@@ -39,8 +39,7 @@ class Greet extends Component {
     return Math.floor(Math.random() * c + n)
   }
   emitThemeChange (index) {
-    console.log(this.rd(0, 3))
-    const hero = Theme[index || this.rd(0, 4)]
+    const hero = Theme[index > -1 ? index : this.rd(0, 4)]
     this.props.themeChange(hero)
   }
   render() {
