@@ -36,7 +36,7 @@
   background-color: #fff;
   animation: control-play .6s linear;
 }
-.content {
+.currentplaying {
   height: 100%;
   padding: 10px 30px;
   font-weight: lighter !important;
@@ -123,6 +123,21 @@
   float: left;
   position: relative;
 }
+.playlist-content {
+  position: absolute;
+  top: 0;
+  /* height: 100%; */
+  width: 100%;
+  padding: 10px 30px;
+  font-weight: lighter !important;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  transition: all 1s linear;
+  animation: content-animation 1s ease;
+}
 .player-content {
 
 }
@@ -139,7 +154,6 @@
   float: left;
   width: 20px;
   height: 100%;
-  /* background-color: red;  */
 }
 .player-fold::after {
   content: '';
@@ -163,7 +177,7 @@
     bottom: 15%;
   }
   .content {
-    padding: 5px;
+    /* padding: 5px; */
   }
   .title {
     font-size: 1.1rem;

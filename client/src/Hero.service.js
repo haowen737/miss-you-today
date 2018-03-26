@@ -86,7 +86,7 @@ const theme = [{
   btnTheme: '#fff',
   btnColor: '#000',
   headerTheme: '#fff',
-  musicPlayerBg: '#000000',
+  musicPlayerBg: '#989898',
   musicPlayerColor: '#fff',
   poem: poem4
 }]
