@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Transition } from 'react-transition-group'
 
 const duration = 270;
+<<<<<<< HEAD
 
 // const renderDefaultStyle = (index) => ({
 //   transition: `all ${index * 10}ms linear`,
@@ -23,6 +24,18 @@ const defaultStyle = {
 const transitionStyles = {
   entering: { opacity: 0, transform: `translate3d(30%, -100%, 0)` },
   entered: { opacity: 1, transform: `translate3d(0, -100%, 0)` }
+=======
+
+const renderDefaultStyle = (index) => ({
+  transition: `all ${index * 10}ms linear`,
+  opacity: 0,
+  transform: `translate(-80%,  -100%)`
+})
+
+const transitionStyles = {
+  entering: { opacity: 0, transform: `translate(-80%, -100%)` },
+  entered:  { opacity: 1, transform: `translate(0, -100%)` },
+>>>>>>> 391453042b8746ccc6f3bad75e6299bfac555581
 }
 
 const PlayList = ({ playList, theme, listShow }) => {
