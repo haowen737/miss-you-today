@@ -9,6 +9,8 @@ import Greet from './../greet/Greet'
 import Blog from './../blog/Blog'
 import Me from './../me/Me'
 
+import ThirdPartyComment from './../thirdPartyComment'
+
 import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
 
 import './App.css'
@@ -24,6 +26,7 @@ class App extends Component {
             <Route path="/signin" component={SignIn} />
             <Route path="/discuss" component={Disscuss} />
             <Route path="/" exact component={Greet} />
+            <Route path="/thirdcomment" component={ThirdPartyComment} />
             <Route component={Nomatch} />
           </Switch>
         </div>

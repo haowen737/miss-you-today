@@ -30,8 +30,8 @@ const renderTransitionStyles = (i, state) => ({
 
 const PlayList = ({ playList, theme, listShow }) => {
   const renderTimeout = i => ({
-    enter: 100 + (100 * i),
-    exit: 100 + (100 * i),
+    enter: 20 + (30 * i),
+    exit: 20 + (30 * i),
   })
   return (
       playList.map((p, i) => {
@@ -93,7 +93,7 @@ export default class PlayerContent extends Component {
   constructor () {
     super()
     this.state = {
-      listShow: false
+      listShow: true
     }
   }
   componentDidMount () {

@@ -1,0 +1,12 @@
+.comment-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* --- disqus css -- */
+#disqus_thread {
+  
+}
+#dsq-content #dsq-comments .dsq-comment-body {
+color: #fff;
+background-color: #000000;
+}

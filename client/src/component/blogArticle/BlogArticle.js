@@ -3,6 +3,7 @@ import Axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import LoadingBall from './../../widgets/loadingBall/LoadingBall'
 
+import BlogTPComment from './../blogTPComment'
 import BlogArticleFooter from './BlogArticleFooter'
 
 import './github-markdown.css'
@@ -16,7 +17,6 @@ export default class BlogArticle extends Component {
     }
   }
   componentWillMount (props) {
-    console.log(this.props.location)
     this.getArticle()
   }
   getArticle () {
@@ -44,8 +44,9 @@ export default class BlogArticle extends Component {
             <div className="article-wrap">
               <ReactMarkdown className="markdown-body" source={data.content} />
                 <BlogArticleFooter
-                data={data}
-              />
+                  data={data}
+                />
+              <BlogTPComment articleId={data.file_id} />
             </div>
           ) : (
             <div className="loading-wrap">
