@@ -3,7 +3,7 @@ export default [{
   url: '/blog'
 }, {
   title: '留言',
-  url: '/discuss'
+  url: '/talk-with-me-please'
 }, {
   title: '关于我',
   url: '/me'

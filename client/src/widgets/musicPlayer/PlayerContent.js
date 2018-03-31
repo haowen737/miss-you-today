@@ -3,32 +3,33 @@ import { Transition } from 'react-transition-group'
 
 const duration = 270;
 
-// const renderDefaultStyle = (index) => ({
-//   transition: `all ${index * 10}ms linear`,
-//   opacity: 0,
-//   transform: `translate(-80%,  -100%)`
-// })
-
-// const transitionStyles = {
-//   entering: { opacity: 0, transform: `translate(-80%, -100%)` },
-//   entered:  { opacity: 1, transform: `translate(0, -100%)` },
-// }
-
 const renderDefaultStyle = i => ({
   transition: `all 600ms ease`,
   opacity: 0,
-  transform: `translate(-80%, ${-100 * (i + 1)}%)`
+  transform: `translate(-80%, ${-100 * (i + 1)}%)`,
+})
+
+const renderTitleDefaultStyle = i => ({
+  transition: `all 800ms cubic-bezier(0.85, 0.02, 0.18, 0.96)`,
+  opacity: 0,
+  transform: `translate(-80px,0,0)`,
 })
 
 const renderTransitionStyles = (i, state) => ({
-  entering: { opacity: 0, transform: `translate3d(-30%, ${-100 * (i + 1)}%, 0)` },
-  entered: { opacity: 1, transform: `translate3d(0, ${-100 * (i + 1)}%, 0)` },
-  exiting: { opacity: 1, transform: `translate3d(0, ${-100 * (i + 1)}%, 0)` },
-  exited: { opacity: 0, transform: `translate3d(-30%, ${-100 * (i + 1)}%, 0)` }
-
+  entering: { opacity: 0, filter: 'blur(2px) brightness(100%)', transform: `translate3d(-30%, ${-100 * (i + 1)}%, 0)` },
+  entered: { opacity: 1, filter: 'blur(0) brightness(100%)', transform: `translate3d(0, ${-100 * (i + 1)}%, 0)` },
+  exiting: { opacity: 1, filter: 'blur(0) brightness(100%)', transform: `translate3d(0, ${-100 * (i + 1)}%, 0)` },
+  exited: { opacity: 0, filter: 'blur(2px) brightness(100%)', transform: `translate3d(-30%, ${-100 * (i + 1)}%, 0)` }
 })
 
-const PlayList = ({ playList, theme, listShow }) => {
+const renderTitleTransitionStyles = (i, state) => ({
+  entering: { opacity: 0, transform: `translate3d(-80px, 0, 0)` },
+  entered: { opacity: 1, transform: `translate3d(0, 0, 0)` },
+  exiting: { opacity: 1, transform: `translate3d(0, 0, 0)` },
+  exited: { opacity: 0, transform: `translate3d(-80px, 0, 0)` }
+})
+
+const PlayList = ({ playList, theme, listShow, onClickItem }) => {
   const renderTimeout = i => ({
     enter: 20 + (30 * i),
     exit: 20 + (30 * i),
@@ -38,33 +39,23 @@ const PlayList = ({ playList, theme, listShow }) => {
         return (
           <Transition in={listShow} appear={false} timeout={renderTimeout(i)} key={i}>
             {(state) => (
-              // <ListItem
-              //   style={{
-              //     ...defaultStyle,
-              //     ...{ transform: `translate3d(${i * 10}%, 0, 0)` },
-              //     ...transitionStyles[state]
-              //   }}
-              //   // style={{
-              //   //   ...renderDefaultStyle(i),
-              //   //   ...transitionStyles[state],
-              //   // }}
-              //   currMusic={p}
-              //   theme={theme}>
-              // </ListItem>
               <React.Fragment>
-                <div
+                <a
                   className="playlist-content"
                   style={{
                     ...renderDefaultStyle(i),
                     ...renderTransitionStyles(i, state)[state],
-                    // ...{ transform: `translate3d(${i * 10}%, -100%, 0)` },
-                    // ...transitionStyles[state],
                     ...{ color: theme.musicPlayerColor, backgroundColor: theme.musicPlayerBg }
                   }}
+                  onClick={() => {onClickItem(p)}}
                 >
-                  <h3 className="title">{p.title}</h3>
-                  {/* <p className="artist">By {p.artist}</p> */}
-                </div>
+                  <span
+                    style={{
+                      ...renderTitleDefaultStyle(i),
+                      ...renderTitleTransitionStyles(i, state)[state]
+                    }}
+                  >{p.title}</span>
+                </a>
               </React.Fragment>
             )}
           </Transition>
@@ -93,7 +84,7 @@ export default class PlayerContent extends Component {
   constructor () {
     super()
     this.state = {
-      listShow: true
+      listShow: false
     }
   }
   componentDidMount () {
@@ -103,6 +94,9 @@ export default class PlayerContent extends Component {
   }
   onMouseLeaveContent () {
     this.state.listShow && this.setState({ listShow: false })
+  }
+  onClickItem (item) {
+    console.log('onClickItem', item)
   }
   render() {
     const { currMusic, theme, playList } = this.props
@@ -119,7 +113,12 @@ export default class PlayerContent extends Component {
           onMouseEnterContent={this.onMouseEnterContent.bind(this)}
         >
         </CurrentPlaying>
-        <PlayList playList={playList} theme={theme} listShow={listShow}></PlayList>
+        <PlayList
+          playList={playList}
+          theme={theme}
+          listShow={listShow}
+          onClickItem={this.onClickItem}
+        ></PlayList>
       </div>
     )
   }

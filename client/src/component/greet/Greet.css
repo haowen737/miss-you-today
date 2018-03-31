@@ -50,7 +50,11 @@
 }
 .sociallink-list-container i {
   animation-name: iconfont-animation;
+  transition: all .3s linear;
   cursor: pointer;
+}
+.sociallink-list-container i:hover {
+  transform: scale(1.2) translateY(-10%);
 }
 @keyframes iconfont-animation {
   0% {

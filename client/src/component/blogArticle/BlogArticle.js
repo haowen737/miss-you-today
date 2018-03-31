@@ -46,7 +46,6 @@ export default class BlogArticle extends Component {
                 <BlogArticleFooter
                   data={data}
                 />
-              <BlogTPComment articleId={data.file_id} />
             </div>
           ) : (
             <div className="loading-wrap">
@@ -54,6 +53,7 @@ export default class BlogArticle extends Component {
             </div>
           )
         }
+        <BlogTPComment articleId={data.file_id} />
       </React.Fragment>
     )
   }

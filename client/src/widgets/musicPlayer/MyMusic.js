@@ -12,26 +12,26 @@ export default [
     src: 'http://function.withyoufriends.com/music/Broken Back - Happiest Man on Earth.mp3'
   },
   {
-    title: 'First Time',
-    artist: 'Kygo / Ellie Goulding',
+    title: 'Plymouth',
+    artist: 'Crooked Colours',
     cover: 'http://oltq0jb12.bkt.clouddn.com/music/cover/happest-man-on-earth.jpg',
     src: 'http://function.withyoufriends.com/music/Broken Back - Happiest Man on Earth.mp3'
   },
   {
-    title: 'First Time',
-    artist: 'Kygo / Ellie Goulding',
+    title: '鲸歌（Cover 萨满乐队）',
+    artist: '陈亮 宋依凡',
     cover: 'http://oltq0jb12.bkt.clouddn.com/music/cover/happest-man-on-earth.jpg',
     src: 'http://function.withyoufriends.com/music/Broken Back - Happiest Man on Earth.mp3'
   },
   {
-    title: 'First Time',
-    artist: 'Kygo / Ellie Goulding',
+    title: 'I\'m Not Racist',
+    artist: 'Joyner Lucas',
     cover: 'http://oltq0jb12.bkt.clouddn.com/music/cover/happest-man-on-earth.jpg',
     src: 'http://function.withyoufriends.com/music/Broken Back - Happiest Man on Earth.mp3'
   },
   {
-    title: 'First Time',
-    artist: 'Kygo / Ellie Goulding',
+    title: 'near the shore',
+    artist: 'Flyingdeadman',
     cover: 'http://oltq0jb12.bkt.clouddn.com/music/cover/happest-man-on-earth.jpg',
     src: 'http://function.withyoufriends.com/music/Broken Back - Happiest Man on Earth.mp3'
   }
