@@ -13,7 +13,6 @@ const PlayPauseButton = ({type, control}) => {
 const PlayerControl = ({ currMusic, onPlayStatusChange, playStatus }) => {
   let player = null
   const control = (type) => {
-    console.log(player)
     player.paused ? player.play() : player.pause()
     onPlayStatusChange()
   }
