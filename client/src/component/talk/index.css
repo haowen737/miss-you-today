@@ -38,3 +38,13 @@
     filter: blur(0px);
   }
 }
+@media screen and (max-width: 500px) {
+  .talk-header {
+    max-width: 100%;
+    margin: auto;
+  }
+  .talk-wrapper {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
