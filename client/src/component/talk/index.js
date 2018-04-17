@@ -9,6 +9,13 @@ import TalkHeader from './TalkHeader'
 
 import './index.css'
 
+window.PAGE_URL = 'https://www.withyoufriends.com'
+window.PAGE_IDENTIFIER = '/talk-with-me-please'
+window.disqus_config = function () {
+  this.page.url = window.PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = window.PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
 class ThirdPartyComment extends Component {
   constructor() {
     super()
@@ -17,13 +24,8 @@ class ThirdPartyComment extends Component {
     }
   }
   componentDidMount() {
-    this.props.themeChange(BlogTheme)
-    window.PAGE_URL = 'https://www.withyoufriends.com'
-    window.PAGE_IDENTIFIER = '/talk-with-me-please'
-    window.disqus_config = function () {
-      this.page.url = window.PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = window.PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+    this.props.themeChange(BlogTheme);
+    
     (function () { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
       s.src = 'https://www-withyoufriends-com.disqus.com/embed.js';
