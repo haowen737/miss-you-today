@@ -6,14 +6,20 @@
   "dependencies": {
     "chalk": "^2.4.0",
     "debug": "^3.1.0",
+    "joi": "^13.2.0",
     "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-joi-router": "^5.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^2.1.0",
+    "methods": "^1.1.2",
     "node-timeter": "^1.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
   "scripts": {
-    "start": "node --harmony bin/run",
+    "start": "nodemon --harmony bin/run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node index.js"
   },
