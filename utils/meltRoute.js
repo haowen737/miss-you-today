@@ -1,37 +1,16 @@
-const KoaRouter = require('koa-router')
-const methods = require('methods')
-const Joi = require('joi')
-
 const routes = require('../routes/jooi')
+const api = require('./koapi')
+const Koapi = require('../utils/koapi')
 
 const printf = console.log
 
-class Router extends KoaRouter {
-  constructor() {
-    super()
-  }
-}
+const router = new Koapi()
 
-const router = new Router()
-const koaRouter = new KoaRouter()
-
-printf(router.get, '---', koaRouter.get)
-
-methods.forEach(method => {
-  // printf(method)
-})
+console.log(router.loadApi())
 
 const meltRoute = function () {
-  const theRoutes = []
-  
-  routes.map(route => {
-    const { method, path, handler } = route
-    const theRouter = router[method]
-    const theRoute = router.get(path, handler)
-
-    theRoutes.push(theRoute)
-  })
-
-  return router
+  // console.log(api)
+  return router.loadApi()
 }
+
 module.exports = meltRoute
