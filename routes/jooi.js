@@ -6,7 +6,7 @@ const koapi = new Koapi()
 
 const jooi = [{
   method: 'get',
-  path: '/jooi/get',
+  path: '/api/jooi/get',
   validate: {
     params: {
       name: Joi.string().min(3).max(100)
@@ -24,7 +24,7 @@ const jooi = [{
   }
 }, {
     method: 'post',
-    path: '/jooi/update',
+    path: '/api/jooi/update',
     validate: {
       body: {
         name: Joi.string().min(3).max(100)

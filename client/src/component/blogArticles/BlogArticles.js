@@ -47,6 +47,12 @@ export default class BlogArticles extends Component {
     }
   }
   componentDidMount () {
+    Axios
+      .post('/api/jooi/update', { data: {name: '123'} })
+      .then(({ data }) => {
+      })
+      .catch((err) => {
+      })
     this.getArticles()
   }
   getArticles () {

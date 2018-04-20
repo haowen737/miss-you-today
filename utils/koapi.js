@@ -20,11 +20,23 @@ class Koapi extends KoaRouter {
     const { method, path, handler, validate } = spec
     const route = this.router
     const validator = this.validator(validate)
+    const mountRequest = this._mountRequest()
     const middlewares = [
+      mountRequest,
       validator,
       handler
     ]
     route[method].call(route, path, ...middlewares)
+  }
+  _mountRequest() {
+    const route = this.route
+    return function (ctx, next) {
+      route.request = {}
+      route.request.query = ctx.query
+      route.request.params = ctx.params
+      route.request.body = ctx.request.body
+      next()
+    }
   }
   register(spec) {
     for (let i = 0; i < spec.length; i++) {
@@ -35,16 +47,15 @@ class Koapi extends KoaRouter {
   }
   validator(validate) {
     const validTarget = this.validTarget
+    const route = this.route
     return function (ctx, next) {
       validTarget.forEach(t => {
         const schema = validate[t]
-        const data = ctx[t]
-
+        const data = route.request[t]
         if (schema) {
-          console.log(ctx.body, ctx.request.body, ctx.params, ctx.query)
           Joi.validate(data, schema, (err, value) => {
             if (err) {
-              ctx.status = 400;
+              ctx.status = 400
               ctx.body = err
             }
           })
