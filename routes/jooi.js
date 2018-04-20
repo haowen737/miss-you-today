@@ -4,12 +4,12 @@ const Koapi = require('../utils/koapi')
 
 const koapi = new Koapi()
 
-koapi.register({
+const jooi = [{
   method: 'get',
-  path: '/jooi',
+  path: '/jooi/get',
   validate: {
     params: {
-      name: Joi.string().max(100)
+      name: Joi.string().min(3).max(100)
     },
     type: 'form',
     output: {
@@ -22,6 +22,30 @@ koapi.register({
     ctx.status = 201;
     ctx.body = 'joooi ok!!'
   }
-})
+}, {
+    method: 'post',
+    path: '/jooi/update',
+    validate: {
+      body: {
+        name: Joi.string().min(3).max(100)
+      },
+      type: 'form',
+      output: {
+        200: {
+          body: {
+            name: Joi.string()
+          }
+        }
+      }
+    },
+    handler: async (ctx) => {
+      ctx.status = 201;
+      ctx.body = {
+        name: '123123'
+      }
+    }
+  }]
+
+koapi.register(jooi)
 
 module.exports = koapi
