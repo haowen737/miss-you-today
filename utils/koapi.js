@@ -50,18 +50,20 @@ class Koapi extends KoaRouter {
     const route = this.route
     return function (ctx, next) {
       validTarget.forEach(t => {
-        const schema = validate[t]
+        const targets = validate[t]
         const data = route.request[t]
-        if (schema) {
-          Joi.validate(data, schema, (err, value) => {
+        if (targets) {
+          const schema = Joi.object().keys({...targets})
+          Joi.validate(data, targets, (err, value) => {
             if (err) {
               ctx.status = 400
               ctx.body = err
+            } else {
+              next()
             }
           })
         }
       })
-      next()
     }
   }
   loadApi() {
