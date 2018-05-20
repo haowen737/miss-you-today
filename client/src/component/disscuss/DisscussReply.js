@@ -42,7 +42,7 @@ export default class DisscussReply extends Component {
   }
   render() {
     const { replyValue } = this.state
-    const { item, onClickCancel, onClickSend, list, itemIndex, replyTo } = this.props
+    const { item, onClickCancel, list, itemIndex, replyTo } = this.props
     console.log(replyTo)
     return (
       <div className="replydialog-container">

@@ -6,7 +6,7 @@ export default class BlogCollect extends Component {
   render() {
     return (
       <div style={{textAlign: 'center', fontSize: '15px', color: '#333'}}>
-        😔还没有来得及写完收藏功能呢
+        <span role="img" aria-label="sad face">😔</span>还没有来得及写完收藏功能呢
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
-import Axios from 'axios'
+// import Axios from 'axios'
 
 import { themeChange, updateUser } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
@@ -42,7 +42,7 @@ const Notice = ({ onClickConfirmNotice }) => (
 const NoticeBoard = ({ onClickConfirmNotice, noticeBoardIn }) => (
   noticeBoardIn ? (
     <div className="signin-noticeboard">
-      <p>🤔因为需要留一个名字才能继续刚刚的动作</p>
+      <p><span role="img" aria-label="think face">🤔</span>因为需要留一个名字才能继续刚刚的动作</p>
       <a onClick={onClickConfirmNotice}>知道啦</a>
     </div>
   ) : null
@@ -60,7 +60,7 @@ const Greet = ({ greetIn, user, history }) => {
           ...defaultStyle,
           ...transitionStyles[state]
         }}>
-          <div className="signin-greet">😌好久不见，{user.nick_name}</div>
+          <div className="signin-greet"><span role="img" aria-label="greet face">😌</span>好久不见，{user.nick_name}</div>
           <a onClick={history.goBack}>点这里可以返回上一个页面</a>
         </div>
       )}

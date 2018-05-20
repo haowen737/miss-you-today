@@ -18,10 +18,8 @@ function user (state = {}, action) {
     case UPDATE_USER:
       window.localStorage.setItem('user', JSON.stringify(action.user))
       return action.user
-      break
     default:
       return user || state.user || {}
-      break
   }
 }
 

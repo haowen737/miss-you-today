@@ -77,7 +77,7 @@ export default class DefaultPlayer extends Component {
     })
   }
   render() {
-    const { theme, MyMusic, currMusic, left} = this.props
+    const { theme, MyMusic, currMusic } = this.props
     const { musicStyle, playStatus } = this.state
     return (
       <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg,  ...musicStyle}}>

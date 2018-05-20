@@ -87,7 +87,7 @@ export default class DisscussList extends Component {
     Axios
       .get('/api/comment/getComments')
       .then(({ data }) => {
-        this.setState({ list: data.reverse(), formIn: false })
+        this.setState({ list: data.reverse() })
       })
       .catch((err) => {
         console.log(err)
@@ -108,7 +108,7 @@ export default class DisscussList extends Component {
     this.getDisscuss()
   }
   render() {
-    const { list, itemIn, formIn, replyValue, replyTo } = this.state
+    const { list, itemIn, replyTo } = this.state
     const { user } = this.props
     return (
       <ul className="discuss-list">
@@ -140,8 +140,7 @@ export default class DisscussList extends Component {
                 itemIndex={i}
                 replyTo={replyTo}
                 onClickCancel={this.onClickReplyCancel.bind(this)}
-                onReplySent={this.onReplySent.bind(this)}
-                item={item} />
+                onReplySent={this.onReplySent.bind(this)} />
               }
             </React.Fragment>
           ))

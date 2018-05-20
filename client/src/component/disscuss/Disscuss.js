@@ -5,7 +5,7 @@ import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
 import DisscussList from './DisscussList'
 
-import { themeChange, checkUser } from './../../actions'
+import { themeChange } from './../../actions'
 import { BlogTheme } from './../../Hero.service'
 
 import './Disscuss.css'
@@ -49,7 +49,7 @@ class Disscuss extends Component {
     }, 2000)
   }
   render() {
-    const { itemIn, formIn, replyValue, replyTo } = this.state
+    const { formIn } = this.state
     const { user, history } = this.props
     return (
       <div className="disscuss-layout">

@@ -42,11 +42,9 @@ export default class BlogHeader extends Component {
   constructor () {
     super()
     this.state = {
-      navIn: false
     }
   }
   render() {
-    const { navIn } = this.state
     return (
       <div className="blog-header-layout">
         <Logo></Logo>
