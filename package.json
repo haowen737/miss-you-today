@@ -12,8 +12,7 @@
     "koa-joi-router": "^5.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^2.1.0",
-    "methods": "^1.1.2",
-    "node-timeter": "^1.0.3"
+    "methods": "^1.1.2"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
