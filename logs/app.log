@@ -2441,3 +2441,12 @@
 2018-05-19 14:14:11 +08:00: Sat, 19 May 2018 06:14:11 GMT koa-send send "/static/js/main.b1f747a7.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
 2018-05-19 14:14:11 +08:00: Sat, 19 May 2018 06:14:11 GMT koa-send send "/static/media/bg-1.6b8e35f0.png" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
 2018-05-19 14:14:11 +08:00: Sat, 19 May 2018 06:14:11 GMT koa-send send "/static/media/slim-joe.c1fcde7d.otf" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:10:20 +08:00: Wed, 23 May 2018 15:10:20 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:10:21 +08:00: Wed, 23 May 2018 15:10:21 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:10:21 +08:00: Wed, 23 May 2018 15:10:21 GMT koa-send send "/index.html" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:10:21 +08:00: Wed, 23 May 2018 15:10:21 GMT koa-send send "/static/css/main.c244819d.css" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:10:21 +08:00: Wed, 23 May 2018 15:10:21 GMT koa-send send "/static/js/main.b330b00e.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:13:18 +08:00: Wed, 23 May 2018 15:13:18 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-23 23:13:19 +08:00: Wed, 23 May 2018 15:13:19 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-24 21:25:15 +08:00: Thu, 24 May 2018 13:25:15 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
+2018-05-24 21:25:16 +08:00: Thu, 24 May 2018 13:25:16 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/miss-you-today/client/build","index":"index.html"}
