@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Disscuss from './../disscuss/Disscuss'
 import Nomatch from './../nomatch/Nomatch'
+import DemoHouse from './../demoHouse'
 import SignIn from './../signIn/SignIn'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog'
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/discuss" component={Disscuss} />
             <Route path="/" exact component={Greet} />
             <Route path="/talk-with-me-please" component={Talk} />
+            <Route path="/demo-house" component={DemoHouse} />
             <Route component={Nomatch} />
           </Switch>
         </div>

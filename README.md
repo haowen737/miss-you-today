@@ -4,7 +4,7 @@
 
 [withyoufriends](https://www.withyoufriends.com)
 
-miss you today 是[Haowen]
+with_you_friends 是[Haowen]
 (https://github.com/haowen737/haowen)博客的react版本，原vue的版本将不再做更新
 
 本项目使用的api通过nginx转发到了老的博客，未来会重写所有的接口

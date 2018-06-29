@@ -1,5 +1,5 @@
 {
-  "name": "miss-you-today",
+  "name": "with_you_friends",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
     "koa-joi-router": "^5.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^2.1.0",
+    "koa-swapi": "^1.0.1",
     "methods": "^1.1.2"
   },
   "devDependencies": {
