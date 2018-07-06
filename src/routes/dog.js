@@ -1,6 +1,15 @@
 
 const Joi = require('joi')
+const { ApiiCreater } = 'koa-api'
 
+class Dog extends ApiiCreater {
+
+  @summary('获得一只呆狗')
+  @desc('要获得一只呆狗的时候可以调这个接口')
+  get() {
+    
+  }
+}
 module.exports = [{
   method: 'get',
   path: '/dog',

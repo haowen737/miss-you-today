@@ -1,5 +1,5 @@
 const config = require('../config')
-const app = require('../app')
+const app = require('..')
 const http = require('http')
 const chalk = require('chalk')
 const debug = require('debug')('http')
