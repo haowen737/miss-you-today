@@ -3,14 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 
 import Disscuss from './../disscuss/Disscuss'
 import Nomatch from './../nomatch/Nomatch'
-import DemoHouse from './../demoHouse'
 import SignIn from './../signIn/SignIn'
+import DemoHouse from './../demoHouse'
 import Greet from './../greet/Greet'
 import Blog from './../blog/Blog'
 import Me from './../me/Me'
 
-import Talk from './../talk'
 import MusicPlayer from './../../widgets/musicPlayer/MusicPlayer';
+import Talk from './../talk'
 
 import './App.css'
 

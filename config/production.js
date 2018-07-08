@@ -1,4 +1,10 @@
 module.exports = {
   env: 'production',
-  port: 8001
+  port: 8081,
+  sqlite: {
+    client: 'sqlite3',
+    connection: {
+      filename: path.resolve(__dirname, '../db/development.db')
+    }
+  }
 }
