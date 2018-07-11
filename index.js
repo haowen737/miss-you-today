@@ -1,1 +1,1 @@
-module.export = require('./src/app')
+require('./src/app')
