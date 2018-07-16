@@ -3,6 +3,7 @@ const stastic = require('koa-static')
 const bodyparser = require('koa-bodyparser')
 const debug = require('debug')('koa')
 const { Swapi } = require('koa-swapi')
+// const { Swapi } = require('../../KoaApii/built')
 
 const deps = require('./deps')
 const apis = require('./routes')

@@ -1,8 +1,9 @@
-const { api } = require('koa-swapi')
+// const { Api } = require('../../../KoaApii/built')
+const { Api } = require('koa-swpai')
 
 const articleSchemas = require('./article')
 const articleController = require('../controller/article')
 
 module.exports = [
-  api.schemas(articleSchemas).handler(articleController)
+  Api.schemas(articleSchemas).handler(articleController)
 ]
