@@ -14,7 +14,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "react-transition-group": "^2.2.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "swagger-client": "^3.8.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,8 +25,11 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:3333",
+      "target": "http://localhost:3007",
       "ws": true
+    },
+    "/swagger.json": {
+      "target": "http://localhost:3007"
     }
   }
 }

@@ -10,7 +10,12 @@ import './index.css'
 import App from './component/app/App'
 import registerServiceWorker from './registerServiceWorker'
 
-let store = createStore(myRedux)
+import swagger from './utils/swagger'
+
+const store = createStore(myRedux)
+// const SwaggerContext = createContext('')
+
+swagger.init()
 
 ReactDOM.render((
   <Provider store={store}>
@@ -19,4 +24,5 @@ ReactDOM.render((
     </HashRouter>
   </Provider>
 ), document.getElementById('root'))
+
 registerServiceWorker()

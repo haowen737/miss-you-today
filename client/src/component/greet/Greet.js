@@ -11,7 +11,8 @@ import { Theme } from './../../Hero.service'
 
 import './Greet.css'
 
-class Greet extends Component {
+// @connect(mapStateToProps, mapDispatchToProps)
+export default class Greet extends Component {
   constructor () {
     super()
     this.state = {
@@ -75,8 +76,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Greet)
+// export default connect(
+  
+// )(Greet)
 // export default Greet

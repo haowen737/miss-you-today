@@ -1,5 +1,5 @@
 // const { Api } = require('../../../KoaApii/built')
-const { Api } = require('koa-swpai')
+const { Api } = require('koa-swapi')
 
 const articleSchemas = require('./article')
 const articleController = require('../controller/article')
