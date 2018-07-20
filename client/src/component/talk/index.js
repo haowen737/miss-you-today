@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { BlogTheme } from './../../Hero.service'
-import { themeChange } from './../../actions'
-import LoadingBall from './../../widgets/loadingBall/LoadingBall'
+import { BlogTheme } from '../../Hero.service'
+import { themeChange } from '../../actions'
+import LoadingBall from '../../widgets/loadingBall/LoadingBall'
 
 import TalkHeader from './TalkHeader'
 

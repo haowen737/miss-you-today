@@ -1,18 +1,32 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux'
 
-import GreetContent from './../greetContent/GreetContent'
-import GreetFlower from './../greetFlower/GreetFlower'
-import GreetHeader from './../greetHeader/GreetHeader'
+import GreetContent from '../greetContent/GreetContent'
+import GreetFlower from '../greetFlower/GreetFlower'
+import GreetHeader from '../greetHeader/GreetHeader'
 import SocialLinkList from './SocialLinkList'
 
-import { themeChange } from './../../actions'
-import { Theme } from './../../Hero.service'
+import { themeChange } from '../../actions'
+import { Theme } from '../../Hero.service'
 
 import './Greet.css'
 
-// @connect(mapStateToProps, mapDispatchToProps)
-export default class Greet extends Component {
+const mapStateToProps = (state: Props) => ({
+  theme: state.theme
+})
+
+const mapDispatchToProps = (dispatch: Greet) => ({
+  themeChange: (theme: any) => {
+    dispatch(themeChange(theme))
+  }
+})
+
+export interface Props {
+  theme: any;
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Greet extends React.Component<Props, object> {
   constructor () {
     super()
     this.state = {
@@ -64,17 +78,6 @@ export default class Greet extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  theme: state.theme
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    themeChange: theme => {
-      dispatch(themeChange(theme))
-    }
-  }
-}
 
 // export default connect(
   

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 import ReactMarkdown from 'react-markdown'
-import LoadingBall from './../../widgets/loadingBall/LoadingBall'
+import LoadingBall from '../../widgets/loadingBall/LoadingBall'
 
-import BlogTPComment from './../blogTPComment'
+import BlogTPComment from '../blogTPComment'
 import BlogArticleFooter from './BlogArticleFooter'
 
 import './github-markdown.css'
@@ -21,7 +21,7 @@ export default class BlogArticle extends Component {
   }
   getArticle () {
     const id = this.props.location.search.replace('?id=', '')
-    id && this.query(id)
+    id ? this.query(id) : void 0
   }
   query (id) {
     Axios

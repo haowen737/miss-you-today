@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { Transition } from 'react-transition-group'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
-import Utils from './../../utils'
+import Utils from '../../utils'
 
 const Article = ({ children, index, article, articleListIn }) => {
   return (

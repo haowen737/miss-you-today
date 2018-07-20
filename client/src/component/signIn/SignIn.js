@@ -3,8 +3,8 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 // import Axios from 'axios'
 
-import { themeChange, updateUser } from './../../actions'
-import { BlogTheme } from './../../Hero.service'
+import { themeChange, updateUser } from '../../actions'
+import { BlogTheme } from '../../Hero.service'
 
 import SignInForm from './SignInForm'
 import SignUpForm from './SignUpForm'

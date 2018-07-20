@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor'
 
-import Utils from './../../utils'
+import Utils from '../../utils'
 
 import './BlogArticles.css'
 

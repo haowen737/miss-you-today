@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { themeChange } from './../../actions'
+import { themeChange } from '../../actions'
 
-import BlogArticles from './../blogArticles/BlogArticles'
-import BlogArticle from './../blogArticle/BlogArticle'
-import BlogTags from './../blogTags/BlogTags'
-import BlogHeader from './../blogHeader/BlogHeader'
-import BlogCollect from './../blogCollect/BlogCollect'
+import BlogArticles from '../blogArticles/BlogArticles'
+import BlogArticle from '../blogArticle/BlogArticle'
+import BlogTags from '../blogTags/BlogTags'
+import BlogHeader from '../blogHeader/BlogHeader'
+import BlogCollect from '../blogCollect/BlogCollect'
 
-import { BlogTheme } from './../../Hero.service'
+import { BlogTheme } from '../../Hero.service'
 
 import './Blog.css'
 

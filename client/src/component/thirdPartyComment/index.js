@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { BlogTheme } from './../../Hero.service'
-import { themeChange, checkUser } from './../../actions'
+import { BlogTheme } from '../../Hero.service'
+import { themeChange, checkUser } from '../../actions'
 
 import './index.css'
 
