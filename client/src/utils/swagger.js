@@ -4,13 +4,7 @@ const internals = {}
 
 
 internals.init = function () {
-  Swagger('/swagger.json')
-    .then((client) => {
-      console.log('client', client)
-    })
-    .catch((err) => {
-
-    })
+  return Swagger('/swagger.json')
 }
 
 export default internals

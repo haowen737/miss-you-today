@@ -16,6 +16,9 @@ const store = createStore(myRedux)
 // const SwaggerContext = createContext('')
 
 swagger.init()
+  .then((res: any) => {
+    console.log('res---', res)
+  })
 
 ReactDOM.render((
   <Provider store={store}>

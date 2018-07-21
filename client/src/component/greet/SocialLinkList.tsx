@@ -1,10 +1,22 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export default class SocialLinkList extends Component {
-  renderStyle (i) {
+import { Theme } from '../../types'
+
+interface Props {
+  theme: Theme
+}
+
+export default class SocialLinkList extends React.Component<Props, object> {
+  constructor(props: Props) {
+    super(props)
+    this.renderStyle = this.renderStyle.bind(this)
+    this.onClickSocial = this.onClickSocial.bind(this)
+  }
+  public renderStyle (i: number) {
     return { animationDuration: `${i}ms` }
   }
-  onClickSocial (i) {
+
+  public onClickSocial = (i: number) => {
     const targets = [
       'https://weibo.com/311170900/',
       'https://zhuanlan.zhihu.com/fe-sketch',
@@ -15,8 +27,10 @@ export default class SocialLinkList extends Component {
     ]
     window.open(targets[i])
   }
-  render() {
+
+  public render() {
     const { theme } = this.props
+
     return (
       <div className="sociallink-list-container" style={{color: theme.color}}>
         <i className="iconfont" style={this.renderStyle(600)} onClick={() => { this.onClickSocial(0) }}>&#xe611;</i>

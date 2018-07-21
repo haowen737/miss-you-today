@@ -9,6 +9,16 @@
     ]
   },
   "rules" : {
-    "ordered-imports": false
+    "no-unused-expressions": [
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "ordered-imports": false,
+    "jsx-no-lambda": false,
+    "interface-name": [true, "never-prefix"],
+    "object-literal-sort-keys": false,
+    "no-console": false
   }
 }

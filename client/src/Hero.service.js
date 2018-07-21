@@ -108,4 +108,4 @@ const meTheme = {
   musicPlayerHide: true
 }
 
-export { theme as Theme, blogTheme as BlogTheme, meTheme as MeTheme }
+export { theme as ThemeEnum, blogTheme as BlogTheme, meTheme as MeTheme }
