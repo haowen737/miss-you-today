@@ -37,12 +37,7 @@ export const connect = (mapStateToPropsShadow: any, actionsShadow: any) => {
   )
 }
 
-// interface PlayerPropsClass {
-//   player: PlayerStateTypes;
-//   playerActions: actions.PlayerActionsTypes;
-// }
-
-@connect(mapStateToProps, mapDispatchToProps)
+@(connectComponent(mapStateToProps, mapDispatchToProps) as any)
 export default class Greet extends React.Component<Props, State> {
   private greetMan: any
   constructor (props: Props) {
@@ -52,16 +47,16 @@ export default class Greet extends React.Component<Props, State> {
     }
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.emitThemeChange()
     this.greetMan = setInterval(this.indexManager.bind(this), 5000)
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     if (this.greetMan) { clearInterval(this.greetMan) }
   }
 
-  public indexManager = () => {
+  indexManager = () => {
     this.setState((prev) => {
       const currIndex = prev.heroIndex > 2 ? 0 : prev.heroIndex + 1
       this.emitThemeChange(currIndex)
@@ -71,19 +66,17 @@ export default class Greet extends React.Component<Props, State> {
     })
   }
 
-  public rd = (n: number, m: number) => {
+  rd = (n: number, m: number) => {
     const c = m - n
     return Math.floor(Math.random() * c + n)
   }
 
-  public emitThemeChange = (index: number = -1) => {
+  emitThemeChange = (index: number = -1) => {
     const hero = ThemeEnum[index > -1 ? index : this.rd(0, 4)]
     this.props.themeChange(hero)
   }
   
-  // private greetContent: any
-  
-  public render() {
+  render() {
     const { theme } = this.props
     return (
       <div className="greet-container" style={{backgroundColor: theme.theme}}>
@@ -96,7 +89,6 @@ export default class Greet extends React.Component<Props, State> {
         <div className="greet-content-layout">
           <GreetContent
             theme={theme}
-            // ref={(c) => { this.greetContent = c; }}
           />
           <SocialLinkList theme={theme} />
         </div>

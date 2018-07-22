@@ -1,7 +1,7 @@
 export interface Theme {
-  name?: string,
+  name: string,
   theme?: string,
-  color?: string,
+  color: string,
   btnTheme?: string,
   btnColor?: string,
   headerTheme?: string,

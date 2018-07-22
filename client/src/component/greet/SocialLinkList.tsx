@@ -12,11 +12,11 @@ export default class SocialLinkList extends React.Component<Props, object> {
     this.renderStyle = this.renderStyle.bind(this)
     this.onClickSocial = this.onClickSocial.bind(this)
   }
-  public renderStyle (i: number) {
+  renderStyle (i: number) {
     return { animationDuration: `${i}ms` }
   }
 
-  public onClickSocial = (i: number) => {
+  onClickSocial = (i: number) => {
     const targets = [
       'https://weibo.com/311170900/',
       'https://zhuanlan.zhihu.com/fe-sketch',
@@ -28,7 +28,7 @@ export default class SocialLinkList extends React.Component<Props, object> {
     window.open(targets[i])
   }
 
-  public render() {
+  render() {
     const { theme } = this.props
 
     return (

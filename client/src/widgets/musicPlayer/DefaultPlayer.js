@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import bodymovin from 'bodymovin'
-import PlayerContent from './PlayerContent'
 
-import playPauseData from './../../resource/lottie/PlayPause.json'
+import playPauseData from '@assets/lottie/PlayPause.json'
+
+import PlayerContent from './PlayerContent'
 
 const PlayPauseButton = ({type, control}) => {
   return (
@@ -64,7 +65,6 @@ export default class DefaultPlayer extends Component {
     this.playPause.play()
   }
   onClickCover (theme) {
-    console.log(theme)
     this.renderMusicPlayerStyle(theme)
   }
   renderMusicPlayerStyle (theme) {

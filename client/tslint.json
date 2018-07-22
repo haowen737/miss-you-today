@@ -19,6 +19,8 @@
     "jsx-no-lambda": false,
     "interface-name": [true, "never-prefix"],
     "object-literal-sort-keys": false,
-    "no-console": false
+    "no-console": false,
+    "member-ordering": [true, { "order": "fields-first" }],
+    "member-access": false
   }
 }
