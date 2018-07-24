@@ -10,6 +10,7 @@
   },
   "rules" : {
     "no-unused-expressions": [
+      true,
       {
         "allowShortCircuit": true,
         "allowTernary": true
@@ -21,6 +22,7 @@
     "object-literal-sort-keys": false,
     "no-console": false,
     "member-ordering": [true, { "order": "fields-first" }],
-    "member-access": false
+    "member-access": false,
+    "jsx-boolean-value": false
   }
 }

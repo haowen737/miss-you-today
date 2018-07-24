@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Route, Switch } from 'react-router-dom'
 
 import Aiglet from '../../widgets/aiglet'
 
-export default class DemoHouse extends Component {
+export default class DemoHouse extends React.Component {
   render() {
     return (
       <div>

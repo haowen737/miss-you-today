@@ -1,29 +1,40 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Axios from 'axios'
-import ReactMarkdown from 'react-markdown'
+import * as ReactMarkdown from 'react-markdown'
 import LoadingBall from '../../widgets/loadingBall/LoadingBall'
 
-import BlogTPComment from '../blogTPComment'
-import BlogArticleFooter from './BlogArticleFooter'
+// import BlogTPComment from '../blogTPComment'
+// import BlogArticleFooter from './BlogArticleFooter'
 
 import './github-markdown.css'
 import './BlogArticle.css'
 
-export default class BlogArticle extends Component {
-  constructor () {
-    super()
+interface Props {
+  location?: any
+}
+
+interface State {
+  data: any
+}
+
+export default class BlogArticle extends React.Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
     this.state = {
       data: {}
     }
   }
-  componentWillMount (props) {
+
+  componentWillMount () {
     this.getArticle()
   }
+
   getArticle () {
     const id = this.props.location.search.replace('?id=', '')
-    id ? this.query(id) : void 0
+    if (id) { this.query(id) }
   }
-  query (id) {
+
+  query (id: number) {
     Axios
       .get(`/api/article/getArticle/${id}`)
       .then(({ data }) => {
@@ -35,6 +46,7 @@ export default class BlogArticle extends Component {
         console.log(err)
       })
   }
+  
   render() {
     const { data } = this.state
     return (
@@ -43,17 +55,14 @@ export default class BlogArticle extends Component {
           data.content ? (
             <div className="article-wrap">
               <ReactMarkdown className="markdown-body" source={data.content} />
-                <BlogArticleFooter
-                  data={data}
-                />
             </div>
           ) : (
             <div className="loading-wrap">
-              <LoadingBall color="#666"></LoadingBall>
+              <LoadingBall color="#666" />>
             </div>
           )
         }
-        <BlogTPComment articleId={data.file_id} />
+        {/* <BlogTPComment articleId={data.file_id} /> */}
       </React.Fragment>
     )
   }

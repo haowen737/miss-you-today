@@ -7,7 +7,7 @@ export interface Theme {
   headerTheme?: string,
   musicPlayerBg?: string,
   musicPlayerColor?: string,
-  poem?: string[]
+  poem: string[]
 }
 
 export interface StoreState {

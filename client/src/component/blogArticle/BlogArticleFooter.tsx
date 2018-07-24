@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group'
 import { Link } from 'react-router-dom'
 
@@ -12,15 +12,23 @@ const transitionStyles = {
   entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
 }
 
-const TagList = ({ tags }) => (
-  <div className="taglist-container">
-    <i className="iconfont">&#xe61f;</i>
-    <div className="tag-list">
+interface Props {
+  tags: string
+}
+
+export default class BlogArticleFooter extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props)
+  }
+
+  renderTagTransition = () => {
+    const { tags } = this.props
+    return (
       <TransitionGroup>
         {
           tags && tags.split(',').map((t, index) => (
             <Transition key={index} in={true} appear={true} timeout={(100 + (100 * index))}>
-              {(state) => (
+              {(state: any) => (
                 <Link
                 style={{
                   ...defaultStyle,
@@ -35,18 +43,22 @@ const TagList = ({ tags }) => (
           ))
         }
       </TransitionGroup>
-    </div>
-  </div>
-)
+    )
+  }
 
-export default class BlogArticleFooter extends Component {
+  renderTagList = () => (
+    <div className="taglist-container">
+      <i className="iconfont">&#xe61f;</i>
+      <div className="tag-list">
+        {this.renderTagTransition()}
+      </div>
+    </div>
+  )
+
   render() {
-    const { data } = this.props
     return (
       <div className="blog-article-footer">
-        <TagList
-          tags={data.tags}
-        />
+        {this.renderTagList()}
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import { createSkeletonProvider, createSkeletonElement } from '@trainline/react-skeletor'
@@ -7,7 +7,24 @@ import Utils from '../../utils'
 
 import './BlogArticles.css'
 
-const articleSkeleton = ({ article, index }) => {
+const SkeletorSetting = {
+  article: {
+    title: '____________________________',
+    summary: '______________________________________________________',
+    created_at: '____________'
+  }
+}
+
+interface State {
+  articles: any[]
+}
+
+interface ActicleProps {
+  article: any
+  index: number
+}
+
+const ArticleSelf = ({ article, index }: ActicleProps) => {
   const Title = createSkeletonElement('h2', 'pending-home')
   const Summary = createSkeletonElement('p', 'pending-home')
   const Date = createSkeletonElement('span', 'pending-home')
@@ -29,32 +46,24 @@ const articleSkeleton = ({ article, index }) => {
 }
 
 const Article = createSkeletonProvider(
-    {
-      article: {
-        title: '____________________________',
-        summary: '______________________________________________________',
-        created_at: '____________'
-      }
-    },
-    ({ article }) => article === null
-  )(articleSkeleton)
+  SkeletorSetting,
+  ({ article }) => article === null
+)(ArticleSelf)
 
-export default class BlogArticles extends Component {
-  constructor () {
-    super()
+export default class BlogArticles extends React.Component<object, State> {
+  constructor (props: object) {
+    super(props)
     this.state = {
       articles: [null, null, null, null]
     }
   }
+  
   componentDidMount () {
     Axios
       .post('/api/jooi/update', { data: {name: '123'} })
-      .then(({ data }) => {
-      })
-      .catch((err) => {
-      })
     this.getArticles()
   }
+  
   getArticles () {
     Axios
       .get('/api/article/getArticles')
@@ -68,18 +77,16 @@ export default class BlogArticles extends Component {
         console.log(err)
       })
   }
-  render() {
+
+  renderArticles () {
     const { articles } = this.state
+    return articles.map((a, i) => <Article article={a} key={i} index={i} />)
+  }
+
+  render() {
     return (
       <div className="article-list">
-      {
-        articles.map((a, i) => (
-          <Article
-          article={a}
-          key={i}
-          index={i}></Article>
-        ))
-      }
+      {this.renderArticles()}
       </div>
     )
   }

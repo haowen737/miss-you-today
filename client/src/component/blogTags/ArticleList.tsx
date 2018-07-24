@@ -1,14 +1,35 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Axios from 'axios'
 import { Transition } from 'react-transition-group'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import Utils from '../../utils'
 
-const Article = ({ children, index, article, articleListIn }) => {
+interface Props {
+  activeTag: any
+}
+
+interface State {
+  articleList: any[]
+  articleListIn: boolean
+}
+
+interface ArticleProps {
+  children: JSX.Element
+  index: number
+  article: any
+  articleListIn: boolean
+}
+
+interface ListSelfProps {
+  articleList: any[]
+  articleListIn: boolean
+}
+
+const Article = ({ children, index, article, articleListIn }: ArticleProps) => {
   return (
     <Transition in={articleListIn} appear={true} timeout={(50 + (50 * index))}>
-    {(state) => (
+    {(state: any) => (
       <li 
       style={{
         ...defaultStyle,
@@ -22,7 +43,7 @@ const Article = ({ children, index, article, articleListIn }) => {
   )
 }
 
-const ListSelf = ({ articleList, articleListIn }) => (
+const ListSelf = ({ articleList, articleListIn }: ListSelfProps) => (
   <ul className="article-list">
   {
     articleList.map((article, i) => (
@@ -49,19 +70,21 @@ const EmptyList = () => (
   <div className="empty-list">搜索中...</div>
 )
 
-export default class ArticleList extends Component {
-  constructor () {
-    super()
+export default class ArticleList extends React.Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
     this.state = {
       articleList: [],
       articleListIn: false
     }
   }
-  componentWillReceiveProps ({ activeTag }) {
+
+  componentWillReceiveProps ({ activeTag }: Props) {
     this.setState({ articleListIn: false })
     this.getArticles(activeTag)
   }
-  getArticles (activeTag) {
+
+  getArticles (activeTag: string) {
     Axios
       .get('/api/article/getTags/' + activeTag)
       .then(({ data }) => {
@@ -74,6 +97,7 @@ export default class ArticleList extends Component {
         console.log(err)
       })
   }
+
   render() {
     const { articleList, articleListIn } = this.state
     return (

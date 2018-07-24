@@ -9,7 +9,7 @@ import SocialLinkList from './SocialLinkList'
 
 import { themeChange, WithYouAction } from '../../actions'
 import { ThemeEnum } from '../../Hero.service'
-import { Theme, StoreState } from '../../types'
+import { Theme, StoreState } from '@types'
 
 import './Greet.css'
 
@@ -80,7 +80,7 @@ export default class Greet extends React.Component<Props, State> {
     const { theme } = this.props
     return (
       <div className="greet-container" style={{backgroundColor: theme.theme}}>
-        <GreetHeader theme={theme.headerTheme} />
+        <GreetHeader theme={theme} />
         <div className="greet-flower-layout">
           <GreetFlower
             theme={theme}

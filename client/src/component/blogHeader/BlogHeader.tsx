@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Transition, TransitionGroup } from 'react-transition-group'
 
@@ -6,9 +6,15 @@ import NavService from './Nav.Service'
 
 import './BlogHeader.css'
 
-const Logo = (props) => (
-  <Link className="logo" to="/" style={{color: props.color}}>withyoufriends</Link>
-)
+interface Props {
+  color: string
+}
+
+interface Propss {
+  children: any
+  index: number
+  data: any
+}
 
 const defaultStyle = {
   transition: `all 600ms ease`,
@@ -20,10 +26,10 @@ const transitionStyles = {
   entered: { opacity: 1, transform: `translate3d(0, 0, 0)` }
 }
 
-const Nav = ({ children, index, data }) => {
+const Nav = ({ children, index, data }: Propss) => {
   return (
     <Transition in={true} appear={true} timeout={(100 + (100 * index))}>
-      {(state) => (
+      {(state: any) => (
         <Link 
         style={{
           ...defaultStyle,
@@ -38,23 +44,32 @@ const Nav = ({ children, index, data }) => {
   )
 }
 
-export default class BlogHeader extends Component {
-  constructor () {
-    super()
+export default class BlogHeader extends React.Component<Props> {
+  constructor (props: Props) {
+    super(props)
     this.state = {
     }
   }
+
+  renderLogo(): JSX.Element {
+    return <Link className="logo" to="/" style={{color: this.props.color}}>withyoufriends</Link>
+  }
+
+  renderNavList(): JSX.Element[] {
+    return (
+      NavService.map((n: any, i: number) => (
+        <Nav key={i} index={i} data={n}>{n.name}</Nav>
+      ))
+    )
+  }
+  
   render() {
     return (
       <div className="blog-header-layout">
-        <Logo></Logo>
+        {this.renderLogo()}
         <nav className="blogheader-nav">
           <TransitionGroup>
-            {
-              NavService.map((n, i) => (
-                <Nav key={i} index={i} data={n}>{n.name}</Nav>
-              ))
-            }
+            {this.renderNavList()}
           </TransitionGroup>
         </nav>
       </div>

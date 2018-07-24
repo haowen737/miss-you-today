@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export default class BlogCollect extends Component {
-  componentDidMount () {
-  }
+export default class BlogCollect extends React.Component {
   render() {
     return (
       <div style={{textAlign: 'center', fontSize: '15px', color: '#333'}}>

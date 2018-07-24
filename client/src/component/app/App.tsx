@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Disscuss from '../disscuss/Disscuss'
@@ -14,7 +14,7 @@ import Talk from '../talk'
 
 import './App.css'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -30,7 +30,7 @@ class App extends Component {
             <Route component={Nomatch} />
           </Switch>
         </div>
-        <MusicPlayer></MusicPlayer>
+        <MusicPlayer />
       </div>
     )
   }
