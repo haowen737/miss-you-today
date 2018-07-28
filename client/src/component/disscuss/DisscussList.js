@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group'
 import { defaultStyle, transitionStyles } from './TransitionConfig'
 import DisscussReply from './DisscussReply'
 
-import LoadingCircle from './../../widgets/loadingCircle'
+import LoadingCircle from '../../widgets/loadingCircle'
 
 const DisscussItem = ({ list, item, itemIndex, onClickReply }) => {
   return (

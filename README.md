@@ -13,4 +13,8 @@ with_you_friends 是[Haowen]
 
 🤔参观愉快，下次见
 
+## For Developer
+
+如果想在本地运行这个项目，请在db/目录下create sqlite database file
+
 # }

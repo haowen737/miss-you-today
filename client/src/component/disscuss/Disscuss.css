@@ -7,9 +7,7 @@
 }
 .disscuss-header h1 {
   display: block;
-  font-size: 2rem;
-  line-height: 4rem;
-  text-align: center;
+  font-size: 60px;
   color: rgba(0,0,0,0.1);
   animation: disscuss-header-animation 1s cubic-bezier(0, 0, 0, 1.01);
 }
@@ -17,10 +15,10 @@
   font-size: 1.2rem;
   line-height: 2;
   color: #666;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 }
 .disscuss-header nav {
-  text-align: center;
+  /* text-align: center; */
   animation: disscuss-header-animation 1.3s cubic-bezier(0, 0, 0, 1.01);
 }
 .disscuss-add {

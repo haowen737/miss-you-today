@@ -5,8 +5,8 @@ import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
 import DisscussList from './DisscussList'
 
-import { themeChange } from './../../actions'
-import { BlogTheme } from './../../Hero.service'
+import { themeChange } from '../../actions'
+import { BlogTheme } from '../../Hero.service'
 
 import './Disscuss.css'
 
