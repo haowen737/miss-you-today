@@ -27,7 +27,7 @@
   -moz-filter: blur(30px);
   -ms-filter: blur(30px);
   filter: blur(30px);
-  background: linear-gradient(270deg, #73ffdc, #9e49ff);
+  background: linear-gradient(270deg, #91ffe3, #c593ff);
   background-size: 200% 200%;
   animation: animateGlow 15s ease infinite;
 }
