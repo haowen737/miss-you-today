@@ -1,3 +1,14 @@
+// interface TransitionConfig {
+//   defaultFormStyle: {}
+//   transitionFormStyles: {}
+//   defaultFormInnerStyle: {}
+//   transitionFormInnerStyles: {}
+//   defaultStyle: {}
+//   transitionStyles: any
+//   defaultHeaderStyle: any
+//   transitionHeaderStyles: any
+// }
+
 export const defaultFormStyle = {
   transition: `all 600ms cubic-bezier(0.04, 0.35, 0.19, 1.01)`,
   opacity: 0,

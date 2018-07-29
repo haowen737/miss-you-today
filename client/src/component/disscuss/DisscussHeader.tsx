@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 const navList = [{
@@ -9,7 +9,7 @@ const navList = [{
   to: '/blog'
 }]
 
-const sayHi = [
+const sayHi: string[] = [
   '有没有兴趣一起做白日梦呀',
   '我在听,有话快说',
   '说说你的路途见闻吧',
@@ -23,19 +23,27 @@ const sayHi = [
   '哈哈哈哈...'
 ]
 
-export default class DisscussHeader extends Component {
-  constructor () {
-    super()
+interface State {
+  greetWord: string
+}
+
+export default class DisscussHeader extends React.Component<{}, State> {
+  constructor (props: {}) {
+    super(props)
     this.state = {
       greetWord: ''
     }
   }
+
   componentDidMount () {
     this.rdSayHi()
   }
+
   rdSayHi () {
-    this.setState({ greetWord: sayHi[parseInt(Math.random() * 10, 10)] })
+    const greetWord = sayHi[(Math.random() * 10).toFixed(0)]
+    this.setState({ greetWord })
   }
+
   render() {
     const { greetWord } = this.state
     return (

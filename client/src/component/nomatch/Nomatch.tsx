@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
+import * as React from 'react'
+import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { themeChange } from '../../actions'
 import { BlogTheme } from '../../Hero.service'
+import { themeChange, WithYouAction } from '../../actions'
+import { Theme, StoreState } from '@types'
 
 import './Nomatch.css'
 
-class Nomatch extends Component {
+interface Props {
+  themeChange: any
+}
+
+
+class Nomatch extends React.Component<Props, object> {
+  constructor(props: Props) {
+    super(props)
+  }
   componentDidMount () {
     this.props.themeChange(BlogTheme)
   }
@@ -24,13 +34,13 @@ class Nomatch extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: StoreState) => ({
   theme: state.theme
 })
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => {
   return {
-    themeChange: theme => {
+    themeChange: (theme: Theme) => {
       dispatch(themeChange(theme))
     }
   }

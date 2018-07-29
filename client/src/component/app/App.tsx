@@ -5,7 +5,7 @@ import Disscuss from '../disscuss/Disscuss'
 import Nomatch from '../nomatch/Nomatch'
 import SignIn from '../signIn/SignIn'
 import DemoHouse from '../demoHouse'
-import Greet from '../greet/Greet'
+import Greet from '../greet'
 import Blog from '../blog/Blog'
 import Me from '../me/Me'
 

@@ -6,23 +6,15 @@
   url('//at.alicdn.com/t/font_510386_mtg9v8tve8qia4i.ttf') format('truetype'),
   url('//at.alicdn.com/t/font_510386_mtg9v8tve8qia4i.svg#iconfont') format('svg');
 }
-.greet-container {
+/* .greet-container {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   transition: all .6s linear;
-}
-.greet-content-layout {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  right: 0;
-  width: 50%;
-  height: 100%;
-}
+} */
+
 .greet-flower-layout {
   position: absolute;
   width: 50%;

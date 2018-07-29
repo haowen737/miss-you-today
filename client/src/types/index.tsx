@@ -12,5 +12,6 @@ export interface Theme {
 
 export interface StoreState {
   theme: Theme,
-  apis?: any
+  apis?: any,
+  user?: any
 }

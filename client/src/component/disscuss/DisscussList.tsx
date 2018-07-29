@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Axios from 'axios'
 import { Transition } from 'react-transition-group'
 
@@ -7,10 +7,42 @@ import DisscussReply from './DisscussReply'
 
 import LoadingCircle from '../../widgets/loadingCircle'
 
-const DisscussItem = ({ list, item, itemIndex, onClickReply }) => {
+interface DisscussItemProps {
+  list: any[]
+  item: any
+  itemIndex: any
+  onClickReply: any
+}
+
+interface DisscussItemChildPorps {
+  list: any[]
+  children: any
+  onClickReply: any
+  itemIndex: any
+}
+
+interface DisscussItemChildUsersProps {
+  child: any
+}
+
+interface Props {
+  user: any
+  history: any
+}
+
+interface State {
+  list: any[]
+  disscussList: any[]
+  itemIn: any
+  replyTo: any
+  item: any
+}
+
+const DisscussItem = (props: DisscussItemProps): JSX.Element => {
+  const { list, item, itemIndex, onClickReply } = props
   return (
     <Transition in={true} appear={true} timeout={(50 + (50 * itemIndex))}>
-      {(state) => (
+      {(state: any) => (
         <li
         className="disscuss-item"
         style={{
@@ -20,36 +52,40 @@ const DisscussItem = ({ list, item, itemIndex, onClickReply }) => {
         }}>
           <p className="disscuss-name">@{item.nick_name}</p>
           <h2 className="disscuss-content">{item.content}</h2>
-          <a className="discuss-reply" onClick={() => onClickReply({ list, item, itemIndex })}>回复</a>
+          <a className="discuss-reply" onClick={() => onClickReply(list, item, itemIndex)}>回复</a>
         </li>
       )}
     </Transition>
   )
 }
 
-const DisscussItemChild = ({ list, children, onClickReply, itemIndex }) => (
-  <ul className="disscuss-children">
+const DisscussItemChild = (props: DisscussItemChildPorps): JSX.Element => {
+  const { list, children, onClickReply, itemIndex } = props
+  return (
+    <ul className="disscuss-children">
     {
-      children.map((child, index) => (
+      children.map((child: any, index: number) => (
         <Transition key={index} in={true} appear={true} timeout={(400 + (50 * index))}>
-        {(state) => (
+        {(state: any) => (
           <li
           style={{
             ...defaultStyle,
             ...transitionStyles[state],
             ...{transformDuration: `${index * 10 + 100}ms`}
           }}>
-            <DisscussItemChildUsers child={child}></DisscussItemChildUsers>
-            <a className="discuss-reply" onClick={() => onClickReply({ list, child, itemIndex })}>回复</a>
+            <DisscussItemChildUsers child={child} />
+            <a className="discuss-reply" onClick={() => onClickReply(list, child, itemIndex)}>回复</a>
           </li>
         )}
         </Transition>
       ))
     }
-  </ul>
-)
+    </ul>
+  )
+}
 
-const DisscussItemChildUsers = ({ child }) => {
+const DisscussItemChildUsers = (props: DisscussItemChildUsersProps): JSX.Element => {
+  const { child } = props
   return (
     <React.Fragment>
       <span className="disscuss-children-name">{child.nick_name}</span>
@@ -67,22 +103,31 @@ const DisscussItemChildUsers = ({ child }) => {
   )
 }
 
-const ListEmpty = () => (
+const ListEmpty: React.StatelessComponent<{}> = () => (
   <div className="list-empty-container">
-    <LoadingCircle></LoadingCircle>
+    <LoadingCircle />
   </div>
 )
 
-export default class DisscussList extends Component {
-  constructor () {
-    super()
+export default class DisscussList extends React.Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
     this.state = {
-      list: []
+      list: [],
+      disscussList: [],
+      itemIn: null,
+      replyTo: null,
+      item: null
     }
+    this.onClickShowReply = this.onClickShowReply.bind(this)
+    this.onClickReplyCancel = this.onClickReplyCancel.bind(this)
+    this.onReplySent = this.onReplySent.bind(this)
   }
+
   componentDidMount () {
     this.getDisscuss()
   }
+
   getDisscuss () {
     Axios
       .get('/api/comment/getComments')
@@ -93,58 +138,60 @@ export default class DisscussList extends Component {
         console.log(err)
       })
   }
-  onClickShowReply ({ list, item, itemIndex, child }) {
-    console.log('child--->', child, this.props)
+
+  onClickShowReply (list: any[], item: any, itemIndex: any, child: any) {
     const { user, history } = this.props
     !user.id && history.push('/signin')
     list[itemIndex].showReply = true
-    this.setState({ disscussList: list, item: item, replyTo: child })
+    this.setState({ disscussList: list, item, replyTo: child })
   }
-  onClickReplyCancel ({ list, item, itemIndex }) {
+
+  onClickReplyCancel (list: any, item: any, itemIndex: any) {
     list[itemIndex].showReply = false
     this.setState({ disscussList: list })
   }
+
   onReplySent () {
     this.getDisscuss()
   }
+  
   render() {
-    const { list, itemIn, replyTo } = this.state
+    const { list, replyTo } = this.state
     const { user } = this.props
     return (
       <ul className="discuss-list">
       {
         list.length
-          ? list.map((item, i, list) => (
+          ? list.map((item: any, i: any, innerlist: any) => (
             <React.Fragment key={i}>
               <DisscussItem
-              list={list}
+              list={innerlist}
               item={item}
-              itemIn={itemIn}
-              onClickReply={this.onClickShowReply.bind(this)}
+              onClickReply={this.onClickShowReply}
               itemIndex={i} />
               {
                 item.children.length
                 ? <DisscussItemChild
-                  list={list}
-                  children={item.children}
-                  itemIndex={i}
-                  onClickReply={this.onClickShowReply.bind(this)} />
+                    list={innerlist}
+                    children={item.children}
+                    itemIndex={i}
+                    onClickReply={this.onClickShowReply} />
                 : null
               }
               {
                 item.showReply
                 && <DisscussReply
-                user={user}
-                list={list}
-                item={item}
-                itemIndex={i}
-                replyTo={replyTo}
-                onClickCancel={this.onClickReplyCancel.bind(this)}
-                onReplySent={this.onReplySent.bind(this)} />
+                  user={user}
+                  list={innerlist}
+                  item={item}
+                  itemIndex={i}
+                  replyTo={replyTo}
+                  onClickCancel={this.onClickReplyCancel}
+                  onReplySent={this.onReplySent} />
               }
             </React.Fragment>
           ))
-        : <ListEmpty></ListEmpty>
+        : <ListEmpty />
       }
       </ul>
     )
