@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { Theme } from '@types'
 
-import './GreetContent.css'
+import style from '../style'
 
 interface Props {
   theme: Theme
@@ -124,7 +124,7 @@ export default class GreetContent extends React.Component<Props, State> {
     this.shouldReWriteName(theme, currName)
 
     return (
-      <div className="contentWrap">
+      <div className={style}>
         <p className="herotitle">
           Make it&nbsp;
           <br className="hero-title-br"/>

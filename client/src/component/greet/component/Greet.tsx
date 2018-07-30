@@ -1,7 +1,7 @@
 import * as React from 'react'
 // import styled from 'react-emotion'
 
-import GreetContent from '../../greetContent/GreetContent'
+import GreetContent from '../../greetContent'
 // import GreetFlower from '../greetFlower/GreetFlower'
 import GreetHeader from '../../greetHeader/GreetHeader'
 import SocialLinkList from './SocialLinkList'
@@ -10,8 +10,6 @@ import { ThemeEnum } from '../../../Hero.service'
 import { Theme } from '@types'
 
 import style from '../style'
-
-import '../Greet.css'
 
 interface Props {
   theme: Theme;
@@ -62,7 +60,7 @@ export default class Greet extends React.Component<Props, State> {
   
   render() {
     const { theme } = this.props
-    
+
     return (
       <div className={style} style={{backgroundColor: theme.theme}}>
         <GreetHeader theme={theme} />
