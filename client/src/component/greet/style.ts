@@ -15,12 +15,18 @@ export default css({
     right: 0,
     width: '50%',
     height: '100%',
+    '@media (max-width:1100px)': {
+      width: '100%'
+    }
   },
   '& .greet-flower-layout': {
     position: 'absolute',
     width: '50%',
     height: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    '@media (max-width:1100px)': {
+      display: 'none'
+    }
   },
   '& .sociallink-list-container': {
     position: 'fixed',

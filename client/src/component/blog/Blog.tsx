@@ -28,7 +28,7 @@ class Blog extends React.Component<Props> {
   render() {
     const { theme } = this.props
     return (
-      <div className="blog-layout">
+      <React.Fragment>
         <BlogHeader color={theme.color} />
         <div className="blog-main">
           <Switch>
@@ -38,7 +38,7 @@ class Blog extends React.Component<Props> {
             <Route path="/blog/collect" exact component={BlogCollect} />
           </Switch>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
