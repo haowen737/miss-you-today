@@ -34,5 +34,5 @@ export default [
           data: Joi.array().items(Article)
         })
     )
-    .create('getArticles'),
+    .create('getArticles')
 ]

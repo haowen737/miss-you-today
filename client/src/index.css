@@ -15,7 +15,7 @@ header,footer,section,article,aside,nav{display:block;}
 html {
   font-size: 12px;
   user-select: none;
-  font-family: 'monospace', 'arial', 'HelveticaNeue', sans-serif;
+  font-family: 'arial', 'HelveticaNeue', sans-serif;
 }
 a {
   text-decoration: none;

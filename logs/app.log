@@ -1,0 +1,210 @@
+2018-08-04 23:23:04 +08:00: Sat, 04 Aug 2018 15:23:04 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at built/app.js:14:5
+2018-08-04 23:23:04 +08:00: koa-swapi document build succeed, path /documentation
+2018-08-04 23:23:04 +08:00: server is listening on port 3007, started at development mode
+2018-08-04 23:23:53 +08:00: 2018-08-04T15:23:53.285Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.552Z swapi:apiBuilder build route /articles
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.552Z swapi:apiBuilder build route /article
+2018-08-04T15:23:54.552Z swapi:apiBuilder build route /article
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.552Z swapi:apiBuilder build route /tags
+2018-08-04T15:23:54.552Z swapi:apiBuilder build route /tags/articles
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.553Z koa:application use bodyParser
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.553Z koa:application use deps
+2018-08-04 23:23:54 +08:00: Sat, 04 Aug 2018 15:23:54 GMT koa-static static "/Users/haowen/webProjects/popitin/with_you_friends/client/build" {}
+2018-08-04 23:23:54 +08:00: Sat, 04 Aug 2018 15:23:54 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at built/app.js:14:5
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.555Z koa:application use serve
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.556Z koa-router defined route HEAD,GET /api/articles
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.557Z koa-router defined route HEAD,GET /api/article
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.557Z koa-router defined route PUT /api/article
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.557Z koa:application use dispatch
+2018-08-04T15:23:54.557Z koa:application use allowedMethods
+2018-08-04T15:23:54.557Z koa-router defined route HEAD,GET /api/tags
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.557Z koa-router defined route HEAD,GET /api/tags/articles
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.557Z koa:application use dispatch
+2018-08-04T15:23:54.557Z koa:application use allowedMethods
+2018-08-04T15:23:54.558Z koa:application use -
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.558Z koa-static static "/Users/haowen/webProjects/popitin/with_you_friends/node_modules/koa-swapi/public/swagger-ui-dist" {}
+2018-08-04 23:23:54 +08:00: Sat, 04 Aug 2018 15:23:54 GMT koa-mount mount /documentation serve
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.558Z koa:application use -
+2018-08-04 23:23:54 +08:00: koa-swapi document build succeed, path /documentation
+2018-08-04 23:23:54 +08:00: Sat, 04 Aug 2018 15:23:54 GMT koa-mount mount /swagger.json unnamed
+2018-08-04T15:23:54.559Z koa:application use -
+2018-08-04T15:23:54.559Z swapi:swaggerServer swagger serve done, jsonPath /swagger.json
+2018-08-04T15:23:54.559Z swapi:swaggerServer swagger serve done, documentationPath /documentation
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.559Z koa:application use -
+2018-08-04 23:23:54 +08:00: server is listening on port 3007, started at production mode
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler
+2018-08-04T15:23:54.565Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/v8-profiler
+2018-08-04T15:23:54.565Z axm:profiling Checking v8-profiler in path /usr/local/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling [-] v8-profiler not found in path /usr/local/node_modules/v8-profiler
+2018-08-04T15:23:54.565Z axm:profiling Checking v8-profiler in path /usr/node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.565Z axm:profiling [-] v8-profiler not found in path /usr/node_modules/v8-profiler
+2018-08-04T15:23:54.565Z axm:profiling Checking v8-profiler in path /node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler not found in path /node_modules/v8-profiler
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [x] v8-profiler NOT FOUND
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler-node8
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler-node8
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/v8-profiler-node8
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /usr/local/node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/node_modules/v8-profiler-node8
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /usr/node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /usr/node_modules/v8-profiler-node8
+2018-08-04T15:23:54.566Z axm:profiling Checking v8-profiler-node8 in path /node_modules/v8-profiler-node8
+2018-08-04 23:23:54 +08:00: 2018-08-04T15:23:54.566Z axm:profiling [-] v8-profiler-node8 not found in path /node_modules/v8-profiler-node8
+2018-08-04T15:23:54.567Z axm:profiling [x] v8-profiler-node8 NOT FOUND
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/static/css/main.2b010010.css" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/static/js/main.a9dad795.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/static/css/main.2b010010.css.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/swagger.json" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.684Z koa-router GET /swagger.json
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.684Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.685Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:23:58.685Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.685Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:23:58.685Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.685Z koa-router GET /swagger.json
+2018-08-04T15:23:58.685Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04 23:23:58 +08:00: 2018-08-04T15:23:58.685Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:23:58.686Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:23:58.686Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:23:58.686Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-mount mount /documentation serve -> false
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-mount mount /swagger.json unnamed -> /
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-mount enter /swagger.json -> /
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-mount leave /swagger.json -> /
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/static/js/main.a9dad795.js.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:23:58 +08:00: Sat, 04 Aug 2018 15:23:58 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/static/css/main.2b010010.css" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/static/js/main.a9dad795.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/swagger.json" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: 2018-08-04T15:24:00.689Z koa-router GET /swagger.json
+2018-08-04 23:24:00 +08:00: 2018-08-04T15:24:00.689Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04 23:24:00 +08:00: 2018-08-04T15:24:00.689Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router GET /swagger.json
+2018-08-04T15:24:00.689Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04 23:24:00 +08:00: 2018-08-04T15:24:00.689Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:00.689Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-mount mount /documentation serve -> false
+Sat, 04 Aug 2018 15:24:00 GMT koa-mount mount /swagger.json unnamed -> /
+Sat, 04 Aug 2018 15:24:00 GMT koa-mount enter /swagger.json -> /
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-mount leave /swagger.json -> /
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/static/js/main.a9dad795.js.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:00 +08:00: Sat, 04 Aug 2018 15:24:00 GMT koa-send send "/static/css/main.2b010010.css.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/css/main.2b010010.css" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/js/main.a9dad795.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/swagger.json" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: 2018-08-04T15:24:01.558Z koa-router GET /swagger.json
+2018-08-04 23:24:01 +08:00: 2018-08-04T15:24:01.558Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04 23:24:01 +08:00: 2018-08-04T15:24:01.558Z koa-router GET /swagger.json
+2018-08-04T15:24:01.558Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04 23:24:01 +08:00: 2018-08-04T15:24:01.558Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:01.558Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+Sat, 04 Aug 2018 15:24:01 GMT koa-mount mount /documentation serve -> false
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-mount mount /swagger.json unnamed -> /
+Sat, 04 Aug 2018 15:24:01 GMT koa-mount enter /swagger.json -> /
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-mount leave /swagger.json -> /
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/js/main.a9dad795.js.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/css/main.2b010010.css.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/css/main.2b010010.css" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:01 +08:00: Sat, 04 Aug 2018 15:24:01 GMT koa-send send "/static/js/main.a9dad795.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-send send "/swagger.json" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:02 +08:00: 2018-08-04T15:24:02.156Z koa-router GET /swagger.json
+2018-08-04 23:24:02 +08:00: 2018-08-04T15:24:02.156Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router GET /swagger.json
+2018-08-04 23:24:02 +08:00: 2018-08-04T15:24:02.156Z koa-router test /api/articles /^\/api\/articles(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:02.156Z koa-router test /api/article /^\/api\/article(?:\/(?=$))?$/i
+2018-08-04T15:24:02.157Z koa-router test /api/tags /^\/api\/tags(?:\/(?=$))?$/i
+2018-08-04T15:24:02.157Z koa-router test /api/tags/articles /^\/api\/tags\/articles(?:\/(?=$))?$/i
+Sat, 04 Aug 2018 15:24:02 GMT koa-mount mount /documentation serve -> false
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-mount mount /swagger.json unnamed -> /
+Sat, 04 Aug 2018 15:24:02 GMT koa-mount enter /swagger.json -> /
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-mount leave /swagger.json -> /
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-send send "/static/js/main.a9dad795.js.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-send send "/static/css/main.2b010010.css.map" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:24:02 +08:00: Sat, 04 Aug 2018 15:24:02 GMT koa-send send "/service-worker.js" {"root":"/Users/haowen/webProjects/popitin/with_you_friends/client/build","index":"index.html"}
+2018-08-04 23:26:57 +08:00: Sat, 04 Aug 2018 15:26:57 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at built/app.js:14:5
+2018-08-04 23:26:57 +08:00: koa-swapi document build succeed, path /documentation
+2018-08-04 23:26:57 +08:00: server is listening on port 3007, started at development mode
+2018-08-04 23:27:19 +08:00: 2018-08-04T15:27:19.872Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.263Z swapi:apiBuilder build route /articles
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.263Z swapi:apiBuilder build route /article
+2018-08-04T15:27:21.263Z swapi:apiBuilder build route /article
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.264Z swapi:apiBuilder build route /tags
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.264Z swapi:apiBuilder build route /tags/articles
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.265Z koa:application use bodyParser
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.265Z koa:application use deps
+2018-08-04 23:27:21 +08:00: Sat, 04 Aug 2018 15:27:21 GMT koa-static static "/Users/haowen/webProjects/popitin/with_you_friends/client/build" {}
+2018-08-04 23:27:21 +08:00: Sat, 04 Aug 2018 15:27:21 GMT koa deprecated Support for generators will be removed in v3. See the documentation for examples of how to convert old middleware https://github.com/koajs/koa/blob/master/docs/migration.md at built/app.js:14:5
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.266Z koa:application use serve
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.268Z koa-router defined route HEAD,GET /api/articles
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.268Z koa-router defined route HEAD,GET /api/article
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.269Z koa-router defined route PUT /api/article
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.269Z koa:application use dispatch
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.269Z koa:application use allowedMethods
+2018-08-04T15:27:21.269Z koa-router defined route HEAD,GET /api/tags
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.269Z koa-router defined route HEAD,GET /api/tags/articles
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.269Z koa:application use dispatch
+2018-08-04T15:27:21.269Z koa:application use allowedMethods
+2018-08-04T15:27:21.269Z koa:application use -
+2018-08-04T15:27:21.270Z koa-static static "/Users/haowen/webProjects/popitin/with_you_friends/node_modules/koa-swapi/public/swagger-ui-dist" {}
+2018-08-04 23:27:21 +08:00: Sat, 04 Aug 2018 15:27:21 GMT koa-mount mount /documentation serve
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.270Z koa:application use -
+2018-08-04 23:27:21 +08:00: koa-swapi document build succeed, path /documentation
+2018-08-04 23:27:21 +08:00: Sat, 04 Aug 2018 15:27:21 GMT koa-mount mount /swagger.json unnamed
+2018-08-04T15:27:21.271Z koa:application use -
+2018-08-04T15:27:21.271Z swapi:swaggerServer swagger serve done, jsonPath /swagger.json
+2018-08-04T15:27:21.271Z swapi:swaggerServer swagger serve done, documentationPath /documentation
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.271Z koa:application use -
+2018-08-04 23:27:21 +08:00: server is listening on port 3007, started at production mode
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.277Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.277Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.277Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler
+2018-08-04T15:27:21.277Z axm:profiling Checking v8-profiler in path /usr/local/lib/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.277Z axm:profiling [-] v8-profiler not found in path /usr/local/lib/node_modules/v8-profiler
+2018-08-04T15:27:21.277Z axm:profiling Checking v8-profiler in path /usr/local/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.277Z axm:profiling [-] v8-profiler not found in path /usr/local/node_modules/v8-profiler
+2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler in path /usr/node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling [-] v8-profiler not found in path /usr/node_modules/v8-profiler
+2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler in path /node_modules/v8-profiler
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling [-] v8-profiler not found in path /node_modules/v8-profiler
+2018-08-04T15:27:21.278Z axm:profiling [x] v8-profiler NOT FOUND
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/pm2/lib/node_modules/v8-profiler-node8
+2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/pm2/node_modules/v8-profiler-node8
+2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler-node8 in path /usr/local/lib/node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.278Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/lib/node_modules/v8-profiler-node8
+2018-08-04T15:27:21.278Z axm:profiling Checking v8-profiler-node8 in path /usr/local/node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.279Z axm:profiling [-] v8-profiler-node8 not found in path /usr/local/node_modules/v8-profiler-node8
+2018-08-04T15:27:21.279Z axm:profiling Checking v8-profiler-node8 in path /usr/node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.279Z axm:profiling [-] v8-profiler-node8 not found in path /usr/node_modules/v8-profiler-node8
+2018-08-04T15:27:21.279Z axm:profiling Checking v8-profiler-node8 in path /node_modules/v8-profiler-node8
+2018-08-04 23:27:21 +08:00: 2018-08-04T15:27:21.279Z axm:profiling [-] v8-profiler-node8 not found in path /node_modules/v8-profiler-node8
+2018-08-04T15:27:21.279Z axm:profiling [x] v8-profiler-node8 NOT FOUND

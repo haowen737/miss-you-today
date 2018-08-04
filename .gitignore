@@ -26,3 +26,9 @@ db/*
 
 ## logs
 logs
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock

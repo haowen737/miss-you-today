@@ -9,5 +9,5 @@ import tagsSchemas from './tags'
 
 export default [
   Api.schemas(articleSchemas).handler(articleController),
-  Api.schemas(tagsSchemas).handler(tagsController),
+  Api.schemas(tagsSchemas).handler(tagsController)
 ]
