@@ -13,18 +13,25 @@
     "koa-joi-router": "^5.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^2.1.0",
-    "koa-swapi": "^1.1.1",
+    "koa-swapi": "^1.1.2",
     "methods": "^1.1.2",
-    "sqlite3": "^4.0.1",
-    "typescript": "^2.9.2"
+    "sqlite3": "^4.0.1"
   },
   "devDependencies": {
+    "@types/joi": "^13.4.0",
+    "@types/knex": "^0.14.19",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-static": "^4.0.0",
     "@types/react-transition-group": "^2.0.11",
+    "concurrently": "^3.6.1",
     "nodemon": "^1.17.3",
-    "tslint": "^5.10.0"
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^7.1.0",
+    "typescript": "^2.9.2"
   },
   "scripts": {
-    "start": "nodemon bin/run.js",
+    "start": "npm run lint && concurrently \"tsc -w --pretty\"  \"nodemon\"",
+    "lint": "tslint --fix ./src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

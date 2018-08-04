@@ -1,6 +1,5 @@
-const Joi = require('joi')
-// const { Route, Validator } = require('../../../KoaApii/built')
-const { Route, Validator } = require('koa-swapi')
+import * as Joi from 'joi'
+import { Route, Validator } from 'koa-swapi'
 
 const Article = Joi.object({
   id: Joi.number(),
@@ -8,7 +7,7 @@ const Article = Joi.object({
   content: Joi.string()
 }).label('文章对象').description('文章对象的详情')
 
-module.exports = [
+export default [
 
   Route
     .get('/articles')
@@ -37,7 +36,7 @@ module.exports = [
     )
     .create('getArticle'),
 
-    Route
+  Route
       .put('/article')
       .summary('更新文章信息')
       .description('更新阅读量等信息')
