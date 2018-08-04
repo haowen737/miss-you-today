@@ -23,6 +23,6 @@
     "member-ordering": [true, { "order": "fields-first" }],
     "member-access": false,
     "jsx-boolean-value": false,
-    "only-arrow-functions": [true, "allow-declarations"]
+    "only-arrow-functions": false
   }
 }

@@ -1,8 +1,11 @@
+import * as path from 'path'
+import * as fs from 'fs'
 
 interface ArticleController {
-  getList?: any
-  getArticle?: any
-  update?: any
+  getList: any
+  getArticle: any
+  update: any
+  getArticlesByTag: any
 }
 
 const article: ArticleController = {
@@ -14,12 +17,17 @@ const article: ArticleController = {
   },
 
   getArticle: async (ctx: any, next) => {
-    const id = ctx.params.id
-    // let filePath = path.join(__dirname, '../doc/' + id + '.md')
+    const id = ctx.query.id
 
-    const result = await ctx.knex.select('*').from('articles').where('file_id', id)
+    const result = await ctx.knex.first('*').from('articles').where('file_id', id)
 
-    ctx.body = result
+    let filePath = path.resolve(__dirname, `../../doc/${id}.md`)
+    result.content = fs.readFileSync(filePath, 'utf-8')
+
+    let cur_count = result.view_count + 1
+    await ctx.knex('articles').where('file_id', id).update('view_count', cur_count)
+  
+    ctx.body = { data: result }
   },
 
   update: async (ctx: any) => {

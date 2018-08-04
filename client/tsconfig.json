@@ -7,7 +7,10 @@
     "lib": ["es6", "dom"],
     "paths": {
       "@assets": ["src/assets"],
-      "@types": ["src/types"]
+      "@types": ["src/types"],
+      "@context": ["src/context"],
+      "@utils": ["src/utils"],
+      "@utils/swagger": ["src/utils/swagger"]
     },
     "sourceMap": true,
     "allowJs": true,

@@ -1,9 +1,8 @@
 import * as React from 'react'
-import Axios from 'axios'
 import { Transition } from 'react-transition-group'
 
 import { defaultStyle, transitionStyles } from './TransitionConfig'
-import Utils from '../../utils'
+import { DateFormat, Swagger } from '@utils'
 
 interface Props {
   activeTag: any
@@ -31,6 +30,7 @@ const Article = ({ children, index, article, articleListIn }: ArticleProps) => {
     <Transition in={articleListIn} appear={true} timeout={(50 + (50 * index))}>
     {(state: any) => (
       <li 
+      key={index}
       style={{
         ...defaultStyle,
         ...{transform: `translate3d(0, -${index * 10}%, 0)`},
@@ -54,7 +54,7 @@ const ListSelf = ({ articleList, articleListIn }: ListSelfProps) => (
       index={i}>
         <div className="article-card clearfix">
           <div className="article-left">
-            <p>{Utils.DateFormat(article.created_at, 'YYYY-MM-DD hh:mm:ss')}</p>
+            <p>{DateFormat(article.created_at, 'YYYY-MM-DD hh:mm:ss')}</p>
           </div>
           <div className="article-right">
             <h2>{article.title}</h2>
@@ -85,16 +85,12 @@ export default class ArticleList extends React.Component<Props, State> {
   }
 
   getArticles (activeTag: string) {
-    Axios
-      .get('/api/article/getTags/' + activeTag)
-      .then(({ data }) => {
+    Swagger.apis.tags.getTagsArticles({ tag: activeTag })
+      .then(({ data }: any) => {
         this.setState({ articleList: data })
         setTimeout(() => {
           this.setState({ articleListIn: true })
         }, 600);
-      })
-      .catch((err) => {
-        console.log(err)
       })
   }
 

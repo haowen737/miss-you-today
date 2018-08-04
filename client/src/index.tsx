@@ -10,22 +10,33 @@ import './index.css'
 import App from './component/app/App'
 import registerServiceWorker from './registerServiceWorker'
 
-import swagger from './utils/swagger'
+import { Swagger } from '@utils'
+
+// import { SwaggerContext } from '@context'
 
 const store = createStore(myRedux)
 // const SwaggerContext = createContext('')
 
-swagger.init()
-  .then((res: any) => {
-    console.log('res---', res)
+// TODO: use swagger client in front react 
+Swagger
+  .init()
+  .then(() => {
+    renderRoot()
+  })
+  .catch(err => {
+    console.log('err----', err)
   })
 
-ReactDOM.render((
-  <Provider store={store}>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </Provider>
-), document.getElementById('root'))
+const renderRoot = () => {
+  return (
+    ReactDOM.render((
+      <Provider store={store}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </Provider>
+    ), document.getElementById('root'))
+  )
+}
 
-registerServiceWorker()
+process.env.NODE_ENV !== 'development' && registerServiceWorker()

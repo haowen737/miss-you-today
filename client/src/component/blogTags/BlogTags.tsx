@@ -1,8 +1,8 @@
 import * as React from 'react'
-import Axios from 'axios'
 import { Transition, TransitionGroup } from 'react-transition-group'
 
 import ArticleList from './ArticleList'
+import { Swagger } from '@utils'
 
 // import * as TransitionConfig from './TransitionConfig'
 import { defaultStyle, transitionStyles, defaultHeaderStyle, transitionHeaderStyles } from './TransitionConfig'
@@ -38,17 +38,20 @@ export default class BlogTags extends React.Component<object, State> {
   }
 
   getTagList () {
-    Axios
-      .get('/api/article/getTags')
-      .then(({ data }) => {
-        this.setState({ tags: [] })
-        setTimeout(() => {
-          this.setState({ tags: data, activeTag: data[0] })
-        }, 0)
+    Swagger.apis.tags.getTags()
+      .then(({ data }: any) => {
+        this.setState({ tags: data, activeTag: data[0] })
       })
-      .catch((err) => {
-        console.log(err)
-      })
+    // Axios
+    //   .get('/api/article/getTags')
+    //   .then(({ data }) => {
+    //     this.setState({ tags: [] })
+    //     setTimeout(() => {
+    //     }, 0)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
   }
 
   onClickTag(tag: string): void {
@@ -66,7 +69,8 @@ export default class BlogTags extends React.Component<object, State> {
     return (
       <Transition in={true} appear={true} timeout={(50 + (50 * index))}>
         {(state: any) => (
-          <li 
+          <li
+            key={index}
             style={{
               ...defaultStyle,
               ...{transform: `translate3d(0, -${index * 10}%, 0)`},

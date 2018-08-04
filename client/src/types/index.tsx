@@ -15,3 +15,5 @@ export interface StoreState {
   apis?: any,
   user?: any
 }
+
+// export interface Swagger {}

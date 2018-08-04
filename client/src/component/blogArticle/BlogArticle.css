@@ -1,30 +1,4 @@
-.markdown-body {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 45px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  animation: markdown-body-animation .6s linear;
-  color: #333;
-}
-.markdown-body h1 {
-  text-align: center;
-  margin: 2rem 0;
-  border: none;
-  animation: markdown-h1-animation .6s linear;
-}
-.markdown-body {
-  font-size: 1.2rem;
-}
-.markdown-body p {
-  margin-bottom: 30px;
-}
-@media (max-width: 767px) {
-  .markdown-body {
-    padding: 15px;
-  }
-}
+
 .loading-layout p {
   position: absolute;
   margin: auto;
@@ -49,8 +23,6 @@
   100% {
     opacity: 1;
   }
-}
-.article-wrap {
 }
 .blog-article-footer {
   box-sizing: border-box;
@@ -78,6 +50,4 @@
 .taglist-container {
   vertical-align: middle;
 }
-.loading-wrap {
-  height: 40rem;
-}
+
