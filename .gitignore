@@ -23,10 +23,9 @@ yarn-error.log*
 
 ## database
 # db/*
-
-## logs
+## logsss
 logs
-
+# /logs/*.log
 # Runtime data
 pids
 *.pid
