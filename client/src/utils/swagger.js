@@ -2,6 +2,7 @@ import Swagger from 'swagger-client'
 import * as https from "https"
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false })
+const url = `${window.location.protocol}//localhost:3007/swagger.json`
 
 const apiWrappper = function (apis) {
   if (!apis) {
@@ -39,10 +40,10 @@ const routeWrapper = function (route) {
 const internals = {
   init: function () {
     return new Promise((resolve, reject) => {
-      Swagger({ url: '/swagger.json', connectionAgent: httpsAgent })
-        .then((res) => {
-          console.log('swagger.json-->', res)
-          this.apis = apiWrappper(res.apis)
+      Swagger({ url })
+        .then((client) => {
+          console.log('swagger.json-->', client)
+          this.apis = apiWrappper(client.apis)
           resolve()
         })
         .catch(err => {

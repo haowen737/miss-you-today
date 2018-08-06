@@ -38,6 +38,7 @@
   },
   "scripts": {
     "start": "npm run lint && concurrently \"tsc -w --pretty\"  \"nodemon\"",
+    "ssl": "npm run lint && concurrently \"tsc -w --pretty\"  \"nodemon bin/runSSL \"",
     "lint": "tslint --fix ./src/**/*.ts",
     "build": "rimraf built && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"

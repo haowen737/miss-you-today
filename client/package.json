@@ -70,16 +70,21 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "startssl": "HTTPS='true' node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:3007",
-      "ws": true
+      "target": "https://localhost:3003",
+      "ws": true,
+      "secure": false,
+      "changeOrigin": true
     },
     "/swagger.json": {
-      "target": "http://localhost:3007"
+      "target": "https://localhost:3003",
+      "secure": false,
+      "changeOrigin": true
     }
   },
   "jest": {

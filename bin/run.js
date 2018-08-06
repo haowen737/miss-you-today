@@ -1,7 +1,9 @@
 const path = require('path')
+const fs = require('fs')
 const config = require(path.resolve(__dirname, '../config'))
 const app = require('../built/app')
 const http = require('http')
+const https = require('https')
 const chalk = require('chalk')
 
 const printf = console.log
@@ -17,4 +19,4 @@ server.listen(PORT)
 server.on('listening', onListening)
 app.on('error', (err, ctx) => {
   log.error('server error', err, ctx)
-});
+})
