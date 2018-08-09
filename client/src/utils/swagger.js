@@ -2,7 +2,7 @@ import Swagger from 'swagger-client'
 import * as https from "https"
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false })
-const url = `${window.location.protocol}//localhost:3007/swagger.json`
+const url = `${window.location.protocol}//www.withyoufriends.com/swagger.json`
 
 const apiWrappper = function (apis) {
   if (!apis) {
