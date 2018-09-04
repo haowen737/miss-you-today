@@ -2,8 +2,8 @@ import Swagger from 'swagger-client'
 import * as https from "https"
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false })
-const url = `${window.location.protocol}//localhost:3007/swagger.json`
-
+// const url = `${window.location.protocol}//localhost:3007/swagger.json`
+const url = `${window.location.protocol}//localhost:3002/swagger.json`
 const apiWrappper = function (apis) {
   if (!apis) {
     throw new Error('api should be array')
@@ -19,6 +19,8 @@ const apiWrappper = function (apis) {
       }
     }
   })
+
+  console.log('---', wrapped)
 
   return wrapped
 }
@@ -43,6 +45,8 @@ const internals = {
       Swagger({ url })
         .then((client) => {
           console.log('swagger.json-->', client)
+          client.spec.schemes = ['http']
+          client.spec.host = 'localhost:3002'
           this.apis = apiWrappper(client.apis)
           resolve()
         })

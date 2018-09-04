@@ -21,7 +21,7 @@ app.use(mount('/', serve(path.resolve(__dirname, '../client/build'))))
 swapi.register(app, {
   basePath: '/api',
   swagger: {
-    schemes: ['https'],
+    schemes: ['https', 'http'],
   },
   apis
 })
