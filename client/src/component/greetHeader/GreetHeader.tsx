@@ -12,15 +12,19 @@ interface Props {
 export default class Header extends React.Component<Props> {
   renderLogo = () => {
     const theme = this.props.theme
-    return <Link className="logo" to="/" style={{ color: theme.color }}>Haowen</Link>
+    return <Link className="logo" to="/" style={{ color: theme.color }}>hi_Haowen</Link>
   }
 
   renderNav = () => {
     const theme = this.props.theme
     return (
-      GreetNav.map((n, i) => (
-        <Link key={i} to={n.url} style={{color: theme.color}}>{n.title}</Link>
-      ))
+      <nav className="nav">
+      {
+        GreetNav.map((n, i) => (
+          <Link key={i} to={n.url} style={{color: theme.color}}>{n.title}</Link>
+        ))
+      }
+      </nav>
     )
   }
   
@@ -28,9 +32,7 @@ export default class Header extends React.Component<Props> {
     return (
       <div className="header-container">
         {this.renderLogo()}
-        <nav className="nav">
-          {this.renderNav()}
-        </nav>
+        {this.renderNav()}
       </div>
     )
   }

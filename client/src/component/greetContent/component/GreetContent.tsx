@@ -101,7 +101,13 @@ export default class GreetContent extends React.Component<Props, State> {
   renderTypeWritter(): JSX.Element | void {
     const { color } = this.props.theme
     const { currName } = this.state
-    return <span className="typeWritter" style={{ color }}>{currName}</span>
+    return (
+      <p className="type-writter-wrapper">
+        Make it&nbsp;
+        <br className="hero-title-br"/>
+        <span className="typeWritter" style={{ color }}>{currName}</span>
+      </p>
+    )
   }
   
   renderStartButton(): JSX.Element | void {
@@ -125,11 +131,7 @@ export default class GreetContent extends React.Component<Props, State> {
 
     return (
       <div className={style}>
-        <p className="herotitle">
-          Make it&nbsp;
-          <br className="hero-title-br"/>
-          {this.renderTypeWritter()}
-        </p>
+        {this.renderTypeWritter()}
         <p className="heroSummary">Code · Design · Create · Capture · Inspire</p>
         {this.renderStartButton()}
       </div>

@@ -1,10 +1,8 @@
 import { css } from 'react-emotion'
 
 export default css({
-  position: 'absolute',
   lineHeight: 1,
-  marginLeft: '8%',
-  textAlign: 'left',
+  textAlign: 'center',
   animation: 'content-wrap-animation .5s linear',
   '& .buttonStyle': {
     display: 'inline-block',
@@ -22,7 +20,7 @@ export default css({
     color: 'rgba(0,0,0,0.4)',
     margin: '1rem 0',
   },
-  '& .herotitle': {
+  '& .type-writter-wrapper': {
     position: 'relative',
     fontSize: '5rem',
     color: '#191919',

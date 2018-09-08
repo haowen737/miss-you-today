@@ -95,7 +95,7 @@ export default class DefaultPlayer extends Component {
         <div
           className="cover"
           style={{backgroundImage: `url(${currMusic.cover})`}}
-          onClick={this.onClickCover.bind(this, theme)}
+          onClick={() => { this.onClickCover(theme) }}
         ></div>
         {/* <PlayerFold></PlayerFold> */}
       </div>
