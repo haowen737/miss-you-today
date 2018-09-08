@@ -8,6 +8,10 @@ import { Swapi } from 'koa-swapi'
 import * as path from 'path'
 import deps from './deps'
 import apis from './routes'
+import {
+  render,
+  template
+} from "rapscallion"
 
 const app = new Koa()
 const swapi = new Swapi()
@@ -17,6 +21,7 @@ const swapi = new Swapi()
 app.use(bodyparser())
 app.use(deps)
 app.use(mount('/', serve(path.resolve(__dirname, '../client/build'))))
+// app.use(mount('/', () => ))
 
 swapi.register(app, {
   basePath: '/api',
