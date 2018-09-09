@@ -10,7 +10,8 @@
       "@types": ["src/types"],
       "@context": ["src/context"],
       "@utils": ["src/utils"],
-      "@utils/swagger": ["src/utils/swagger"]
+      "@utils/swagger": ["src/utils/swagger"],
+      "@ducks": ["src/ducks"]
     },
     "sourceMap": true,
     "allowJs": true,

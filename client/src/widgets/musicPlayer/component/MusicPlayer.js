@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-import './MusicPlayer.css'
+import '../MusicPlayer.css'
 
 import MyMusic from './MyMusic'
 import DefaultPlayer from './DefaultPlayer'
 
-class MusicPlayer extends Component {
+export default class MusicPlayer extends Component {
   constructor() {
     super()
     this.state = {
@@ -21,21 +20,12 @@ class MusicPlayer extends Component {
     const { theme } = this.props
     const { currMusic } = this.state
     return (
-      <div className="music-player-container">
-        <DefaultPlayer
+      <DefaultPlayer
         left={this.renderPlayerLeft(theme)}
         theme={theme}
         MyMusic={MyMusic}
         currMusic={currMusic} />
-      </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  theme: state.theme
-})
-
-export default connect(
-  mapStateToProps
-)(MusicPlayer)

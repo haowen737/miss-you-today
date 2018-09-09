@@ -9,7 +9,7 @@ import Greet from '../greet'
 import Blog from '../blog/Blog'
 import Me from '../me/Me'
 
-import MusicPlayer from '../../widgets/musicPlayer/MusicPlayer';
+import MusicPlayer from '../../widgets/musicPlayer';
 import Talk from '../talk'
 
 import style from './style'

@@ -20,8 +20,6 @@ const apiWrappper = function (apis) {
     }
   })
 
-  console.log('---', wrapped)
-
   return wrapped
 }
 

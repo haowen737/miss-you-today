@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
 import { BlogTheme } from '../../Hero.service'
-import { themeChange, WithYouAction } from '../../actions'
-import { Theme, StoreState } from '@types'
+import { themeChange, WithYouAction } from '../../ducks/global'
+import { ThemeState, StoreState } from '@types'
 
 import './index.css'
 
@@ -61,11 +61,11 @@ class BlogTPComment extends React.Component<Props, object> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme,
+  theme: state.themeState,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => ({
-  themeChange: (theme: Theme) => dispatch(themeChange(theme))
+  themeChange: (theme: ThemeState) => dispatch(themeChange(theme))
 })
 
 export default connect(

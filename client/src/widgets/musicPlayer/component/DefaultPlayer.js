@@ -4,6 +4,7 @@ import bodymovin from 'bodymovin'
 import playPauseData from '@assets/lottie/PlayPause.json'
 
 import PlayerContent from './PlayerContent'
+import { musicPlayerStyle } from '../style'
 
 const PlayPauseButton = ({type, control}) => {
   return (
@@ -80,7 +81,7 @@ export default class DefaultPlayer extends Component {
     const { theme, MyMusic, currMusic } = this.props
     const { musicStyle, playStatus } = this.state
     return (
-      <div className="music-player clearfix" style={{backgroundColor: theme.musicPlayerBg,  ...musicStyle}}>
+      <div className={musicPlayerStyle} style={{backgroundColor: theme.musicPlayerBg,  ...musicStyle}}>
         <PlayerContent
           currMusic={currMusic}
           theme={theme}

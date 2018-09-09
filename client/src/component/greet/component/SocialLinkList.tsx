@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { Theme } from '@types'
+import { ThemeState } from '@types'
 
 interface Props {
-  theme: Theme
+  theme: ThemeState
 }
 
 export default class SocialLinkList extends React.Component<Props, object> {

@@ -54,7 +54,7 @@ const poem4 = [
 
 const theme = [{
   name: 'Beautiful.',
-  theme: '#ececec',
+  // theme: '#ececec',
   titleColor: '#212121',
   color: '#a8a8a7',
   btnTheme: '#000',
@@ -65,7 +65,7 @@ const theme = [{
   poem: poem1
 }, {
   name: 'Cool.',
-  theme: '#39393b',
+  // theme: '#39393b',
   color: '#919191',
   btnTheme: '#fff',
   btnColor: '#000',
@@ -75,7 +75,7 @@ const theme = [{
   poem: poem3
 }, {
   name: 'Creative.',
-  theme: '#f9efe6',
+  // theme: '#f9efe6',
   color: '#afa7a1',
   btnTheme: '#000',
   btnColor: '#fff',
@@ -85,7 +85,7 @@ const theme = [{
   poem: poem2
 }, {
   name: 'Crazy.',
-  theme: '#6f8fa8',
+  // theme: '#6f8fa8',
   titleColor: '#fff',
   color: '#b1c3d1',
   btnTheme: '#fff',

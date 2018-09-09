@@ -6,9 +6,9 @@ import DisscussHeader from './DisscussHeader'
 import DisscussForm from './DisscussForm'
 import DisscussList from './DisscussList'
 
-import { themeChange, WithYouAction } from '../../actions'
+import { themeChange, WithYouAction } from '../../ducks/global'
 import { BlogTheme } from '../../Hero.service'
-import { Theme, StoreState } from '@types'
+import { ThemeState, StoreState } from '@types'
 
 import './Disscuss.css'
 
@@ -94,12 +94,12 @@ class Disscuss extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme,
+  theme: state.themeState,
   user: state.user
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => ({
-  themeChange: (theme: Theme) => { dispatch(themeChange(theme)) }
+  themeChange: (theme: ThemeState) => { dispatch(themeChange(theme)) }
 })
 
 export default connect(

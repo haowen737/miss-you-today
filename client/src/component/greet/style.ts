@@ -1,6 +1,8 @@
 import { css } from 'react-emotion'
 
-export default css({
+export const greetCanvasStyle = css({})
+
+export const greetStyle = css({
   position: 'absolute',
   top: 0,
   left: 0,

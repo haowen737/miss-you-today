@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { BlogTheme } from '../../Hero.service'
-import { themeChange, checkUser } from '../../actions'
+import { themeChange, checkUser } from '../../ducks/global'
 
 import './index.css'
 
@@ -32,7 +32,7 @@ class ThirdPartyComment extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.theme,
+  theme: state.themeState,
   user: state.user
 })
 

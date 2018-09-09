@@ -1,25 +1,3 @@
-.music-player {
-  position: fixed;
-  bottom: 10%;
-  height: 80px;
-  color: #fff;
-  z-index: 20;
-  transition: all .8s cubic-bezier(0.65, 0.02, 0.18, 0.66);
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
-  white-space: nowrap;
-}
-.cover {
-  position: relative;
-  float: left;
-  width: 80px;
-  height: 80px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: cover-animatioin .6s linear;
-  z-index: 100;
-  cursor: pointer;
-}
 .control-player-container {
   position: relative;
   cursor: pointer;
@@ -117,45 +95,6 @@
   }
 }
 /* player-content */
-.player-content {
-  height: 100%;
-  float: left;
-  position: relative;
-  padding-left: 20px;
-}
-.player-content a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* height: 100%; */
-  width: 100%;
-  padding: 10px 30px;
-  font-weight: lighter !important;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  text-indent: 20px;
-  transition: all 1s linear;
-  box-shadow: -2px -2px 4px rgba(0,0,0,.2);
-}
-.player-content a::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: rgba(0,0,0,.2);
-  transform: scaleY(.5);
-}
-.player-content a:hover {
-  transition: all .7s ease;
-  width: 105%;
-  padding: 10px 40px;
-  filter: brightness(110%) !important;
-}
 .play-list-container div:hover {
   background-color: rgba(0,0,0,0.3);
 }
@@ -180,37 +119,4 @@
   height: 10px;
   border-top: 1px solid #fff;
   border-right: 1px solid #fff;
-}
-/* mini player */
-.mini-player {
-  position: fixed;
-  left: 0;
-  bottom: 10%;
-}
-@media screen and (max-width: 1100px) {
-  .music-player {
-    bottom: 15%;
-  }
-  .content {
-    /* padding: 5px; */
-  }
-  .title {
-    font-size: 1.1rem;
-  }
-  .cover {
-    animation: none;
-  }
-  .control-play {
-    animation: none;
-  }
-  .content {
-    animation: none;
-  }
-  .title {
-    animation: none;
-  }
-}
-@media screen and (max-width: 320px) {
-  .cover {
-  }
 }

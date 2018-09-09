@@ -1,4 +1,4 @@
-export interface Theme {
+export interface ThemeState {
   name: string,
   theme?: string,
   color: string,
@@ -11,7 +11,7 @@ export interface Theme {
 }
 
 export interface StoreState {
-  theme: Theme,
+  themeState: ThemeState,
   apis?: any,
   user?: any
 }

@@ -2,9 +2,9 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
-import { themeChange, WithYouAction } from '../../actions'
+import { themeChange, WithYouAction } from '../../ducks/global'
 import { BlogTheme } from '../../Hero.service'
-import { Theme, StoreState } from '@types'
+import { ThemeState, StoreState } from '@types'
 
 import './me.css'
 
@@ -35,11 +35,11 @@ class Me extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme
+  theme: state.themeState
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => ({
-  themeChange: (theme: Theme) => dispatch(themeChange(theme))
+  themeChange: (theme: ThemeState) => dispatch(themeChange(theme))
 })
 
 export default connect(

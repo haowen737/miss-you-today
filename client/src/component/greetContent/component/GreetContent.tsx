@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Theme } from '@types'
+import { ThemeState } from '@types'
 
 import style from '../style'
 
 interface Props {
-  theme: Theme
+  theme: ThemeState
 }
 interface State {
   currName: string
@@ -90,7 +90,7 @@ export default class GreetContent extends React.Component<Props, State> {
     })
   }
 
-  shouldReWriteName (theme: Theme, currName: string) {
+  shouldReWriteName (theme: ThemeState, currName: string) {
     const { writingActive, penIsWriting } = this.state
     if (!writingActive) { return }
     if (currName !== theme.name && !penIsWriting) {

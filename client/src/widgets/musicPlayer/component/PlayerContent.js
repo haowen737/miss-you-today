@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Transition } from 'react-transition-group'
 
+import { playerContentStyle } from '../style'
+
 const duration = 270;
 
 const renderDefaultStyle = i => ({
@@ -103,7 +105,7 @@ export default class PlayerContent extends Component {
     const { listShow } = this.state
     return (
       <div
-        className="player-content"
+        className={playerContentStyle}
         style={{left: `translateX(-100%)`}}
         onMouseLeave={this.onMouseLeaveContent.bind(this)}
       >

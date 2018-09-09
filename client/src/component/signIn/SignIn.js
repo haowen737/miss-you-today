@@ -3,7 +3,7 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 // import Axios from 'axios'
 
-import { themeChange, updateUser } from '../../actions'
+import { themeChange, updateUser } from '../../ducks/global'
 import { BlogTheme } from '../../Hero.service'
 
 import SignInForm from './SignInForm'
@@ -112,7 +112,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.theme,
+  theme: state.themeState,
   user: state.user
 })
 

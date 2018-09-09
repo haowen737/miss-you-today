@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { BlogTheme } from '../../Hero.service'
-import { themeChange } from '../../actions'
+import { themeChange } from '../../ducks/global'
 import LoadingBall from '../../widgets/loadingBall/LoadingBall'
 
 import TalkHeader from './TalkHeader'
@@ -54,7 +54,7 @@ class ThirdPartyComment extends Component {
 }
 
 const mapStateToProps = state => ({
-  theme: state.theme,
+  theme: state.themeState,
   user: state.user
 })
 

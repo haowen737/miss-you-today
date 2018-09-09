@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { BlogTheme } from '../../Hero.service'
-import { themeChange, WithYouAction } from '../../actions'
-import { Theme, StoreState } from '@types'
+import { themeChange, WithYouAction } from '../../ducks/global'
+import { ThemeState, StoreState } from '@types'
 
 import './Nomatch.css'
 
@@ -35,12 +35,12 @@ class Nomatch extends React.Component<Props, object> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme
+  theme: state.themeState
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => {
   return {
-    themeChange: (theme: Theme) => {
+    themeChange: (theme: ThemeState) => {
       dispatch(themeChange(theme))
     }
   }

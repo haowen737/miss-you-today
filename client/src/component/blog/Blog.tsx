@@ -3,8 +3,8 @@ import { Dispatch } from 'redux';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { themeChange, WithYouAction } from '../../actions'
-import { Theme, StoreState } from '@types'
+import { themeChange, WithYouAction } from '../../ducks/global'
+import { ThemeState, StoreState } from '@types'
 
 import BlogArticles from '../blogArticles'
 import BlogArticle from '../blogArticle'
@@ -18,7 +18,7 @@ import './Blog.css'
 
 interface Props {
   themeChange: any,
-  theme: Theme
+  theme: ThemeState
 }
 
 class Blog extends React.Component<Props> {
@@ -44,12 +44,12 @@ class Blog extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme
+  theme: state.themeState
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => {
   return {
-    themeChange: (theme: Theme) => {
+    themeChange: (theme: ThemeState) => {
       dispatch(themeChange(theme))
     }
   }

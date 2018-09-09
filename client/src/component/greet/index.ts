@@ -1,18 +1,18 @@
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { themeChange, WithYouAction } from '../../actions'
-import { Theme, StoreState } from '@types'
+import { themeChange, WithYouAction } from '../../ducks/global'
+import { ThemeState, StoreState } from '@types'
 
 import Greet from './component/Greet'
 
 const mapStateToProps = (state: StoreState) => ({
-  theme: state.theme,
+  theme: state.themeState,
   apis: state.apis
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => ({
-  themeChange: (theme: Theme) => dispatch(themeChange(theme))
+  themeChange: (theme: ThemeState) => dispatch(themeChange(theme))
 })
 
 export default connect(

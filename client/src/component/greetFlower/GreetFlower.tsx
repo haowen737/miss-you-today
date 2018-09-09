@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Transition, TransitionGroup } from 'react-transition-group';
 
-import { Theme } from '@types'
+import { ThemeState } from '@types'
 
 import './GreetFlower.css'
 
@@ -30,7 +30,7 @@ const renderTransitionStyles = (i: number) => {
 
 interface Props {
   poem: string[]
-  theme: Theme
+  theme: ThemeState
 }
 
 interface State {

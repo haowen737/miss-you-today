@@ -103,7 +103,8 @@ module.exports = {
       '@assets': path.resolve(__dirname, '../src/assets'),
       '@types': path.resolve(__dirname, '../src/types'),
       '@context': path.resolve(__dirname, '../src/context'),
-      '@utils': path.resolve(__dirname, '../src/utils')
+      '@utils': path.resolve(__dirname, '../src/utils'),
+      '@ducks': path.resolve(__dirname, '../src/ducks')
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

@@ -5,14 +5,15 @@ import GreetContent from '../../greetContent'
 // import GreetFlower from '../greetFlower/GreetFlower'
 import GreetHeader from '../../greetHeader/GreetHeader'
 import SocialLinkList from './SocialLinkList'
+// import GreetCanvas from './GreetCanvas'
 
 import { ThemeEnum } from '../../../Hero.service'
-import { Theme } from '@types'
+import { ThemeState } from '@types'
 
-import style from '../style'
+import { greetStyle } from '../style'
 
 interface Props {
-  theme: Theme;
+  theme: ThemeState;
   themeChange: any
 }
 
@@ -62,7 +63,7 @@ export default class Greet extends React.Component<Props, State> {
     const { theme } = this.props
 
     return (
-      <div className={style} style={{backgroundColor: theme.theme}}>
+      <div className={greetStyle} style={{backgroundColor: theme.theme}}>
         <GreetHeader theme={theme} />
         {/* <div className="greet-flower-layout">
           <GreetFlower
@@ -75,6 +76,7 @@ export default class Greet extends React.Component<Props, State> {
           />
           <SocialLinkList theme={theme} />
         </div>
+        {/* <GreetCanvas /> */}
       </div>
     )
   }

@@ -2,11 +2,11 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import './GreetHeader.css'
 
-import { Theme } from '@types'
+import { ThemeState } from '@types'
 import GreetNav from './GreetNav.service'
 
 interface Props {
-  theme: Theme
+  theme: ThemeState
 }
 
 export default class Header extends React.Component<Props> {
