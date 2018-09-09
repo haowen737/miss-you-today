@@ -8,10 +8,6 @@ import { Swapi } from 'koa-swapi'
 import * as path from 'path'
 import deps from './deps'
 import apis from './routes'
-import {
-  render,
-  template
-} from "rapscallion"
 
 const app = new Koa()
 const swapi = new Swapi()
