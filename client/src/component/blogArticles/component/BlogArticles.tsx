@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { observer, inject } from "mobx-react"
 
 import ArticleItem from './ArticleItem'
 import { Swagger } from '@utils'
@@ -9,7 +10,9 @@ interface State {
   articles: any[]
 }
 
-export default class BlogArticles extends React.Component<object, State> {
+@inject('$api')
+@observer
+export default class BlogArticles extends React.Component<any, State> {
   constructor (props: object) {
     super(props)
     this.state = {
@@ -18,6 +21,8 @@ export default class BlogArticles extends React.Component<object, State> {
   }
   
   componentDidMount () {
+  console.log('arts-----', this.props)
+
     this.getArticles()
   }
   

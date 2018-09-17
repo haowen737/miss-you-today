@@ -3,6 +3,7 @@ import * as https from "https"
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false })
 const url = `/swagger.json`
+const isDev = process.env.NODE_ENV !== 'development'
 // const url = `${window.location.protocol}//localhost:3002/swagger.json`
 const apiWrappper = function (apis) {
   if (!apis) {
@@ -42,16 +43,17 @@ const internals = {
     return new Promise((resolve, reject) => {
       Swagger({ url })
         .then((client) => {
-          console.log('swagger.json-->', client)
+          
+          client.spec.schemes = !isDev
+            ? ['https']
+            : ['http']
+          client.spec.host = isDev && 'localhost:3000'
 
-          process.env.NODE_ENV !== 'development'
-            ? client.spec.schemes = ['https']
-            : undefined
-          // client.spec.host = 'localhost:3007'
           this.apis = apiWrappper(client.apis)
-          resolve()
+          resolve(this.apis)
         })
         .catch(err => {
+          this.apis = {}
           reject(err)
         })
     })

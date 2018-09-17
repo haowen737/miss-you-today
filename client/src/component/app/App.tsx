@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { observer } from "mobx-react"
 
 import Disscuss from '../disscuss/Disscuss'
 import Nomatch from '../nomatch/Nomatch'
@@ -15,7 +16,8 @@ import Talk from '../talk'
 import style from './style'
 // import './App.css'
 
-class App extends React.Component {
+@observer
+class App extends React.Component<any> {
   render() {
     return (
       <div className={style}>

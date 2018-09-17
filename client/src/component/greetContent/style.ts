@@ -31,7 +31,7 @@ export default css({
     color: '#666',
   },
   '& .typeWritter::after': {
-    content: '',
+    content: '""',
     margin: 'auto',
     position: 'absolute',
     right: -4,
