@@ -26,11 +26,11 @@ const renderRoot = ({ apis }: RootProps) => {
   return (
     ReactDOM.render((
       <Provider store={store}>
-        <HashRouter>
-          <MProvider $api={observable(apis)}>
+        <MProvider $api={observable(apis)}>
+          <HashRouter>
             <App />
-          </MProvider>
-        </HashRouter>
+          </HashRouter>
+        </MProvider>
       </Provider>
     ), root)
   )
