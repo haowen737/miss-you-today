@@ -3,7 +3,7 @@ import * as https from "https"
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false })
 const url = `/swagger.json`
-const isDev = process.env.NODE_ENV !== 'development'
+const isDev = process.env.NODE_ENV === 'development'
 // const url = `${window.location.protocol}//localhost:3002/swagger.json`
 const apiWrappper = function (apis) {
   if (!apis) {
