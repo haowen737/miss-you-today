@@ -3,7 +3,7 @@ import { Transition, TransitionGroup } from 'react-transition-group'
 import { connect } from 'react-redux'
 // import Axios from 'axios'
 
-import { themeChange, updateUser } from '../../ducks/global'
+import { themeChange } from '../../ducks/global'
 import { BlogTheme } from '../../Hero.service'
 
 import SignInForm from './SignInForm'

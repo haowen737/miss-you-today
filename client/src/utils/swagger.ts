@@ -1,11 +1,19 @@
-import Swagger from 'swagger-client'
-import * as https from "https"
 
-const httpsAgent = new https.Agent({ rejectUnauthorized: false })
+import * as Swagger from 'swagger-client'
+// import * as https from "https"
+
+// declare const Swagger: any
+
+interface I {
+  init: () => Promise<any>,
+  apis: any
+}
+
+// const httpsAgent = new https.Agent({ rejectUnauthorized: false })
 const url = `/swagger.json`
 const isDev = process.env.NODE_ENV === 'development'
 // const url = `${window.location.protocol}//localhost:3002/swagger.json`
-const apiWrappper = function (apis) {
+const apiWrappper = function (apis: any) {
   if (!apis) {
     throw new Error('api should be array')
   }
@@ -24,36 +32,36 @@ const apiWrappper = function (apis) {
   return wrapped
 }
 
-const routeWrapper = function (route) {
-  return (params) => new Promise((resolve, reject) => {
+const routeWrapper = function (route: any) {
+  return (params: any) => new Promise((resolve, reject) => {
     route(params)
-      .then(res => {
+      .then((res: any) => {
         console.log('res----', res)
         const body = res.body
         resolve(body)
       })
-      .catch(err => {
+      .catch((err: any) => {
         reject(err)
       })
   })
 }
 
-const internals = {
-  init: function () {
+const internals: I = {
+  init: (): Promise<any> => {
     return new Promise((resolve, reject) => {
       Swagger({ url })
-        .then((client) => {
+        .then((client: any) => {
           
           client.spec.schemes = !isDev
             ? ['https']
             : ['http']
           client.spec.host = isDev && 'localhost:3000'
 
-          this.apis = apiWrappper(client.apis)
-          resolve(this.apis)
+          internals.apis = apiWrappper(client.apis)
+          resolve(internals.apis)
         })
-        .catch(err => {
-          this.apis = {}
+        .catch((err: any) => {
+          internals.apis = {}
           reject(err)
         })
     })

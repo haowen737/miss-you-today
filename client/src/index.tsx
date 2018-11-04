@@ -42,7 +42,7 @@ const renderSwaggerFail = () => {
 
 Swagger
   .init()
-  .then((apis) => {
+  .then((apis: any) => {
     renderRoot({ apis })
   })
   .catch(renderSwaggerFail)

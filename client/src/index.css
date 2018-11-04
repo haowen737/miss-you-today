@@ -14,7 +14,7 @@ html,body,h1,h2,h3,h4,h5,h6,div,ul,li,p{margin:0;padding:0;}
 header,footer,section,article,aside,nav{display:block;}
 html {
   font-size: 12px;
-  user-select: none;
+  /* user-select: ; */
   font-family: 'Quicksand', 'Roboto', 'arial', 'HelveticaNeue', sans-serif;
 }
 a {
