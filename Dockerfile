@@ -2,11 +2,13 @@ FROM node:8
 FROM keymetrics/pm2:latest-alpine
 
 # Create app directory
-WORKDIR ~/dock/miss
+WORKDIR ~/dock/withyoufriends
 
 COPY package.json ./
 RUN npm install
 COPY . .
 
-CMD [ "npm", "start" ]
-EXPOSE 8081
+RUN ls -al -R
+
+CMD [ "pm2-runtime", "start", "pm2.json" ]
+EXPOSE 3007
