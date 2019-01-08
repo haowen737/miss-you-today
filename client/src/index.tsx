@@ -10,7 +10,7 @@ import myRedux from './reducers'
 
 import './index.css'
 import App from './component/app/App'
-import registerServiceWorker from './registerServiceWorker'
+// import registerServiceWorker from './registerServiceWorker'
 
 import { Swagger } from '@utils'
 
@@ -47,4 +47,4 @@ Swagger
   })
   .catch(renderSwaggerFail)
 
-process.env.NODE_ENV !== 'development' && registerServiceWorker()
+// process.env.NODE_ENV !== 'development' && registerServiceWorker()
