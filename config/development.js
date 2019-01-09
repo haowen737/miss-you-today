@@ -11,6 +11,6 @@ module.exports = {
     useNullAsDefault: true
   },
   log: {
-    path: './log'
+    path: './logs'
   }
 }

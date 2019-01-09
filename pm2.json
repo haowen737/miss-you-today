@@ -7,6 +7,9 @@
       "merge-logs": true,
       "max_memory_restart": "800M",
       "pid_file": "app.pid",
+      "log_file": "'/home/deploy/logs/withyoufriends/withyoufriends.outerr.log",
+      "out_file": "'/home/deploy/logs/withyoufriends/withyoufriends.out.log",
+      "error_file": "'/home/deploy/logs/withyoufriends/withyoufriends.err.log",
       "env_production": {
         "NODE_ENV": "production",
         "DEBUG": "*"
