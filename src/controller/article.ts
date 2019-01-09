@@ -17,9 +17,7 @@ const article: ArticleController = {
 
   getArticle: async (ctx: any, next) => {
     const id = ctx.query.id
-
     const result = await ctx.knex.first('*').from('articles').where('file_id', id)
-
     const filePath = path.resolve(__dirname, `../../doc/${id}.md`)
     result.content = fs.readFileSync(filePath, 'utf-8')
 

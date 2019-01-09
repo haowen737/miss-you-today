@@ -18,5 +18,5 @@ server.listen(PORT)
 
 server.on('listening', onListening)
 app.on('error', (err, ctx) => {
-  log.error('server error', err, ctx)
+  ctx.logger.error('server error', err, ctx)
 })
