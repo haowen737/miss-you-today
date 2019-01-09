@@ -15,7 +15,6 @@ const onListening = () => {
 const server = http.createServer(app.callback())
 
 server.listen(PORT)
-
 server.on('listening', onListening)
 app.on('error', (err, ctx) => {
   ctx.logger.error('server error', err, ctx)

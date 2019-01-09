@@ -9,5 +9,8 @@ module.exports = {
       filename: path.resolve(__dirname, '../db/development.db')
     },
     useNullAsDefault: true
+  },
+  log: {
+    path: './log'
   }
 }

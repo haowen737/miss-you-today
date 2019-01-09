@@ -20,7 +20,8 @@
     "pino": "^5.10.6",
     "rapscallion": "^2.1.14",
     "sqlite3": "^4.0.2",
-    "winston": "^3.1.0"
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.5.1"
   },
   "devDependencies": {
     "@koa/cors": "^2.2.2",
