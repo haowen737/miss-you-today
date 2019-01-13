@@ -13,7 +13,7 @@ const logger = createLogger({
     label({ label: 'WITHYOUFRIENDS' }),
     timestamp(),
     myFormat,
-    format.colorize({ all: true }),
+    format.colorize({ all: true })
   ),
   transports: [
     new transports.Console(),

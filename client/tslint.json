@@ -10,7 +10,7 @@
   },
   "rules" : {
     "no-unused-expression": [
-      true,
+      false,
       "allowShortCircuit",
       "allowTernary",
       "allow-fast-null-checks"

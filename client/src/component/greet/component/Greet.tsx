@@ -5,7 +5,7 @@ import GreetContent from '../../greetContent'
 // import GreetFlower from '../greetFlower/GreetFlower'
 import GreetHeader from '../../greetHeader/GreetHeader'
 import SocialLinkList from './SocialLinkList'
-// import GreetCanvas from './GreetCanvas'
+import GreetCanvas from './GreetCanvas'
 
 import { ThemeEnum } from '../../../Hero.service'
 import { ThemeState } from '@types'
@@ -32,20 +32,40 @@ export default class Greet extends React.Component<Props, State> {
 
   componentDidMount() {
     this.emitThemeChange()
-    this.greetMan = setInterval(this.indexManager.bind(this), 5000)
+    this.initIntervalIndexManager()
+    document.addEventListener('visibilitychange', this.handleBrowserTabChange)
   }
 
   componentWillUnmount() {
-    if (this.greetMan) { clearInterval(this.greetMan) }
+    this.removeIntervalIndexManager()
+    document.removeEventListener('visibilitychange', this.handleBrowserTabChange)
   }
 
+  handleBrowserTabChange = () => {
+    if (this.greetMan) {
+      this.removeIntervalIndexManager()
+    } else {
+      this.initIntervalIndexManager()
+    }
+  }
+
+  initIntervalIndexManager = () => {
+    this.greetMan = setInterval(this.indexManager.bind(this), 5000)
+  }
+  removeIntervalIndexManager = () => {
+    if (this.greetMan) {
+      clearInterval(this.greetMan)
+      this.greetMan = null
+    }
+  }
   indexManager = () => {
     this.setState((prev) => {
       const currIndex = prev.heroIndex > 2 ? 0 : prev.heroIndex + 1
-      this.emitThemeChange(currIndex)
       return {
         heroIndex: currIndex
       }
+    }, () => {
+      this.emitThemeChange(this.state.heroIndex)
     })
   }
 
@@ -76,7 +96,7 @@ export default class Greet extends React.Component<Props, State> {
           />
           <SocialLinkList theme={theme} />
         </div>
-        {/* <GreetCanvas /> */}
+        <GreetCanvas />
       </div>
     )
   }

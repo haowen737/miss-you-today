@@ -1,7 +1,10 @@
 import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { css, keyframes } from 'react-emotion'
 
 import { ThemeState } from '@types'
+import styled from '@emotion/styled'
 
 import style from '../style'
 
@@ -14,9 +17,44 @@ interface State {
   penIsWriting: boolean
 }
 
+interface TypeWritterProps {
+  name: string
+}
+
+function TypeWritter({ name }: TypeWritterProps) {
+  const [wordIndex, setWordIndex] = useState(1)
+  const [prevName, setPrevName] = useState<string | null>(null)
+
+  let counterInterval: number | null = null
+  console.log('---bprevName !== name', prevName, name, prevName === name)
+  if (prevName !== name) {
+    setPrevName(name)
+    setWordIndex(1)
+    counterInterval && window.clearInterval(counterInterval)
+    counterInterval = window.setInterval(handleCountWordIndex, 300)
+  }
+
+  function handleCountWordIndex(): void {
+    // console.log('wordIndex,---', wordIndex, name)
+    if (wordIndex > name.length) {
+      counterInterval && window.clearInterval(counterInterval)
+      return
+    }
+    console.log('incress', name.slice(0, wordIndex), wordIndex)
+    setWordIndex(wordIndex + 1)
+  }
+  useEffect(() => {
+    console.log('name---', name.slice(0, wordIndex), wordIndex)
+  })
+
+  return (
+    <span>{name.slice(0, wordIndex)}</span>
+  )
+}
+
 export default class GreetContent extends React.Component<Props, State> {
-  private ereaseSelf: any
-  private penSelf: any
+  // private ereaseSelf: any
+  // private penSelf: any
 
   constructor (props: Props) {
     super(props)
@@ -26,90 +64,21 @@ export default class GreetContent extends React.Component<Props, State> {
       penIsWriting: false// 重写名字中，勿扰
     }
   }
-  componentWillUnmount () {
-    this.endWriteName()
-  }
 
-  pen (nextName: string) {
-    let index = 1
-    const spacing = Math.random() * 120 + 50
-    if (!nextName) { return }
-    this.penSelf = setInterval(() => {
-      this.executePen(index, nextName)
-      index++
-    }, spacing)
-  }
-
-  executePen (index: number, nextName: string) {
-    this.setState(prev => ({
-      penIsWriting: true,
-      currName: nextName.slice(0, index)
-    }), () => {
-      if (index === nextName.length) { 
-        this.setState({ penIsWriting: false })
-        clearInterval(this.penSelf)
-      }
-    })
-  }
-
-  erease () {
-    const { currName } = this.state
-    return new Promise((resolve) => {
-      if (currName) {
-        this.executeErease(resolve, currName)
-      } else { resolve() }
-    })
-  }
-
-  executeErease (resolve: any, currName: string) {
-    const spacing = Math.random() * 120 + 50
-    let index = currName.length
-    this.ereaseSelf = setInterval(() => {
-      --index
-      this.setState(prev => ({
-        penIsWriting: true,
-        currName: prev.currName.slice(0, index)
-      }), () => {
-        if (index === 0) {
-          resolve()
-          this.setState({ penIsWriting: true })
-          clearInterval(this.ereaseSelf)
-        }
-      })
-    }, spacing)
-  }
-
-  startRewriteName (nextName: string) {
-    this.erease().then(() => { this.pen(nextName) })
-  }
-
-  endWriteName () {
-    this.setState({ writingActive: false }, () => {
-      clearInterval(this.penSelf)
-      clearInterval(this.ereaseSelf)
-    })
-  }
-
-  shouldReWriteName (theme: ThemeState, currName: string) {
-    const { writingActive, penIsWriting } = this.state
-    if (!writingActive) { return }
-    if (currName !== theme.name && !penIsWriting) {
-      this.startRewriteName(theme.name)
-    }
-  }
-
-  renderTypeWritter(): JSX.Element | void {
-    const { color } = this.props.theme
-    const { currName } = this.state
+  renderTypeWritter(): JSX.Element {
+    const { color, name } = this.props.theme
+    console.log('name', name)
+    // console.log('currName---', currName, this.props.theme)
     return (
       <p className="type-writter-wrapper">
         Make it&nbsp;
         <br className="hero-title-br"/>
-        <span className="typeWritter" style={{ color }}>{currName}</span>
+        <TypeWritter name={name || ''} />
+        <h4 className="caret" />
       </p>
     )
   }
-  
+
   renderStartButton(): JSX.Element | void {
     const { color, btnTheme } = this.props.theme
     return (
@@ -123,12 +92,6 @@ export default class GreetContent extends React.Component<Props, State> {
   }
 
   render() {
-
-    const { currName } = this.state
-    const { theme } = this.props
-
-    this.shouldReWriteName(theme, currName)
-
     return (
       <div className={style}>
         {this.renderTypeWritter()}

@@ -30,8 +30,7 @@ export default css({
     position: 'relative',
     color: '#666',
   },
-  '& .typeWritter::after': {
-    content: '""',
+  '& .caret': {
     margin: 'auto',
     position: 'absolute',
     right: -4,
@@ -45,6 +44,14 @@ export default css({
     display: 'none',
     '@media (max-width: 1200px)': {
       display: 'block'
+    }
+  },
+  '@keyframes type-writer': {
+    'from': {
+      width: '0%'
+    },
+    'to': {
+      width: '100%'
     }
   },
   '@keyframes cursor-animation': {
