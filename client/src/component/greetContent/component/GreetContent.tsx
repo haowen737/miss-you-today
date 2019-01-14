@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { css, keyframes } from 'react-emotion'
-
+import { random } from 'lodash'
 import { ThemeState } from '@types'
 import styled from '@emotion/styled'
 
@@ -29,34 +28,51 @@ function usePrevious<T>(value: T): T {
   return ref.current
 }
 
+const Steps = {
+  WRITE: 'write',
+  EREASE: 'erase'
+}
+
+function r() {
+  return random(1.0, 2.0) * 70
+}
+
 function TypeWritter({ name }: TypeWritterProps) {
   const [wordIndex, setWordIndex] = useState(0)
-  const prevWordIndex = usePrevious(wordIndex)
+  const [magicName, setMagicName] = useState('')
+  const [step, setStep] = useState(Steps.WRITE)
   const prevName = usePrevious(name)
 
-  let counterInterval: number | undefined
+  let increaseInterval: number | undefined
+  // let decreaseInterval: number | undefined
   useEffect(() => {
-    counterInterval = window.setInterval(handleCountWordIndex, 200)
-    return function clear() {
-      window.clearInterval(counterInterval)
+    if (step === Steps.WRITE) {
+      increaseInterval = window.setInterval(handleIncreaseWordIndex, r())
     }
-  })
+    return function clear() {
+      window.clearInterval(increaseInterval)
+    }
+  }, [wordIndex, step])
 
   useEffect(() => {
-    console.log('prevName effect', prevName, name)
+    // setWordIndex(prevName ? prevName.length : 0)
     setWordIndex(0)
+    // prevName && setStep(Steps.EREASE)
   }, [name])
 
-  function handleCountWordIndex(): void {
+  function handleIncreaseWordIndex(): void {
     if (name && wordIndex >= name.length) {
-      window.clearInterval(counterInterval)
+      window.clearInterval(increaseInterval)
       return
     }
-    setWordIndex(wordIndex + 1)
+    console.log('increase handler---', name)
+    const index = wordIndex + 1
+    setMagicName(name.slice(0, index))
+    setWordIndex(index)
   }
 
   return (
-    <span className="type-writter">{name.slice(0, wordIndex)}</span>
+    <span className="type-writter">{magicName}</span>
   )
 }
 

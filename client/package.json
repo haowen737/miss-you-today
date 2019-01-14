@@ -29,6 +29,7 @@
     "github-markdown-css": "^2.9.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "lodash": "^4.17.11",
     "mobx": "^5.1.1",
     "mobx-react": "^5.2.8",
     "object-assign": "4.1.1",
@@ -63,6 +64,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.0",
+    "@types/lodash": "^4.14.119",
     "@types/node": "^10.5.2",
     "@types/prop-types": "^15.5.6",
     "@types/react-dom": "^16.0.9",

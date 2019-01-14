@@ -6,7 +6,6 @@ import { AnyAction } from 'redux'
 export const THEME_CHANGE = 'THEME_CHANGE'
 export type THEME_CHANGE = typeof THEME_CHANGE
 
-
 export interface ThemeChange {
   type: THEME_CHANGE,
   theme: ThemeState
