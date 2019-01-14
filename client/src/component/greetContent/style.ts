@@ -26,11 +26,12 @@ export default css({
     color: '#191919',
     textIndent: '-0.2rem',
   },
-  '& .typeWritter': {
+  '& .type-writter': {
     position: 'relative',
     color: '#666',
   },
-  '& .caret': {
+  '& .type-writter::after': {
+    content: '""',
     margin: 'auto',
     position: 'absolute',
     right: -4,

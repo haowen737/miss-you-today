@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { css, keyframes } from 'react-emotion'
 
@@ -21,34 +21,42 @@ interface TypeWritterProps {
   name: string
 }
 
-function TypeWritter({ name }: TypeWritterProps) {
-  const [wordIndex, setWordIndex] = useState(1)
-  const [prevName, setPrevName] = useState<string | null>(null)
-
-  let counterInterval: number | null = null
-  console.log('---bprevName !== name', prevName, name, prevName === name)
-  if (prevName !== name) {
-    setPrevName(name)
-    setWordIndex(1)
-    counterInterval && window.clearInterval(counterInterval)
-    counterInterval = window.setInterval(handleCountWordIndex, 300)
-  }
-
-  function handleCountWordIndex(): void {
-    // console.log('wordIndex,---', wordIndex, name)
-    if (wordIndex > name.length) {
-      counterInterval && window.clearInterval(counterInterval)
-      return
-    }
-    console.log('incress', name.slice(0, wordIndex), wordIndex)
-    setWordIndex(wordIndex + 1)
-  }
+function usePrevious<T>(value: T): T {
+  const ref: any = useRef(null)
   useEffect(() => {
-    console.log('name---', name.slice(0, wordIndex), wordIndex)
+    ref.current = value
+  })
+  return ref.current
+}
+
+function TypeWritter({ name }: TypeWritterProps) {
+  const [wordIndex, setWordIndex] = useState(0)
+  const prevWordIndex = usePrevious(wordIndex)
+  const prevName = usePrevious(name)
+
+  let counterInterval: number | undefined
+  useEffect(() => {
+    counterInterval = window.setInterval(handleCountWordIndex, 200)
+    return function clear() {
+      window.clearInterval(counterInterval)
+    }
   })
 
+  useEffect(() => {
+    console.log('prevName effect', prevName, name)
+    setWordIndex(0)
+  }, [name])
+
+  function handleCountWordIndex(): void {
+    if (name && wordIndex >= name.length) {
+      window.clearInterval(counterInterval)
+      return
+    }
+    setWordIndex(wordIndex + 1)
+  }
+
   return (
-    <span>{name.slice(0, wordIndex)}</span>
+    <span className="type-writter">{name.slice(0, wordIndex)}</span>
   )
 }
 
@@ -74,7 +82,6 @@ export default class GreetContent extends React.Component<Props, State> {
         Make it&nbsp;
         <br className="hero-title-br"/>
         <TypeWritter name={name || ''} />
-        <h4 className="caret" />
       </p>
     )
   }

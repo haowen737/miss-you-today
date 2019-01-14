@@ -50,7 +50,7 @@ export default class Greet extends React.Component<Props, State> {
   }
 
   initIntervalIndexManager = () => {
-    this.greetMan = setInterval(this.indexManager.bind(this), 5000)
+    this.greetMan = setInterval(this.indexManager.bind(this), 7000)
   }
   removeIntervalIndexManager = () => {
     if (this.greetMan) {
