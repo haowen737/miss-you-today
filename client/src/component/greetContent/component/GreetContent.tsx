@@ -5,6 +5,7 @@ import { random } from 'lodash'
 import { ThemeState } from '@types'
 import styled from '@emotion/styled'
 
+import TypeWritter from './typeWritter'
 import style from '../style'
 
 interface Props {
@@ -37,39 +38,16 @@ function r() {
   return random(1.0, 2.0) * 70
 }
 
-function TypeWritter({ name }: TypeWritterProps) {
-  const [wordIndex, setWordIndex] = useState(0)
-  const [magicName, setMagicName] = useState('')
-  const [step, setStep] = useState(Steps.WRITE)
-  const prevName = usePrevious(name)
-
-  let increaseInterval: number | undefined
-  // let decreaseInterval: number | undefined
+function useMagicName(wordIndex: number, string: string) : any {
+  const [name, setName] = useState(string)
   useEffect(() => {
-    if (step === Steps.WRITE) {
-      increaseInterval = window.setInterval(handleIncreaseWordIndex, r())
-    }
-    return function clear() {
-      window.clearInterval(increaseInterval)
-    }
-  }, [wordIndex, step])
+  }, [string])
+  return name
+}
 
-  useEffect(() => {
-    // setWordIndex(prevName ? prevName.length : 0)
-    setWordIndex(0)
-    // prevName && setStep(Steps.EREASE)
-  }, [name])
-
-  function handleIncreaseWordIndex(): void {
-    if (name && wordIndex >= name.length) {
-      window.clearInterval(increaseInterval)
-      return
-    }
-    console.log('increase handler---', name)
-    const index = wordIndex + 1
-    setMagicName(name.slice(0, index))
-    setWordIndex(index)
-  }
+function TypeWritterWrapper({ name }: TypeWritterProps) {
+  const [magicName, setMagicName] = useState(name)
+  const typeWritter = new TypeWritter(name)
 
   return (
     <span className="type-writter">{magicName}</span>
@@ -97,7 +75,7 @@ export default class GreetContent extends React.Component<Props, State> {
       <p className="type-writter-wrapper">
         Make it&nbsp;
         <br className="hero-title-br"/>
-        <TypeWritter name={name || ''} />
+        <TypeWritterWrapper name={name || ''} />
       </p>
     )
   }
