@@ -5,7 +5,7 @@ import { random } from 'lodash'
 import { ThemeState } from '@types'
 import styled from '@emotion/styled'
 
-import TypeWritter from './typeWritter'
+import useTypeWritter from 'react-typewriter-hook'
 import style from '../style'
 
 interface Props {
@@ -38,19 +38,11 @@ function r() {
   return random(1.0, 2.0) * 70
 }
 
-function useMagicName(wordIndex: number, string: string) : any {
-  const [name, setName] = useState(string)
-  useEffect(() => {
-  }, [string])
-  return name
-}
-
 function TypeWritterWrapper({ name }: TypeWritterProps) {
-  const [magicName, setMagicName] = useState(name)
-  const typeWritter = new TypeWritter(name)
+  const word = useTypeWritter(name)
 
   return (
-    <span className="type-writter">{magicName}</span>
+    <span className="type-writter">{word}</span>
   )
 }
 

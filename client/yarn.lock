@@ -6217,6 +6217,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
+react-typewriter-hook@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-typewriter-hook/-/react-typewriter-hook-1.0.0.tgz#9f89c06d2272b1414362b1effb7a2502838cef2b"
+
 react@16.8.0-alpha.0:
   version "16.8.0-alpha.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.0-alpha.0.tgz#8545eb79534cce5ba99ed40085f7f955e8857a19"
