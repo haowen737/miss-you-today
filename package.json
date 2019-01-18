@@ -2,7 +2,7 @@
   "name": "with_you_friends",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/run.js",
   "dependencies": {
     "chalk": "^2.4.0",
     "debug": "^3.1.0",

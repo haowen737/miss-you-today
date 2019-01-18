@@ -5,6 +5,7 @@ import { random } from 'lodash'
 import { ThemeState } from '@types'
 import styled from '@emotion/styled'
 
+import useTypeWritter from 'react-typewriter-hook'
 import style from '../style'
 
 interface Props {
@@ -37,42 +38,11 @@ function r() {
   return random(1.0, 2.0) * 70
 }
 
-function TypeWritter({ name }: TypeWritterProps) {
-  const [wordIndex, setWordIndex] = useState(0)
-  const [magicName, setMagicName] = useState('')
-  const [step, setStep] = useState(Steps.WRITE)
-  const prevName = usePrevious(name)
-
-  let increaseInterval: number | undefined
-  // let decreaseInterval: number | undefined
-  useEffect(() => {
-    if (step === Steps.WRITE) {
-      increaseInterval = window.setInterval(handleIncreaseWordIndex, r())
-    }
-    return function clear() {
-      window.clearInterval(increaseInterval)
-    }
-  }, [wordIndex, step])
-
-  useEffect(() => {
-    // setWordIndex(prevName ? prevName.length : 0)
-    setWordIndex(0)
-    // prevName && setStep(Steps.EREASE)
-  }, [name])
-
-  function handleIncreaseWordIndex(): void {
-    if (name && wordIndex >= name.length) {
-      window.clearInterval(increaseInterval)
-      return
-    }
-    console.log('increase handler---', name)
-    const index = wordIndex + 1
-    setMagicName(name.slice(0, index))
-    setWordIndex(index)
-  }
+function TypeWritterWrapper({ name }: TypeWritterProps) {
+  const word = useTypeWritter(name)
 
   return (
-    <span className="type-writter">{magicName}</span>
+    <span className="type-writter">{word}</span>
   )
 }
 
@@ -97,7 +67,7 @@ export default class GreetContent extends React.Component<Props, State> {
       <p className="type-writter-wrapper">
         Make it&nbsp;
         <br className="hero-title-br"/>
-        <TypeWritter name={name || ''} />
+        <TypeWritterWrapper name={name || ''} />
       </p>
     )
   }
