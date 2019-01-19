@@ -3,39 +3,23 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { random } from 'lodash'
 import { ThemeState } from '@types'
-import styled from '@emotion/styled'
+import {RouteComponentProps} from "react-router"
 
 import useTypeWritter from 'react-typewriter-hook'
+import ParticleEffectButton from 'react-particle-effect-button'
+
 import style from '../style'
 
-interface Props {
+export interface Props {
   theme: ThemeState
 }
+
 interface State {
-  currName: string
-  writingActive: boolean
-  penIsWriting: boolean
+  startButtonHidden: boolean
 }
 
 interface TypeWritterProps {
   name: string
-}
-
-function usePrevious<T>(value: T): T {
-  const ref: any = useRef(null)
-  useEffect(() => {
-    ref.current = value
-  })
-  return ref.current
-}
-
-const Steps = {
-  WRITE: 'write',
-  EREASE: 'erase'
-}
-
-function r() {
-  return random(1.0, 2.0) * 70
 }
 
 function TypeWritterWrapper({ name }: TypeWritterProps) {
@@ -46,23 +30,38 @@ function TypeWritterWrapper({ name }: TypeWritterProps) {
   )
 }
 
-export default class GreetContent extends React.Component<Props, State> {
+export default class GreetContent extends React.Component<Props & RouteComponentProps<any>, State> {
   // private ereaseSelf: any
   // private penSelf: any
 
-  constructor (props: Props) {
+  constructor (props: Props & RouteComponentProps<any>) {
     super(props)
     this.state = {
-      currName: '',
-      writingActive: true,
-      penIsWriting: false// 重写名字中，勿扰
+      startButtonHidden: true
     }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        startButtonHidden: false
+      })
+    }, 100)
+  }
+
+  onClickStart() {
+    const { history } = this.props
+    this.setState({
+      startButtonHidden: true
+    }, () => {
+      setTimeout(() => {
+        history.push('/blog')
+      }, 700)
+    })
   }
 
   renderTypeWritter(): JSX.Element {
     const { color, name } = this.props.theme
-    console.log('name', name)
-    // console.log('currName---', currName, this.props.theme)
     return (
       <p className="type-writter-wrapper">
         Make it&nbsp;
@@ -73,14 +72,23 @@ export default class GreetContent extends React.Component<Props, State> {
   }
 
   renderStartButton(): JSX.Element | void {
+    const { startButtonHidden } = this.state
     const { color, btnTheme } = this.props.theme
     return (
-      <Link
-        to="/blog"
-        className="buttonStyle"
-        style={{ color, backgroundColor: btnTheme }}>
-          START A TRIP
-      </Link>
+      <ParticleEffectButton
+        color='#121019'
+        duration={700}
+        hidden={startButtonHidden}
+      >
+        <a
+          // to="/blog"
+          onClick={() => { this.onClickStart() }}
+          className="buttonStyle"
+          style={{ color, backgroundColor: btnTheme }}>
+            START A TRIP
+        </a>
+      </ParticleEffectButton>
+      
     )
   }
 
