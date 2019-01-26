@@ -10,7 +10,9 @@ interface ArticleController {
 const article: ArticleController = {
   getList: async (ctx: any) => {
     const { knex } = ctx
-    const articles = await knex.select('*').from('articles').orderBy('file_id')
+    const articles = await knex.select('*').from('articles').where({
+      deprecated: 0
+    }).orderBy('file_id', 'desc')
 
     ctx.body = { data: articles }
   },

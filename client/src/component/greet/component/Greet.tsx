@@ -1,5 +1,7 @@
 import * as React from 'react'
 // import styled from 'react-emotion'
+import ParticleEffectButton from 'react-particle-effect-button'
+import {RouteComponentProps} from "react-router"
 
 import GreetContent from '../../greetContent'
 // import GreetFlower from '../greetFlower/GreetFlower'
@@ -18,19 +20,24 @@ interface Props {
 }
 
 interface State {
-  heroIndex: number
+  heroIndex: number,
+  startButtonHidden: boolean
 }
 
-export default class Greet extends React.Component<Props, State> {
+export default class Greet extends React.Component<Props & RouteComponentProps<any>, State> {
   private greetMan: any
-  constructor (props: Props) {
+  constructor (props: Props & RouteComponentProps<any>) {
     super(props)
     this.state = {
-      heroIndex: 0
+      heroIndex: 0,
+      startButtonHidden: true
     }
   }
 
   componentDidMount() {
+      this.setState({
+        startButtonHidden: false
+      })
     this.emitThemeChange()
     this.initIntervalIndexManager()
     document.addEventListener('visibilitychange', this.handleBrowserTabChange)
@@ -78,6 +85,46 @@ export default class Greet extends React.Component<Props, State> {
     const hero = ThemeEnum[index > -1 ? index : this.rd(0, 4)]
     this.props.themeChange(hero)
   }
+
+  onClickStart() {
+    const { history } = this.props
+    this.setState({
+      startButtonHidden: true
+    }, () => {
+      setTimeout(() => {
+        history.push('/blog')
+      }, 700)
+    })
+  }
+
+  renderStartButton(): JSX.Element | void {
+    const { startButtonHidden } = this.state
+    const { color, btnTheme } = this.props.theme
+    console.log('style---', greetStyle)
+    return (
+      <div>
+        <ParticleEffectButton
+          style="fill"
+          color='#121019'
+          duration={800}
+          canvasPadding={20}
+          hidden={startButtonHidden}
+        >
+          <a
+           className="buttonStyle"
+            // to="/blog"
+            onClick={() => { this.onClickStart() }}
+            style={{
+              color,
+              backgroundColor: btnTheme,
+              display: 'block',
+            }}>
+              START A TRIP
+          </a>
+        </ParticleEffectButton>
+      </div>
+    )
+  }
   
   render() {
     const { theme } = this.props
@@ -94,7 +141,8 @@ export default class Greet extends React.Component<Props, State> {
           <GreetContent
             theme={theme}
           />
-          <SocialLinkList theme={theme} />
+          {this.renderStartButton()}
+          {/* <SocialLinkList theme={theme} /> */}
         </div>
         <GreetCanvas />
       </div>
