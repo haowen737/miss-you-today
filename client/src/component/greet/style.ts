@@ -9,9 +9,24 @@ export const greetStyle = css({
   right: 0,
   bottom: 0,
   transition: 'all .6s linear',
+  '& .buttonStyle': {
+    display: 'block',
+    width: '40rem',
+    color: '#fff',
+    padding: '1.5rem 2.3rem',
+    margin: '1rem 0',
+    cursor: 'pointer',
+    transition: 'all .5s ease',
+    transitionDelay: '.6',
+    '@media (max-width:600px)': {
+      width: '20rem'
+    }
+    // animation: 'start-btn-animation 1.5s',
+  },
   '& .greet-content-layout': {
     position: 'absolute',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
     right: 0,
@@ -71,6 +86,16 @@ export const greetStyle = css({
     '100%': {
       opacity: 1,
       transform: 'translate3d(0, 0, 0)'
+    }
+  },
+  '@keyframes start-btn-animation': {
+    'from': {
+      opacity: 0,
+      transform: 'translateY(10%)',
+    },
+    'to': {
+      opacity: 1,
+      transform: 'translateY(0)',
     }
   }
 })

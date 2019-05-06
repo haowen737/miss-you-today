@@ -4,16 +4,6 @@ export default css({
   lineHeight: 1,
   textAlign: 'center',
   animation: 'content-wrap-animation .5s linear',
-  '& .buttonStyle': {
-    display: 'inline-block',
-    backgroundColor: '#000',
-    color: '#fff',
-    padding: '1.5rem 2.3rem',
-    margin: '1rem 0',
-    cursor: 'pointer',
-    transition: 'all .5s ease',
-    transitionDelay: '.6',
-  },
   '& .heroSummary': {
     fontSize: '1.7rem',
     fontWeight: 300,

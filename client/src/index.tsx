@@ -1,8 +1,9 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { HashRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import { observable} from "mobx"
 import { Provider as MProvider } from "mobx-react"
+import { createBrowserHistory } from 'history'
 
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -20,16 +21,16 @@ interface RootProps {
 
 const store = createStore(myRedux)
 const root = document.getElementById('root')
-
+const history = createBrowserHistory()
 const renderRoot = ({ apis }: RootProps) => {
   console.log('apis-----', apis)
   return (
     ReactDOM.render((
       <Provider store={store}>
         <MProvider $api={observable(apis)}>
-          <HashRouter>
+          <Router history={history}>
             <App />
-          </HashRouter>
+          </Router>
         </MProvider>
       </Provider>
     ), root)

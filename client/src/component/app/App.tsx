@@ -33,7 +33,7 @@ class App extends React.Component<any> {
             <Route component={Nomatch} />
           </Switch>
         </div>
-        <MusicPlayer />
+        {/* <MusicPlayer /> */}
       </div>
     )
   }

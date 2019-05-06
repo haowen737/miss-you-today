@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from "react-router"
 
 import { themeChange, WithYouAction } from '../../ducks/global'
 import { ThemeState, StoreState } from '@types'
@@ -18,4 +19,4 @@ const mapDispatchToProps = (dispatch: Dispatch<WithYouAction>) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greet)
+)(withRouter(Greet))
