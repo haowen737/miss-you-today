@@ -36,7 +36,6 @@ export default class SignInForm extends Component {
     this.postForm(user.id, nickName)
   }
   postForm (id, nickName) {
-    console.log(id, nickName)
     Axios
       .post('/api/users/update', { id: id, nickName })
       .then(({ data }) => {
@@ -49,7 +48,6 @@ export default class SignInForm extends Component {
   render() {
     const { signUpFormIn } = this.props
     const { nickName } = this.state
-    console.log(signUpFormIn)
     return (
       <Transition in={signUpFormIn} appear={true} timeout={500}>
         {(state) => (
