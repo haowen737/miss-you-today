@@ -1,0 +1,23 @@
+version: "3.7"
+
+x-app-logs:
+  &app-logs
+    "/home/deploy/logs:/home/deploy/logs"
+
+services:
+  red-nginx:
+    image: rednginx
+    links:
+      - withyou:withyou
+    ports:
+      - "80:80"
+      - "443:443"
+
+  withyou:
+    image: haowen737/withyoufriends:latest
+    ports:
+      - "3007:3007"
+    environment:
+      - MODE=production
+    volumes:
+      - *app-logs
