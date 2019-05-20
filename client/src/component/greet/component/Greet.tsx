@@ -30,14 +30,11 @@ export default class Greet extends React.Component<Props & RouteComponentProps<a
     super(props)
     this.state = {
       heroIndex: 0,
-      startButtonHidden: true
+      startButtonHidden: false
     }
   }
 
   componentDidMount() {
-      this.setState({
-        startButtonHidden: false
-      })
     this.emitThemeChange()
     this.initIntervalIndexManager()
     document.addEventListener('visibilitychange', this.handleBrowserTabChange)
@@ -100,7 +97,6 @@ export default class Greet extends React.Component<Props & RouteComponentProps<a
   renderStartButton(): JSX.Element | void {
     const { startButtonHidden } = this.state
     const { color, btnTheme } = this.props.theme
-    console.log('style---', greetStyle)
     return (
       <div>
         <ParticleEffectButton
