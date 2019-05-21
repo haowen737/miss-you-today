@@ -84,7 +84,7 @@ const theme = [{
   musicPlayerColor: '#fff',
   poem: poem2
 }, {
-  name: 'Crazy.',
+  name: 'Inspired.',
   // theme: '#6f8fa8',
   titleColor: '#fff',
   color: '#b1c3d1',
