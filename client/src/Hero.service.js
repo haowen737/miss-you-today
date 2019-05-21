@@ -53,7 +53,7 @@ const poem4 = [
 ]
 
 const theme = [{
-  name: 'Beautiful.',
+  name: 'Detailed.',
   // theme: '#ececec',
   titleColor: '#212121',
   color: '#a8a8a7',
