@@ -30,14 +30,11 @@ export default class Greet extends React.Component<Props & RouteComponentProps<a
     super(props)
     this.state = {
       heroIndex: 0,
-      startButtonHidden: true
+      startButtonHidden: false
     }
   }
 
   componentDidMount() {
-      this.setState({
-        startButtonHidden: false
-      })
     this.emitThemeChange()
     this.initIntervalIndexManager()
     document.addEventListener('visibilitychange', this.handleBrowserTabChange)

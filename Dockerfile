@@ -1,4 +1,4 @@
-FROM node:10.15.0
+FROM node:10.15.3-alpine
 FROM keymetrics/pm2:latest-alpine
 
 # you'll likely want the latest npm, regardless of node version, for speed and fixes
