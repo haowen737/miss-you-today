@@ -84,7 +84,6 @@ class SignIn extends Component {
     console.log('onFormSubmit---', user)
     // type:0 未注册，1：已登录
     this.setState({ formType: type })
-    this.props.updateUser(user)
   }
   onClickConfirmNotice () {
     this.setState(prev => ({ noticeBoardIn: !prev.noticeBoardIn }))
@@ -121,9 +120,6 @@ const mapDispatchToProps = dispatch => {
     themeChange: theme => {
       dispatch(themeChange(theme))
     },
-    updateUser: user => {
-      dispatch(updateUser(user))
-    }
   }
 }
 
